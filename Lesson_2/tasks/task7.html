@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 7 Lesson 2</title>
+  </head>
+  <body>
+    <style>
+      body {
+        padding: 20px;
+        line-height: 1;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 10px;
+      }
+      .title {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 1;
+        padding: 0;
+        margin: 5px 0;
+      }
+    </style>
+
+    <h1>Задача 7</h1>
+    <p>
+      Знайти суму випадкового номера місяця (від 1 до 12) та випадкового номера
+      дня (від 0 до 6).
+    </p>
+
+    <!-- <table>
+      <tr>
+        <th>Випадковий номер 1</th>
+        <td>25</td>
+      </tr>
+      <tr>
+        <th>Випадковий номер 2</th>
+        <td>15</td>
+      </tr>
+      <tr>
+        <th>Сума</th>
+        <td>40</td>
+      </tr>
+    </table>
+    <button type="reset">reload</button> -->
+
+    <button type="submit">reload</button>
+
+    <script defer>
+      const max = 12
+      const min = 1
+
+      const max2 = 0
+      const min2 = 6
+
+      const randomNum1 = Math.ceil(Math.random() * (max - min) + min)
+      const randomNum2 = Math.ceil(Math.random() * (max2 - min2) + min2)
+      const sum = randomNum1 + randomNum2
+      document.write(`
+    <table>
+      <tr>
+        <th>Випадковий номер 1</th>
+        <td>${randomNum1}</td>
+      </tr>
+      <tr>
+        <th>Випадковий номер 2</th>
+        <td>${randomNum2}</td>
+      </tr>
+      <tr>
+        <th>Сума</th>
+        <td>${sum}</td>
+      </tr>
+    </table>
+    <button href="#" type="submit">reload</button>
+       `)
+    </script>
+  </body>
+</html>

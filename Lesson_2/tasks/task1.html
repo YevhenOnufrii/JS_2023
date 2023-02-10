@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 1 Lesson 2</title>
+  </head>
+  <body>
+    <style>
+      body {
+        padding: 20px;
+      }
+      * td {
+        border: none;
+        margin: 0 auto;
+      }
+
+      .res {
+        color: red;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      .arg {
+        color: green;
+        font-weight: bold;
+        font-size: 20px;
+      }
+    </style>
+
+    <h1>Задача 1</h1>
+    <p>
+      Знайти суму, добуток та частку двох дійсних чисел. Результат вивести у
+      формі таблиці
+    </p>
+
+    <script defer>
+      const a = parseFloat(prompt('Введіть перше ціле число:', '0'))
+      const b = parseFloat(prompt('Введіть друге ціле число:', '0'))
+      document.write(`<table border="1" cellpadding="5" cellspacing="5">
+          <tr>
+            <td>Аргументи</td>
+            <td class="arg">${a}, ${b}</td>
+          </tr>
+          <tr>
+            <td>Сума</td>
+            <td class="res">${(a + b).toFixed(2)}</td>
+          </tr>
+          <tr>
+            <td>Добуток</td>
+            <td class="res">${(a * b).toFixed(2)}</td>
+          </tr>
+           <tr>
+            <td>Частка двох <br> дійсних чисел</td>
+            <td class="res">${(a / b).toFixed(2)}</td>
+          </tr>
+        </table>`)
+    </script>
+  </body>
+</html>

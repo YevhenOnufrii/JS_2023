@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 5 Lesson 2</title>
+  </head>
+  <body>
+    <style>
+      body {
+        padding: 20px;
+        line-height: 1;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 10px;
+      }
+    </style>
+
+    <h1>Задача 5</h1>
+    <p>
+      Дано кількість секунд, що пройшла від початку доби. Визначити скільки це
+      годин і хвилин.
+    </p>
+
+    <script defer>
+      const seconds = parseInt(prompt('Введіть кількість секунд', '0'))
+      const minutes = (seconds / 60).toFixed(2)
+      const hours = (seconds / 3600).toFixed(3)
+      document.write(` 
+      <table>
+        <tr>
+          <th>Кількість секунд</th>
+          <td>${seconds}</td>
+        </tr>
+        <tr>
+          <th>Кількість хвилин</th>
+          <td>${minutes}</td>
+        </tr>
+        <tr>
+          <th>Кількість годин</th>
+          <td>${hours}</td>
+        </tr>
+    </table>
+    `)
+    </script>
+  </body>
+</html>

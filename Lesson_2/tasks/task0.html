@@ -4,7 +4,105 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Task 0 Lesson 2</title>
   </head>
-  <body></body>
+  <body style="padding: 0 20px">
+    <h1>Задача 0</h1>
+    <p>Обчислити значення виразів</p>
+    <ol>
+      <img width="150" src="../img/Screenshot.png" alt="" />
+    </ol>
+    <style>
+      * td {
+        border: none;
+      }
+    </style>
+
+    <!-- <table border="1" cellpadding="5" cellspacing="5">
+      <tr>
+        <td>1. Вираз S1=a+12+b =</td>
+        <td class="res0" style="color: red; font-size: 20px"></td>
+      </tr>
+      <tr>
+        <td>2. S2=a+b2a =</td>
+        <td style="color: red; font-size: 20px">Результат</td>
+      </tr>
+    </table> -->
+
+    <script defer>
+      // Задача 0
+      {
+        //  ===================================================== //
+        // Вираз 1
+        const exp1a = parseFloat(
+          prompt('Введіть значення а для ПЕРШОГО виразу', '0')
+        )
+        const exp1b = parseFloat(
+          prompt('Введіть значення b для ПЕРШОГО виразу', '0')
+        )
+        const result1 = (exp1a + 12 + exp1b).toFixed(2)
+
+        //  ===================================================== //
+        // Вираз 2
+        const exp2a = parseFloat(
+          prompt('Введіть значення а для ДРУГОГО виразу', '0')
+        )
+        const exp2b = parseFloat(
+          prompt('Введіть значення b для ДРУГОГО виразу', '0')
+        )
+        const result2 = Math.sqrt((exp2a + exp2b) / (2 * exp2a)).toFixed(2)
+
+        //  ===================================================== //
+        // Вираз 3
+        const EXPONENT = 3
+        const exp3a = parseFloat(
+          prompt('Введіть значення а для ТРЕТЬОГО виразу', '0')
+        )
+        const exp3b = parseFloat(
+          prompt('Введіть значення b для ТРЕТЬОГО виразу', '0')
+        )
+        const exp3с = parseFloat(
+          prompt('Введіть значення с для ТРЕТЬОГО виразу', '0')
+        )
+
+        const result3 = Math.cbrt(
+          Math.sqrt((exp3a + exp3b) * exp3с),
+          EXPONENT
+        ).toFixed(2)
+
+        //  ===================================================== //
+        // Вираз 4
+        const exp4a = parseFloat(
+          prompt('Введіть значення а для ТРЕТЬОГО виразу', '0')
+        )
+        const exp4b = parseFloat(
+          prompt('Введіть значення b для ТРЕТЬОГО виразу', '0')
+        )
+        const result4 = Math.sin(exp4a / (exp4b * -1)).toFixed(2)
+
+        document.write(`<table border="1" cellpadding="5" cellspacing="5">
+          <tr>
+            <td>1. Вираз 1 = </td>
+            <td style="color: red; font-size: 20px; font-weight: bold;">${result1}</td>
+            <td>/  Аргументи: a = ${exp1a}, b = ${exp1b}</td>
+          </tr>
+          <tr>
+            <td>2. Вираз 2 = </td>
+            <td style="color: red; font-size: 20px; font-weight: bold;">${result2}</td>
+            <td>/  Аргументи: a = ${exp2a}, b = ${exp2b}</td>
+          </tr>
+          <tr>
+            <td>3. Вираз 3 = </td>
+            <td style="color: red; font-size: 20px; font-weight: bold;">${result3}</td>
+            <td>/  Аргументи: a = ${exp3a}, b = ${exp3b}, c = ${exp3с}</td>
+          </tr>
+          <tr>
+            <td>4. Вираз 4 = </td>
+            <td style="color: red; font-size: 20px; font-weight: bold;">${result4}</td>
+            <td>/  Аргументи: a = ${exp4a}, b = ${exp4b}</td>
+          </tr>
+        </table>`)
+      }
+    </script>
+  </body>
 </html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 2 Lesson 2</title>
+  </head>
+  <body>
+    <style>
+      body {
+        padding: 20px;
+      }
+      .res {
+        font-size: 40px;
+        font-weight: bold;
+        color: red;
+      }
+    </style>
+
+    <h1>Задача 2</h1>
+    <p>
+      Дано рік народження (дата: 1 січня) та поточний рік. Знайти кількість
+      років.
+    </p>
+
+    <script defer>
+      const currenYear = new Date().getFullYear()
+      const birthYear = parseInt(
+        prompt('Введіть Ваш рік народженя (у форматі 19ХХ):', '0')
+      )
+      document.write(
+        `<h2>Різниця <span class="res">${
+          currenYear - birthYear
+        } </span>років.</h2>
+        <p>Користувачем введено ${birthYear} рік</p>`
+      )
+    </script>
+  </body>
+</html>

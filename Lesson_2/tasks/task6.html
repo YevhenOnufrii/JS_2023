@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 6 Lesson 2</title>
+  </head>
+  <body>
+    <style>
+      body {
+        padding: 20px;
+        line-height: 1;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        padding: 10px;
+      }
+      table {
+        margin: 0px auto;
+      }
+      .title {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 1;
+        padding: 0;
+        margin: 5px 0;
+      }
+    </style>
+
+    <h1>Задача 6</h1>
+    <p>
+      З клавіатури вводяться вартість товару та кількість одиниць 3 товарів.
+      Обчислити вартість кожного товару окремо та загальну вартість. Вивести чек
+      (як у супермаркеті) використовуючи елементи розмітки.
+    </p>
+
+    <script defer>
+      const quantityFirsItem = parseFloat(
+        prompt('Введіть кількість товару №1', '0')
+      )
+      const priceFirstItem = parseFloat(prompt('Введіть ціну товару №1', '0'))
+      const quantitySecondItem = parseFloat(
+        prompt('Введіть кількість товару №2', '0')
+      )
+      const priceSecondItem = parseFloat(prompt('Введіть ціну товару №2', '0'))
+
+      const quantityThirdItem = parseFloat(
+        prompt('Введіть кількість товару №3', '0')
+      )
+      const priceThirdItem = parseFloat(prompt('Введіть ціну товару №3', '0'))
+
+      const totalPriceFirstItem = quantityFirsItem * priceFirstItem
+      const totalPriceSecondItem = quantitySecondItem * priceSecondItem
+      const totalPriceThirdItem = quantityThirdItem * priceThirdItem
+
+      const total =
+        totalPriceFirstItem + totalPriceSecondItem + totalPriceThirdItem
+
+      document.write(`
+    <table>
+      <p class="title">ТОВ Рога і копита</p>
+      <th>Назва товару</th>
+      <th>Кількість</th>
+      <th>Ціна</th>
+      <th>Сума</th>
+      <tr>
+        <td>Товар №1</td>
+        <td>${quantityFirsItem}</td>
+        <td>${priceFirstItem} грн</td>
+        <td>${totalPriceFirstItem} грн</td>
+      </tr>
+      <tr>
+        <td>Товар №2</td>
+        <td>${quantitySecondItem}</td>
+        <td>${priceSecondItem} грн</td>
+        <td>${totalPriceSecondItem} грн</td>
+      </tr>
+      <tr>
+        <td>Товар №3</td>
+        <td>${quantityThirdItem}</td>
+        <td>${priceThirdItem} грн</td>
+        <td>${totalPriceThirdItem} грн</td>
+      </tr>
+      <tr>
+        <td style="border:none"><strong>Загальна сума</strong></td>
+        <td style="border:none"></td>
+        <td style="border:none"></td>
+        <td style="border:none"> <strong>${total}</strong> </td>
+      </tr>
+    </table>
+     `)
+    </script>
+  </body>
+</html>
