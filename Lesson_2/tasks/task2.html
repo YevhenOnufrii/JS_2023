@@ -29,10 +29,9 @@
       const birthYear = parseInt(
         prompt('Введіть Ваш рік народженя (у форматі 19ХХ):', '0')
       )
+      const diff = currenYear - birthYear
       document.write(
-        `<h2>Різниця <span class="res">${
-          currenYear - birthYear
-        } </span>років.</h2>
+        `<h2>Різниця <span class="res">${diff}</span>років.</h2>
         <p>Користувачем введено ${birthYear} рік</p>`
       )
     </script>
