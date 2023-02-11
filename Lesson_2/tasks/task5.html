@@ -26,7 +26,14 @@
     </p>
 
     <script defer>
-      const getSeconds = parseInt(prompt('Введіть кількість секунд', '0'))
+      const currentTime = new Date()
+      const today = new Date(
+        currentTime.getFullYear(),
+        currentTime.getMonth(),
+        currentTime.getDate()
+      )
+      let diff = currentTime - today
+      const getSeconds = diff / 1000
 
       const hours = parseInt(getSeconds / 3600)
       const minutes = parseInt(getSeconds / 60) - hours * 60
@@ -34,8 +41,8 @@
 
       document.write(` 
       <table>
-        <th>Введена кількість секунд </th>
-        <td>${getSeconds}</td>
+        <th>Отримана кількість секунд </th>
+        <td>${getSeconds.toFixed(0)}</td>
         <tr>
           <th>Кількість годин</th>
           <td>${hours}</td>
@@ -46,7 +53,7 @@
         </tr>
         <tr>
           <th>Кількість секунд</th>
-          <td>${seconds}</td>
+          <td>${seconds.toFixed(0)}</td>
         </tr>
     </table>
     `)
