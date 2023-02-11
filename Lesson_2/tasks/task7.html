@@ -25,6 +25,16 @@
         padding: 0;
         margin: 5px 0;
       }
+      button {
+        margin-top: 10px;
+        background: #5f5fe6;
+        color: white;
+        font-size: 15px;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+      }
     </style>
 
     <h1>Задача 7</h1>
@@ -33,51 +43,33 @@
       дня (від 0 до 6).
     </p>
 
-    <!-- <table>
-      <tr>
-        <th>Випадковий номер 1</th>
-        <td>25</td>
-      </tr>
-      <tr>
-        <th>Випадковий номер 2</th>
-        <td>15</td>
-      </tr>
-      <tr>
-        <th>Сума</th>
-        <td>40</td>
-      </tr>
-    </table>
-    <button type="reset">reload</button> -->
-
-    <button type="submit">reload</button>
-
     <script defer>
-      const max = 12
       const min = 1
+      const max = 12
 
-      const max2 = 0
-      const min2 = 6
+      const min2 = 0
+      const max2 = 6
 
       const randomNum1 = Math.ceil(Math.random() * (max - min) + min)
       const randomNum2 = Math.ceil(Math.random() * (max2 - min2) + min2)
       const sum = randomNum1 + randomNum2
       document.write(`
-    <table>
-      <tr>
-        <th>Випадковий номер 1</th>
-        <td>${randomNum1}</td>
-      </tr>
-      <tr>
-        <th>Випадковий номер 2</th>
-        <td>${randomNum2}</td>
-      </tr>
-      <tr>
-        <th>Сума</th>
-        <td>${sum}</td>
-      </tr>
-    </table>
-    <button href="#" type="submit">reload</button>
-       `)
+      <table>
+        <tr>
+          <th>Випадковий номер 1</th>
+          <td>${randomNum1}</td>
+        </tr>
+        <tr>
+          <th>Випадковий номер 2</th>
+          <td>${randomNum2}</td>
+        </tr>
+        <tr>
+          <th>Сума</th>
+          <td>${sum}</td>
+        </tr>
+      </table>
+      <button onclick="window.location.reload()">RELOAD</button>
+         `)
     </script>
   </body>
 </html>

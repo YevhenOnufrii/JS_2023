@@ -41,24 +41,37 @@
     <script defer>
       const quantityFirsItem = parseFloat(
         prompt('Введіть кількість товару №1', '0')
-      )
-      const priceFirstItem = parseFloat(prompt('Введіть ціну товару №1', '0'))
+      ).toFixed(2)
+      const priceFirstItem = parseFloat(
+        prompt('Введіть ціну товару №1', '0')
+      ).toFixed(2)
       const quantitySecondItem = parseFloat(
         prompt('Введіть кількість товару №2', '0')
-      )
-      const priceSecondItem = parseFloat(prompt('Введіть ціну товару №2', '0'))
+      ).toFixed(2)
+      const priceSecondItem = parseFloat(
+        prompt('Введіть ціну товару №2', '0')
+      ).toFixed(2)
 
       const quantityThirdItem = parseFloat(
         prompt('Введіть кількість товару №3', '0')
+      ).toFixed(2)
+      const priceThirdItem = parseFloat(
+        prompt('Введіть ціну товару №3', '0')
+      ).toFixed(2)
+
+      const totalPriceFirstItem = (quantityFirsItem * priceFirstItem).toFixed(2)
+      const totalPriceSecondItem = (
+        quantitySecondItem * priceSecondItem
+      ).toFixed(2)
+      const totalPriceThirdItem = (quantityThirdItem * priceThirdItem).toFixed(
+        2
       )
-      const priceThirdItem = parseFloat(prompt('Введіть ціну товару №3', '0'))
 
-      const totalPriceFirstItem = quantityFirsItem * priceFirstItem
-      const totalPriceSecondItem = quantitySecondItem * priceSecondItem
-      const totalPriceThirdItem = quantityThirdItem * priceThirdItem
-
-      const total =
-        totalPriceFirstItem + totalPriceSecondItem + totalPriceThirdItem
+      const total = (
+        parseFloat(totalPriceFirstItem) +
+        parseFloat(totalPriceSecondItem) +
+        parseFloat(totalPriceThirdItem)
+      ).toFixed(2)
 
       document.write(`
     <table>
@@ -89,7 +102,7 @@
         <td style="border:none"><strong>Загальна сума</strong></td>
         <td style="border:none"></td>
         <td style="border:none"></td>
-        <td style="border:none"> <strong>${total}</strong> </td>
+        <td style="border:none"> <strong>${total} грн</strong> </td>
       </tr>
     </table>
      `)

@@ -26,22 +26,27 @@
     </p>
 
     <script defer>
-      const seconds = parseInt(prompt('Введіть кількість секунд', '0'))
-      const minutes = (seconds / 60).toFixed(2)
-      const hours = (seconds / 3600).toFixed(3)
+      const getSeconds = parseInt(prompt('Введіть кількість секунд', '0'))
+
+      const hours = parseInt(getSeconds / 3600)
+      const minutes = parseInt(getSeconds / 60) - hours * 60
+      const seconds = (getSeconds - hours * 60 - minutes * 60) % 60
+
       document.write(` 
       <table>
+        <th>Введена кількість секунд </th>
+        <td>${getSeconds}</td>
         <tr>
-          <th>Кількість секунд</th>
-          <td>${seconds}</td>
-        </tr>
+          <th>Кількість годин</th>
+          <td>${hours}</td>
+          </tr>
         <tr>
           <th>Кількість хвилин</th>
           <td>${minutes}</td>
         </tr>
         <tr>
-          <th>Кількість годин</th>
-          <td>${hours}</td>
+          <th>Кількість секунд</th>
+          <td>${seconds}</td>
         </tr>
     </table>
     `)
