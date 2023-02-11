@@ -30,6 +30,9 @@
         prompt('Введіть довжину у сантиметрах:', '0')
       )
 
+      const resMeters = centimeters / METERS
+      const resKm = centimeters / KM
+
       document.write(
         `<table>
         <tr>
@@ -38,11 +41,11 @@
         </tr>
         <tr>
           <td>Довжина у метрах</td>
-          <td><strong>${centimeters / METERS}</strong></td>
+          <td><strong>${resMeters}</strong></td>
         </tr>
         <tr>
           <td>Довжина у кілометрах</td>
-          <td><strong>${centimeters / KM}</strong></td>
+          <td><strong>${resKm}</strong></td>
         </tr>
       </table>`
       )
