@@ -37,6 +37,9 @@
     <script defer>
       const a = parseFloat(prompt('Введіть перше ціле число:', '0'))
       const b = parseFloat(prompt('Введіть друге ціле число:', '0'))
+      const sum = a + b
+      const multiply = a * b
+      const diff = a / b
       document.write(`<table border="1" cellpadding="5" cellspacing="5">
           <tr>
             <td>Аргументи</td>
@@ -44,15 +47,15 @@
           </tr>
           <tr>
             <td>Сума</td>
-            <td class="res">${(a + b).toFixed(2)}</td>
+            <td class="res">${sum.toFixed(2)}</td>
           </tr>
           <tr>
             <td>Добуток</td>
-            <td class="res">${(a * b).toFixed(2)}</td>
+            <td class="res">${multiply.toFixed(2)}</td>
           </tr>
            <tr>
             <td>Частка двох <br> дійсних чисел</td>
-            <td class="res">${(a / b).toFixed(2)}</td>
+            <td class="res">${diff.toFixed(2)}</td>
           </tr>
         </table>`)
     </script>

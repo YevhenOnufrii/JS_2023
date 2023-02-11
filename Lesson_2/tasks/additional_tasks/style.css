@@ -1,0 +1,76 @@
+@import './null.css';
+
+
+.wrapper {
+  background-color: rgb(203, 203, 203);
+  padding: 1rem 1rem;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.task_block {
+  /* border: 1px solid #000; */
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #b3b0b0;
+}
+
+.task_counter {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  line-height: 1.1;
+}
+
+.task_text {
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  outline: 1px solid rgb(104, 76, 230);
+  padding: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+button {
+  background-color: #7950df;
+  width: 25%;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: antiquewhite;
+  font-weight: bold;
+  letter-spacing: 2.5px;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: #987ed9;
+  transition: easy;
+  scale: 1.03;
+}
+
+.result1 {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(187, 43, 18);
+}
+
+
+
+
