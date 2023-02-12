@@ -72,8 +72,8 @@ button:hover {
   scale: 1.03;
 }
 
-.result1, .result2, .result5, .result8, .result9, .result10 {
-  text-align: center;
+.result1, .result2, .result5, .result8, .result9, .result10, .result12, .result13, .result14 {
+  /* text-align: center; */
   font-size: 18px;
   color: rgb(187, 43, 18);
   letter-spacing: 0.2px;

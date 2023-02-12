@@ -290,7 +290,7 @@ function timeCalculation() {
 
   const hours = Math.floor(result / 3600)
   const minutes = Math.floor((result - hours * 3600) / 60)
-  const seconds = Math.floor((result - hours * 3600 - minutes * 60) % 60)
+  const seconds = Math.floor(result % 60)
 
   document.querySelector('.result11').innerHTML = `
    <table>
@@ -307,5 +307,72 @@ function timeCalculation() {
         <td>${minutes} хв.</td>
       </tr>
     </table>
+  `
+}
+
+//  ==================  Задача 12  ===============================
+// З клавіатури вводиться кількість монет номіналом 2 копійки (5коп, 25коп, 50 коп). Визначити скільки гривень і копійок є у даній сумі.
+
+document.querySelector('.click_button12').addEventListener('click', coinsCalc)
+function coinsCalc() {
+  // кількість коп в 1 грн
+  const SEPARATOR = 100
+  // отримуємо кількість монет різного номіналу або дефолтний 0
+  const coinTwoQantity =
+    parseInt(document.querySelector('.getQuantityCoinTwo').value) | 0
+  const coinFiveQantity =
+    parseInt(document.querySelector('.getQuantityCoinFive').value) | 0
+  const coinTwentyFiveQantity =
+    parseInt(document.querySelector('.getQuantityCoinTwentyFive').value) | 0
+  const coinFiftyQantity =
+    parseInt(document.querySelector('.getQuantityCoinFifty').value) | 0
+
+  // суми за номіналом
+  const sumCoinTwo = coinTwoQantity * 2
+  const sumCoinFive = coinFiveQantity * 5
+  const sumCoinTwentyFive = coinTwentyFiveQantity * 25
+  const sumCoinFifty = coinFiftyQantity * 50
+
+  const totalSum = sumCoinTwo + sumCoinFive + sumCoinTwentyFive + sumCoinFifty
+  // ціла частина
+  const separateInt = Math.floor(totalSum / SEPARATOR)
+  // копійки
+  const coinsLeft = totalSum % SEPARATOR
+
+  document.querySelector('.result12').innerHTML = `
+    <p>Загальна сума ${totalSum} копійок, що складає ${separateInt} гривень ${coinsLeft} копійок</p>
+  `
+}
+
+//  ==================  Задача 13  ===============================
+// Визначити скільки повних тижнів є у вказаній кількості днів.
+
+document.querySelector('.click_button13').addEventListener('click', getWeeks)
+function getWeeks() {
+  const SEPARATOR = 7
+  // отримуємо кількість днів або 0
+  const getDays = parseInt(document.querySelector('.getDays').value) | 0
+  const weeks = Math.floor(getDays / SEPARATOR)
+
+  document.querySelector('.result13').innerHTML = `
+    <p>Введено днів ${getDays}, що складає ${weeks} повних тижнів</p>
+  `
+}
+
+//  ==================  Задача 14  ===============================
+// З клавіатури вводиться номер дня тижня (від 1 до 7). Визначити який буде день тижня через N днів.
+
+document.querySelector('.click_button14').addEventListener('click', getDayNumb)
+function getDayNumb() {
+  const SEPARATOR = 7.1
+  // отримуємо номер і N
+  const getDays = parseInt(document.querySelector('.dayNumb').value) | 0
+  const getN = parseInt(document.querySelector('.getN').value) | 0
+
+  const dayCount = Math.ceil((getDays + getN) % SEPARATOR)
+  console.log(dayCount)
+
+  document.querySelector('.result14').innerHTML = `
+    <p>День тижня через N днів: <strong>${dayCount}</strong> </p>
   `
 }
