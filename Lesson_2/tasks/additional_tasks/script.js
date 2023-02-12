@@ -203,9 +203,62 @@ function getCentury() {
   // якщо (1901 - 1) / 100 => то Math.floor поверне 19
   // якщо (1900 - 1) / 100 => то Math.floor поверне 18
   const century = Math.floor((getYear - 1) / YEARS_IN_CENTURY)
-  console.log(getYear)
 
   document.querySelector('.result8').innerHTML = `
   <p>${getYear} рік це ${century} століття</p>
+  `
+}
+
+// ==================  Задача 9  ===============================
+// Скласти програму для розв’язування задачі: йде N-а секунда доби, визначити скільки повних годин і повних хвилин пройшло до цього моменту.
+document.querySelector('.click_button9').addEventListener('click', getTimeDiff)
+
+function getTimeDiff() {
+  // теперешній час
+  const currentTime = new Date()
+  // час на початок доби
+  const today = new Date(
+    currentTime.getFullYear(),
+    currentTime.getMonth(),
+    currentTime.getDate()
+  )
+  // різниця між початком дня і тепер у секундах
+  const diff = (currentTime - today) / 1000
+  // отримати години
+  const hours = parseInt(diff / 3600)
+  //отримати хвилини
+  const minutes = parseInt((diff - hours * 3600) / 60)
+  //отримати секунди
+  const seconds = parseInt((diff - minutes * 60 - hours * 3600) % 60)
+
+  // АБО
+  // тупо отримати теперешні годину час і секунди
+
+  // const hours = currentTime.getHours()
+  // const minutes = currentTime.getMinutes()
+  // const seconds = currentTime.getSeconds()
+
+  document.querySelector('.result9').innerHTML = `
+  Від початку доби пройшо ${hours} годин ${minutes} хвилин ${seconds}  секунд.
+  `
+}
+
+//  ==================  Задача 10  ===============================
+document
+  .querySelector('.click_button10')
+  .addEventListener('click', transformCoins)
+
+function transformCoins() {
+  // копійок в 1 грн
+  const coinsInUnit = 100
+  // отримуємо ціле чмло копійок
+  const getCoins = parseInt(document.querySelector('.getCoins').value)
+  // вираховуємо цілу частину
+  const int = Math.floor(getCoins / coinsInUnit)
+  // вираховуємо залишок копійок
+  const coins = Math.floor((getCoins / coinsInUnit - int) * 100)
+
+  document.querySelector('.result10').innerHTML = `
+  ${int} грн ${coins} копійок.
   `
 }
