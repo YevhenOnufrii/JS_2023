@@ -47,6 +47,10 @@ input {
   width: 100%;
 }
 
+input:focus {
+  outline: 1px solid rgb(50, 255, 57);
+}
+
 button {
   background-color: #7950df;
   width: 25%;
