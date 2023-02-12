@@ -137,11 +137,75 @@ function nettoReward() {
 
 // ==================  Задача 6  ===============================
 // Дано три дійсні змінні a, b і c.  Скласти  алгоритм, який міняє місцями значення цих змінних наступним чином: змінна a набуває значення змінної b, змінна b набуває значення змінної c, а змінна  c – попереднє значення змінної a.
-let a = 1
-let b = 2
-let c = 3
-let acc = 0
 
-acc = a
-a = b
-acc = b
+document.querySelector('.click_button6').addEventListener('click', valueChange)
+
+function valueChange() {
+  let a = document.querySelector('.get_a').value
+  let b = document.querySelector('.get_b').value
+  let c = document.querySelector('.get_c').value
+  let acc = a
+
+  a = b
+  b = c
+  c = acc
+
+  document.querySelector('.result6').innerHTML = `
+<table>
+    <tr>
+    <th>Значення після зміни</th>
+    <td>a: ${a}</td>
+    <td>b: ${b}</td>
+    <td>c: ${c}</td>
+  </tr>
+</table>
+  `
+}
+
+// ==================  Задача 7  ===============================
+// Скласти алгоритм, який обчислює цілу і дробову частину даного числа х. Наприклад: число 23,56  => ціла: 23, дробова: 0,56.
+
+document
+  .querySelector('.click_button7')
+  .addEventListener('click', getIntegerAndFraction)
+
+function getIntegerAndFraction() {
+  let getFloat = parseFloat(document.querySelector('.getFloat').value)
+
+  const int = parseInt(getFloat) // ціле
+  const fraction = (getFloat - int).toFixed(2) // отримую 2 цифри після коми
+
+  console.log(int, fraction)
+  document.querySelector('.result7').innerHTML = `
+   <table>
+      <tr>
+        <th>Ціла частина</th>
+        <th>Дробова частина</th>
+      </tr>
+      <tr>
+        <td>${int}</td>
+        <td>${fraction}</td>
+      </tr>
+    </table>
+  `
+}
+
+// ==================  Задача 8  ===============================
+// Розробити програму (не використовувати if), яка за номером року Y визначає номер століття C (врахувати, що початком XX століття був 1901, а не 1900 рік).
+
+document.querySelector('.click_button8').addEventListener('click', getCentury)
+
+function getCentury() {
+  const YEARS_IN_CENTURY = 100
+  //отримуємо рокі від користувача
+  const getYear = parseInt(document.querySelector('.getYear').value)
+  // розрахунок
+  // якщо (1901 - 1) / 100 => то Math.floor поверне 19
+  // якщо (1900 - 1) / 100 => то Math.floor поверне 18
+  const century = Math.floor((getYear - 1) / YEARS_IN_CENTURY)
+  console.log(getYear)
+
+  document.querySelector('.result8').innerHTML = `
+  <p>${getYear} рік це ${century} століття</p>
+  `
+}
