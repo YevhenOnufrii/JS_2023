@@ -244,6 +244,7 @@ function getTimeDiff() {
 }
 
 //  ==================  Задача 10  ===============================
+// З клавіатури вводиться кількість монет номіналом 1 копійка. Визначити скільки гривень і копійок є у даній сумі . Наприклад, дано 245 копійок, а вивести 2 грн 45 копійок.
 document
   .querySelector('.click_button10')
   .addEventListener('click', transformCoins)
@@ -260,5 +261,51 @@ function transformCoins() {
 
   document.querySelector('.result10').innerHTML = `
   ${int} грн ${coins} копійок.
+  `
+}
+
+//  ==================  Задача 11  ===============================
+// Дано поточну кількість годи, хвилин, секунд (як на годиннику). Визначити 1) яка кількість секунд буде на годиннику через N секунд.
+// 2) яка кількість хвилин буде на годиннику через N секунд, X хвилин.
+
+document
+  .querySelector('.click_button11')
+  .addEventListener('click', timeCalculation)
+
+function timeCalculation() {
+  //отримуємо секунди від користувача або дефолтний 0
+  const getUserSeconds =
+    parseInt(document.querySelector('.getUserSeconds').value) | 0
+  // отримуємо хвилини від користувача або дефолтний 0
+  const getUserMinutes =
+    parseInt(document.querySelector('.getUserMinutes').value) | 0
+  // отримуємо поточні години, хвилини, секунди
+  const getHours = new Date().getHours()
+  const getMinutes = new Date().getMinutes()
+  const getSeconds = new Date().getSeconds()
+  // переводимо години, хвилини у секунди і додаємо системні секунди
+  const totalSeconds = getHours * 3600 + getMinutes * 60 + getSeconds
+  // додаємо до загальної суми секун час користувача
+  const result = totalSeconds + getUserMinutes * 60 + getUserSeconds
+
+  const hours = Math.floor(result / 3600)
+  const minutes = Math.floor((result - hours * 3600) / 60)
+  const seconds = Math.floor((result - hours * 3600 - minutes * 60) % 60)
+
+  document.querySelector('.result11').innerHTML = `
+   <table>
+      <tr>
+        <th>Стартова кількість г., хв., сек.</th>
+        <td>${getHours} год. ${getMinutes} хв. ${getSeconds}  сек.</td>
+      </tr>
+      <tr>
+        <th>Кількість секунд через N секунд</th>
+        <td>${seconds} сек.</td>
+      </tr>
+      <tr>
+        <th>Кількість хвилин через N секунд та X хвилин.</th>
+        <td>${minutes} хв.</td>
+      </tr>
+    </table>
   `
 }
