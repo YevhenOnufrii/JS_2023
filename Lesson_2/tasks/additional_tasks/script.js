@@ -8,7 +8,6 @@ function getElementWidth() {
   const itemsQuantity = parseInt(document.querySelector('.itemsQuantity').value)
 
   const result1 = Math.floor(screenWidth / itemsQuantity)
-  console.log(result1)
 
   document.querySelector('.result1').innerHTML = `
   На екрані шириною ${screenWidth.toFixed(
@@ -71,7 +70,7 @@ function getPriceAndQuantity() {
                   <td>${total1.toFixed(2)} грн</td>
                 </tr>
                  <tr>
-                  <td>Товар #1</td>
+                  <td>Товар #2</td>
                   <td>${quantityProduct2.toFixed(2)}</td>
                   <td>${priceProduct2.toFixed(2)} грн</td>
                   <td>${total2.toFixed(2)} грн</td>
@@ -175,7 +174,6 @@ function getIntegerAndFraction() {
   const int = parseInt(getFloat) // ціле
   const fraction = (getFloat - int).toFixed(2) // отримую 2 цифри після коми
 
-  console.log(int, fraction)
   document.querySelector('.result7').innerHTML = `
    <table>
       <tr>
@@ -370,9 +368,72 @@ function getDayNumb() {
   const getN = parseInt(document.querySelector('.getN').value) | 0
 
   const dayCount = Math.ceil((getDays + getN) % SEPARATOR)
-  console.log(dayCount)
 
   document.querySelector('.result14').innerHTML = `
     <p>День тижня через N днів: <strong>${dayCount}</strong> </p>
+  `
+}
+
+//  ==================  Задача 15  ===============================
+//З клавіатури вводиться кількість місяців, які пройшли від деякого моменту часу. Вивести повну кількість років і місяців. Наприклад, дано 28 місяців, а вивести 2 роки і 4 місяці.
+document.querySelector('.click_button15').addEventListener('click', getYears)
+
+function getYears() {
+  SEPARATOR = 12
+  const getMonts = parseInt(document.querySelector('.task15GetMonts').value) | 0
+  const years = Math.floor(getMonts / SEPARATOR)
+  const monthsLeft = getMonts % SEPARATOR
+
+  document.querySelector('.result15').innerHTML = `
+    <p>Дано ${getMonts} місяців, що становить ${years}  роки(ів) і ${monthsLeft}  місяці(в)</p>
+  `
+}
+
+//  ==================  Задача 16  ===============================
+// З клавіатури вводиться номер місяця. Визначити, який буде місяць через вказану кількість N місяців.
+document
+  .querySelector('.click_button16')
+  .addEventListener('click', getMonthNumber)
+
+function getMonthNumber() {
+  const SEPARATOR = 12.1
+  const getNumberMonth =
+    parseInt(document.querySelector('.getNumberMonth').value) | 0
+  const NValue = parseInt(document.querySelector('.getNMohth').value) | 0
+  const NumbOfMonth = Math.ceil((getNumberMonth + NValue) % SEPARATOR)
+
+  document.querySelector('.result16').innerHTML = `
+    <p>Через N місяців буде ${NumbOfMonth} місяць</p>
+  `
+}
+
+//  ==================  Задача 17  ===============================
+// Зашифрувати один введений англійський символ у верхньому регістрі (один з символів: A,B,…Z)  методом зміщення (шифр Цезаря).
+document
+  .querySelector('.click_button17')
+  .addEventListener('click', getNumbOfLetter)
+
+function getNumbOfLetter() {
+  const SEPARATOR = 26 // кількість букв в латин алфавіті
+  // код літери А в юнікод
+  const startIndexA = 65
+  // отримуємо літеру
+  const getLetter = document.querySelector('.getLetter').value.toUpperCase()
+  // отримуємо індекс зміщення
+  const getOffsetNumb =
+    parseInt(document.querySelector('.getOffsetNumb').value) | 0
+  // перетворюємо значення літери в Юнікод
+  const unicodeGetLetter = getLetter.charCodeAt()
+  // додаємо на скільки зміщуємо індекс
+  const unicodeSearchLetter = unicodeGetLetter + getOffsetNumb
+  // від нового індекса віднімаємо 65 і отримуємо залишок від ділення на 26 (к-сть літер в алфавіті)
+  // в результаті отримуємо число від 0 до 25
+  const getNewIndex = Math.ceil((unicodeSearchLetter - startIndexA) % SEPARATOR)
+  // додаємо до нового індекса (від 0 до 25) стартовий індекс
+  // і повертаємо нову літеру (шифровану)
+  const returnNewLetter = String.fromCharCode(getNewIndex + startIndexA)
+
+  document.querySelector('.result17').innerHTML = `
+    Літера ${getLetter} із зміщенням ${getOffsetNumb}  буде літерою ${returnNewLetter}.
   `
 }
