@@ -415,7 +415,7 @@ document
 
 function getNumbOfLetter() {
   const SEPARATOR = 26 // кількість букв в латин алфавіті
-  // код літери А в юнікод
+  // код літери А в юнікод 0
   const startIndexA = 65
   // отримуємо літеру
   const getLetter = document.querySelector('.getLetter').value.toUpperCase()
