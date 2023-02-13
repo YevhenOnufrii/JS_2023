@@ -1,0 +1,68 @@
+@import './null.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+:root 
+{
+  --bg_color: #1A1C1C;
+  --bg_color_tasks: #262E2F;
+  --font_main_color: #91D2D5;
+  --font_main: 'Roboto Mono', monospace;
+  --link_font_color: #E2E2E2;
+} 
+
+body {
+  font-family: var(--font_main);
+  background: var(--bg_color);
+  color: var(--font_main_color);
+  padding: 20px;
+  line-height: 1.1;
+}
+
+.main_title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+  margin-bottom: 10px;
+}
+
+.user_block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+
+}
+
+
+.user_avatar img {
+    width: 50px;
+    height: 50px;
+}
+
+.user_avatar  {
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--bg_color_tasks)
+}
+
+.user_title {
+  font-size: 25px;
+}
+
+.task_block {
+  background-color: var(--bg_color_tasks);
+  padding: 15px 10px;
+  max-width: 200px;
+  border-radius: 10px;
+  text-align: center;
+
+}
+
+
+ a {
+   color: var(--font_main_color);
+   text-decoration: none;
+   font-weight: bold;
+ }
