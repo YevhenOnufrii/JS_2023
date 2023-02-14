@@ -8,6 +8,8 @@
   --font_main_color: #91D2D5;
   --font_main: 'Roboto Mono', monospace;
   --link_font_color: #E2E2E2;
+  --hover_bg_task: #354042;
+  --hover_color_task: #9fe6e9;
 } 
 
 body {
@@ -16,6 +18,17 @@ body {
   color: var(--font_main_color);
   padding: 20px;
   line-height: 1.1;
+  height: 100vh;
+}
+
+.wrapper {
+  max-width: 1440px;
+  margin: 0px auto;
+  height: 100%;
+}
+
+.container {
+  padding: 20px;
 }
 
 .main_title {
@@ -23,7 +36,7 @@ body {
   font-size: 30px;
   font-weight: 700;
   letter-spacing: 2.2px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .user_block {
@@ -31,7 +44,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 
 }
 
@@ -51,13 +64,36 @@ body {
   font-size: 25px;
 }
 
+.tasks_list {
+display:flex;
+flex-direction: column;
+row-gap: 10px;
+}
+
 .task_block {
   background-color: var(--bg_color_tasks);
   padding: 15px 10px;
-  max-width: 200px;
+  max-width: 250px;
   border-radius: 10px;
   text-align: center;
+  
+  transition-duration: 1s;
+}
 
+.task_block:hover {
+  color: var(--hover_color_task);
+  background-color: var(--hover_bg_task);
+  transform: translate(12px, 0);
+  scale: 1.1;
+}
+
+.task_block:active {
+  background-color: #fff;
+}
+
+
+.task_link{
+  letter-spacing: 1px;
 }
 
 
