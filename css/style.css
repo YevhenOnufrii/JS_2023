@@ -1,5 +1,6 @@
 @import './null.css';
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap');
 
 :root 
 {
@@ -7,18 +8,23 @@
   --bg_color_tasks: #262E2F;
   --font_main_color: #91D2D5;
   --font_main: 'Roboto Mono', monospace;
+  --font_main2: 'Bai Jamjuree', sans-serif;
   --link_font_color: #E2E2E2;
   --hover_bg_task: #354042;
   --hover_color_task: #9fe6e9;
 } 
 
 body {
-  font-family: var(--font_main);
+  /* font-family: var(--font_main); */
+  font-family: var(--font_main2);
   background: var(--bg_color);
   color: var(--font_main_color);
   padding: 20px;
   line-height: 1.1;
   height: 100vh;
+}
+a {
+  text-decoration: none;
 }
 
 .wrapper {
@@ -37,6 +43,7 @@ body {
   font-weight: 700;
   letter-spacing: 2.2px;
   margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
 .user_block {
@@ -48,16 +55,14 @@ body {
 
 }
 
-
-.user_avatar img {
-    width: 50px;
-    height: 50px;
-}
-
 .user_avatar  {
   border-radius: 50%;
   overflow: hidden;
   border: 1px solid var(--bg_color_tasks)
+}
+.user_avatar img {
+    width: 50px;
+    height: 50px;
 }
 
 .user_title {
@@ -72,12 +77,12 @@ row-gap: 10px;
 
 .task_block {
   background-color: var(--bg_color_tasks);
-  padding: 15px 10px;
+  /* padding: 15px 10px; */
   max-width: 250px;
   border-radius: 10px;
   text-align: center;
   
-  transition-duration: 1s;
+  transition-duration: 500ms;
 }
 
 .task_block:hover {
@@ -94,11 +99,10 @@ row-gap: 10px;
 
 .task_link{
   letter-spacing: 1px;
+  display: block;
+  padding: 15px 10px;
+  color: var(--font_main_color);
+  font-weight: bold;
 }
 
 
- a {
-   color: var(--font_main_color);
-   text-decoration: none;
-   font-weight: bold;
- }
