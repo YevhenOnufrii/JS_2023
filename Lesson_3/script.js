@@ -133,3 +133,48 @@ function whoYouAre() {
 
 // ================== Задача 5 ==================
 // З клавіатури вводиться назва категорії водія (А-мотоцикл, В-легковий автомобіль, С-вантажний автомобіль). Вивести на екран назву транспортного засобу, яким він може керувати.
+
+document.querySelector('.button5').addEventListener('click', getCarCateg)
+
+function getCarCateg() {
+  // статичні константи
+  const CATEGORY_A = 'A'
+  const CATEGORY_B = 'B'
+  const CATEGORY_C = 'C'
+  // отримуємо дані
+  // переводимо у верхній регістр
+  const driverCateg = document
+    .querySelector('.getdriverCateg')
+    .value.toUpperCase()
+  // маленька строка для валідаці
+  // 'ABC'
+  const validStr = CATEGORY_A + CATEGORY_B + CATEGORY_C
+  // проста валідація ʼABC'
+  // якщо приходить літера яка є у строці то визначаємо категорію ТЗ
+  // інакше повертаємо повідомлення, що вказана не вірна літера
+  if (validStr.includes(driverCateg)) {
+    // змінна для категорії ТЗ
+    let carCategory = ''
+    // розкидуємо по категоріям
+    switch (driverCateg) {
+      case CATEGORY_A:
+        carCategory = 'мотоцикл.'
+        break
+      case CATEGORY_B:
+        carCategory = 'легковий автомобіль.'
+        break
+      default:
+        carCategory = 'вантажний автомобіль.'
+    }
+    // вивід на сторінку
+    document.querySelector('.result5').innerHTML = `
+      <span class="green-color-result">
+        Ви можете керувати ТЗ: ${carCategory}
+      </span>`
+  } else {
+    document.querySelector('.result5').innerHTML = `
+      <span>
+        Ви ввели не вірну літеру категорії водія
+      </span>`
+  }
+}
