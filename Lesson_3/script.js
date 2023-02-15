@@ -102,3 +102,34 @@ function guessNaumer() {
        Ви не вгадали. Загадане число: ${randomNum}
     `)
 }
+
+// ================== Задача 4 ==================
+// З клавіатури вводиться вік людини. Вивести на екран ким він є (дитиною у садочку, школярем, студентом, працівником, пенсіонером).
+
+document.querySelector('.button4').addEventListener('click', whoYouAre)
+
+function whoYouAre() {
+  // статичні константи
+  const CHILD = 6
+  const STUDENT = 17
+  const WORKER = 22
+  const RETIRED = 65
+  // отримуємо дані
+  const age = parseInt(document.querySelector('.getAge').value)
+  // зміння для статуса
+  let status = ''
+  // визначення статуса
+  if (age < CHILD) status = 'Дитина у садочку'
+  if (age >= CHILD && age < STUDENT) status = 'Школяр'
+  if (age >= STUDENT && age < WORKER) status = 'Студент'
+  if (age >= WORKER && age < RETIRED) status = 'Працівник'
+  if (age >= RETIRED) status = 'Пенсіонер'
+
+  document.querySelector('.result4').innerHTML = `
+    <span class="green-color-result">
+      ${status}
+    </span>`
+}
+
+// ================== Задача 5 ==================
+// З клавіатури вводиться назва категорії водія (А-мотоцикл, В-легковий автомобіль, С-вантажний автомобіль). Вивести на екран назву транспортного засобу, яким він може керувати.

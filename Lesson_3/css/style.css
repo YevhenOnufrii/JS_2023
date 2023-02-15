@@ -179,3 +179,7 @@ table {
 .green-color-result {
   color: var(--result-green-color);
 }
+
+.tightLabel p {
+  width: 40%;
+}
