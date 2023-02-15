@@ -112,7 +112,7 @@ function whoYouAre() {
   // статичні константи
   const CHILD = 6
   const STUDENT = 17
-  const WORKER = 22
+  const WORKER = 23
   const RETIRED = 65
   // отримуємо дані
   const age = parseInt(document.querySelector('.getAge').value)
@@ -146,12 +146,12 @@ function getCarCateg() {
   const driverCateg = document
     .querySelector('.getdriverCateg')
     .value.toUpperCase()
-  // маленька строка для валідаці
+  // маленька строка для валідації
   // 'ABC'
   const validStr = CATEGORY_A + CATEGORY_B + CATEGORY_C
-  // проста валідація ʼABC'
-  // якщо приходить літера яка є у строці то визначаємо категорію ТЗ
-  // інакше повертаємо повідомлення, що вказана не вірна літера
+  // проста валідація
+  // якщо приходить літера яка є у строці 'ABC' то визначаємо категорію ТЗ
+  // інакше повертаємо повідомлення, що введена не вірна літера
   if (validStr.includes(driverCateg)) {
     // змінна для категорії ТЗ
     let carCategory = ''
@@ -172,9 +172,62 @@ function getCarCateg() {
         Ви можете керувати ТЗ: ${carCategory}
       </span>`
   } else {
+    // вивід на сторінку, якщо дані не пройшли валідацію
     document.querySelector('.result5').innerHTML = `
       <span>
         Ви ввели не вірну літеру категорії водія
+      </span>`
+  }
+}
+
+// ================== Задача 6 ==================
+// З клавіатури вводиться номер дня тижня. Вивести на екран назву дня.
+
+document.querySelector('.button6').addEventListener('click', getDayName)
+
+function getDayName() {
+  const dayNumb = parseInt(document.querySelector('.getDayNumb').value)
+  // статичні константи
+  // мінімальне і максимальне значення номера дня
+  const MIN_VAL_DAY_NUMB = 1
+  const MAX_VAL_DAY_NUMB = 7
+
+  if (dayNumb >= MIN_VAL_DAY_NUMB && dayNumb <= MAX_VAL_DAY_NUMB) {
+    // ініціалізація змінної назви дня
+    let nameDay = ''
+    // визначення назви дня
+    switch (dayNumb) {
+      case 1:
+        nameDay = 'Понеділок'
+        break
+      case 2:
+        nameDay = 'Вівторок'
+        break
+      case 3:
+        nameDay = 'Середа'
+        break
+      case 4:
+        nameDay = 'Четвер'
+        break
+      case 5:
+        nameDay = 'П’ятниця'
+        break
+      case 6:
+        nameDay = 'Субота'
+        break
+      default:
+        nameDay = 'Неділя'
+    }
+    // вивід на сторінку
+    document.querySelector('.result6').innerHTML = `
+      <span class="green-color-result">
+        День тижня: ${nameDay}
+      </span>`
+  } else {
+    // вивід на сторінку якщо номер не коректний
+    document.querySelector('.result6').innerHTML = `
+      <span>
+        Ви ввели не вірний номер дня. Діапазон днів вказаний в умові
       </span>`
   }
 }
