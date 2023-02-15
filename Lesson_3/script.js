@@ -253,8 +253,8 @@ document.querySelector('.button1_1').addEventListener('click', getEmoji)
 function getEmoji() {
   const emojiNumb = parseInt(document.querySelector('.getEmojiNumb').value)
   if (emojiNumb >= 1 && emojiNumb <= 3) {
-    const SMILE = '<img src="./img/smile.svg" alt=""></img>'
-    const SAD = '<img src="./img/sad.svg" alt=""></img>'
+    const SMILE = '<img class="svg_pic" src="./img/smile.svg" alt=""></img>'
+    const SAD = '<img class="svg_pic" src="./img/sad.svg" alt=""></img>'
     const ANGRY = '<img src="./img/angry.svg" alt=""></img>'
 
     let getEmoji = SMILE
