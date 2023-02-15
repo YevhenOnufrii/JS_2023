@@ -31,3 +31,47 @@ function whoHasMore() {
   document.querySelector('.result1').innerHTML = `${winner}`
   console.log(sweatsQuantityFirstChild)
 }
+
+// ================== Задача 2 ==================
+// З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей не вистачає то відмовляємо у покупці, інакше, якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн.
+
+document.querySelector('.button2').addEventListener('click', balanceCalc)
+
+function balanceCalc() {
+  const lotteryTicketPrice = 4
+  // отримуємо ціну товару або дефолтний 0
+  const itemPrice = parseFloat(document.querySelector('.getPrice').value) || 0
+  // отримуємо залишок грошей або дефолтний 0
+  const cashBalance =
+    parseFloat(document.querySelector('.getCashBalance').value) || 0
+
+  // залишок на рахунку після покупки
+  const leftover = cashBalance - itemPrice
+  // якщо ціна більша за залишок грошей
+  if (itemPrice > cashBalance) {
+    return (document.querySelector('.result2').innerHTML = `
+    Вартість товару ${itemPrice.toFixed(2)}, на рахунку ${cashBalance.toFixed(
+      2
+    )}. У покупці відмовлено, недостатнього коштів на рахунку
+    `)
+  }
+  // якщо залишок грошей більше дорівнює 4
+  if (leftover >= lotteryTicketPrice) {
+    return (document.querySelector('.result2').innerHTML = `
+    <span class="green-color-result"> Вартість товару ${itemPrice}, на рахунку ${cashBalance.toFixed(
+      2
+    )}. Покупка дозволена. Не бажаєте придбати лотерейний квиток?</span>
+    `)
+  }
+  // якщо залишок грошей більше дорівнює ціні товару, але менше 4
+  if (cashBalance >= itemPrice) {
+    return (document.querySelector('.result2').innerHTML = `
+    <span class="green-color-result"> Вартість товару ${itemPrice.toFixed(
+      2
+    )}, на рахунку ${cashBalance.toFixed(2)}. Покупка дозволена.   
+    `)
+  }
+}
+
+// ================== Задача 3 ==================
+// З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей не вистачає то відмовляємо у покупці, інакше, якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн.

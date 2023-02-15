@@ -13,6 +13,7 @@
   --placeholder_bg_color: #24252C;
   --placeholder_color: #A7A8AB;
   --result_color:  rgb(228, 86, 86);
+  --result-green-color: #48e055;
 }
 
 body {
@@ -97,8 +98,13 @@ table {
 .input_list {
   display: flex;
   width: 100%;
+  gap:15px;
+}
 
-  gap:15px
+.input_label {
+  width: 100%;
+  padding: 7px;
+  font-size: 18px;
 }
 
 /* ============ Title =========== */
@@ -168,4 +174,7 @@ table {
   font-weight: bold;
   padding: 10px 0;
   color: var(--result_color);
+}
+.green-color-result {
+  color: var(--result-green-color);
 }

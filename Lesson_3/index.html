@@ -25,6 +25,7 @@
         </div>
         <!-- Tasks list -->
         <ul class="tasks_list">
+          <!-- Task 1 -->
           <li class="task_block">
             <h2 class="task_counter">Задача 1</h2>
             <p class="task_text">
@@ -61,6 +62,36 @@
             </form>
             <div class="result result1"></div>
           </li>
+          <!-- Task 2-->
+          <li class="task_block">
+            <h2 class="task_counter">Задача 2</h2>
+            <p class="task_text">
+              З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей
+              не вистачає то відмовляємо у покупці, інакше, якщо ще залишаються
+              гроші, то пропонуємо купити лотерею за 4 грн.
+            </p>
+            <form method="POST" action="#">
+              <div class="input_list">
+                <p class="input_label">Введіть ціну товара:</p>
+                <input
+                  class="getPrice"
+                  type="number"
+                  placeholder="Ціна товара:"
+                />
+              </div>
+              <div class="input_list">
+                <p class="input_label">Введіть залишок грошей у гаманці:</p>
+                <input
+                  class="getCashBalance"
+                  type="number"
+                  placeholder="У гаманці:"
+                />
+              </div>
+              <button class="button2" type="button">Click!</button>
+            </form>
+            <div class="result result2"></div>
+          </li>
+          <!-- Task 3-->
         </ul>
       </div>
     </div>
