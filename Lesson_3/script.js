@@ -186,48 +186,42 @@ function getCarCateg() {
 document.querySelector('.button6').addEventListener('click', getDayName)
 
 function getDayName() {
-  const dayNumb = parseInt(document.querySelector('.getDayNumb').value)
-  // статичні константи
-  // мінімальне і максимальне значення номера дня
-  const MIN_VAL_DAY_NUMB = 1
-  const MAX_VAL_DAY_NUMB = 7
-
-  if (dayNumb >= MIN_VAL_DAY_NUMB && dayNumb <= MAX_VAL_DAY_NUMB) {
-    // ініціалізація змінної назви дня
-    let nameDay = ''
-    // визначення назви дня
-    switch (dayNumb) {
-      case 1:
-        nameDay = 'Понеділок'
-        break
-      case 2:
-        nameDay = 'Вівторок'
-        break
-      case 3:
-        nameDay = 'Середа'
-        break
-      case 4:
-        nameDay = 'Четвер'
-        break
-      case 5:
-        nameDay = 'П’ятниця'
-        break
-      case 6:
-        nameDay = 'Субота'
-        break
-      default:
-        nameDay = 'Неділя'
-    }
-    // вивід на сторінку
-    document.querySelector('.result6').innerHTML = `
+  let dayNumb = parseInt(document.querySelector('.getDayNumb').value)
+  const DAYS_IN_WEEK_MIN = 1
+  const DAYS_IN_WEEK_MAX = 7
+  // вираховуємо день тижня
+  dayNumb = Math.ceil(((dayNumb - DAYS_IN_WEEK_MIN) % DAYS_IN_WEEK_MAX) + 1)
+  // ініціалізація змінної назви дня
+  let nameDay = ''
+  // визначення назви дня
+  switch (dayNumb) {
+    case 1:
+      nameDay = 'Понеділок'
+      break
+    case 2:
+      nameDay = 'Вівторок'
+      break
+    case 3:
+      nameDay = 'Середа'
+      break
+    case 4:
+      nameDay = 'Четвер'
+      break
+    case 5:
+      nameDay = 'П’ятниця'
+      break
+    case 6:
+      nameDay = 'Субота'
+      break
+    default:
+      nameDay = 'Неділя'
+  }
+  // вивід на сторінку
+  document.querySelector('.result6').innerHTML = `
       <span class="green-color-result">
         День тижня: ${nameDay}
       </span>`
-  } else {
-    // вивід на сторінку якщо номер не коректний
-    document.querySelector('.result6').innerHTML = `
-      <span>
-        Ви ввели не вірний номер дня. Діапазон днів вказаний в умові
-      </span>`
-  }
 }
+
+// ================== Задача 7 ==================
+// З клавіатури вводиться номер місяця. Вивести до якої пори він відноситься
