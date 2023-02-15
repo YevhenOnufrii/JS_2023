@@ -117,9 +117,8 @@ function whoYouAre() {
   // отримуємо дані
   const age = parseInt(document.querySelector('.getAge').value)
   // зміння для статуса
-  let status = ''
+  let status = 'Дитина у садочку'
   // визначення статуса
-  if (age < CHILD) status = 'Дитина у садочку'
   if (age >= CHILD && age < STUDENT) status = 'Школяр'
   if (age >= STUDENT && age < WORKER) status = 'Студент'
   if (age >= WORKER && age < RETIRED) status = 'Працівник'
@@ -154,16 +153,13 @@ function getCarCateg() {
   // інакше повертаємо повідомлення, що введена не вірна літера
   if (validStr.includes(driverCateg)) {
     // змінна для категорії ТЗ
-    let carCategory = ''
+    let carCategory = 'мотоцикл.'
     // розкидуємо по категоріям
     switch (driverCateg) {
-      case CATEGORY_A:
-        carCategory = 'мотоцикл.'
-        break
       case CATEGORY_B:
         carCategory = 'легковий автомобіль.'
         break
-      default:
+      case CATEGORY_C:
         carCategory = 'вантажний автомобіль.'
     }
     // вивід на сторінку
@@ -192,7 +188,7 @@ function getDayName() {
   // вираховуємо день тижня
   dayNumb = Math.ceil(((dayNumb - DAYS_IN_WEEK_MIN) % DAYS_IN_WEEK_MAX) + 1)
   // ініціалізація змінної назви дня
-  let nameDay = ''
+  let nameDay = 'Неділя'
   // визначення назви дня
   switch (dayNumb) {
     case 1:
@@ -213,8 +209,6 @@ function getDayName() {
     case 6:
       nameDay = 'Субота'
       break
-    default:
-      nameDay = 'Неділя'
   }
   // вивід на сторінку
   document.querySelector('.result6').innerHTML = `
@@ -225,3 +219,27 @@ function getDayName() {
 
 // ================== Задача 7 ==================
 // З клавіатури вводиться номер місяця. Вивести до якої пори він відноситься
+
+document.querySelector('.button7').addEventListener('click', getSeasonName)
+
+function getSeasonName() {
+  // статичні дані
+  const MIN_MONTHS_IN_YEAR = 1
+  const MAX_MONTHS_IN_YEAR = 12
+  // дані від користувача
+  let monthNumb = parseInt(document.querySelector('.getMonthNumb').value)
+  // вираховуємо номер місяця, якщо користувач ввів число більше 12
+  monthNumb = Math.ceil(
+    ((monthNumb - MIN_MONTHS_IN_YEAR) % MAX_MONTHS_IN_YEAR) + 1
+  )
+  let season = 'Зима'
+  if (monthNumb >= 3 && monthNumb <= 5) season = 'Весна'
+  if (monthNumb >= 6 && monthNumb <= 8) season = 'Літо'
+  if (monthNumb >= 9 && monthNumb <= 11) season = 'Осінь'
+
+  // вивід на сторінку
+  document.querySelector('.result7').innerHTML = `
+      <span class="green-color-result">
+        Пора року: ${season}
+      </span>`
+}
