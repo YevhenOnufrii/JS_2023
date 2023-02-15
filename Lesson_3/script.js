@@ -312,3 +312,39 @@ function randomGame() {
     ${result}
     `
 }
+
+// ================== Задача 3 ==================
+
+// Задача 3. Комп’ютер загадує число від 1 до 10. Двоє користувачів надають свої відповіді. Виграє той, у кого число знаходиться ближче до загаданого комп’ютером числа.
+
+document.querySelector('.button3_1').addEventListener('click', whoIsWinner)
+
+function whoIsWinner() {
+  const MIN_VAL = 1
+  const MAX_VAL = 10
+
+  const userOneAttempt = parseInt(
+    document.querySelector('.getAttempt1_1').value
+  )
+  const userTwoAttempt = parseInt(
+    document.querySelector('.getAttempt2_1').value
+  )
+  const randomNum =
+    MIN_VAL + Math.floor(Math.random() * (MAX_VAL - MIN_VAL + 1))
+
+  const diffUserOne = Math.abs(randomNum - userOneAttempt)
+  const diffUserTwo = Math.abs(randomNum - userTwoAttempt)
+
+  console.log(diffUserOne, diffUserTwo)
+
+  const winner =
+    diffUserOne < diffUserTwo
+      ? `Переміг користувач 1. Загадане число ${randomNum}`
+      : `Переміг користувач 2. Загадане число ${randomNum}`
+
+  document.querySelector('.result3_1').innerHTML = `${winner}`
+}
+
+// ================== Задача 4 ==================
+
+// Задача 4. Комп’ютер загадує число від 1 до 10. Двоє користувачів надають свої відповіді. Виграє той, у кого число знаходиться ближче до загаданого комп’ютером числа.
