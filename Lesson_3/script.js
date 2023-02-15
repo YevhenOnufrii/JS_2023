@@ -255,7 +255,7 @@ function getEmoji() {
   if (emojiNumb >= 1 && emojiNumb <= 3) {
     const SMILE = '<img class="svg_pic" src="./img/smile.svg" alt=""></img>'
     const SAD = '<img class="svg_pic" src="./img/sad.svg" alt=""></img>'
-    const ANGRY = '<img src="./img/angry.svg" alt=""></img>'
+    const ANGRY = '<img class="svg_pic" src="./img/angry.svg" alt=""></img>'
 
     let getEmoji = SMILE
 
