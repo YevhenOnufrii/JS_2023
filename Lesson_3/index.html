@@ -1,205 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <title>ДЗ №3 (lesson 3)</title>
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class="container">
-        <!-- Title -->
-        <h1 class="title">Homework #3</h1>
-        <!-- User info block -->
-        <div class="user_block">
-          <div class="user_avatar">
-            <img
-              src="./img/7j04mom6qrw71.webp"
-              alt="avatar"
-              class="avatar_img"
-            />
-          </div>
-          <p class="user_title" title="Discord userName">Yevhen__#3515</p>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <title>ДЗ №3 (lesson 3)</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <!-- Title -->
+      <h1 class="title">Homework #3</h1>
+      <!-- User info block -->
+      <div class="user_block">
+        <div class="user_avatar">
+          <img src="./img/7j04mom6qrw71.webp" alt="avatar" class="avatar_img" />
         </div>
-        <!-- Tasks list -->
-        <ul class="tasks_list">
-          <!-- Task 1 -->
-          <li class="task_block">
-            <h2 class="task_counter">Задача 1</h2>
-            <p class="task_text">
-              З клавіатури вводяться імена двох дітей та кількість у них
-              цукерок. Вивести не екран ім’я тієї дитини, у якої кількість
-              цукерок є більшою, або вивести, що кількість однакова.
-            </p>
-            <form method="POST" action="#">
-              <div class="input_list">
-                <input
-                  class="getFirstName"
-                  type="text"
-                  placeholder="Введіть ім’я першої дити"
-                />
-                <input
-                  class="getSweatsQuantityFirstChild"
-                  type="number"
-                  placeholder="Введіть к-сть цукерок у першої дитини"
-                />
-              </div>
-              <div class="input_list">
-                <input
-                  class="getSecondName"
-                  type="text"
-                  placeholder="Введіть ім’я другої дити"
-                />
-                <input
-                  class="getSweatsQuantitySecondChild"
-                  type="number"
-                  placeholder="Введіть к-сть цукерок у другої дитини"
-                />
-              </div>
-              <button class="button1" type="button">Click!</button>
-            </form>
-            <div class="result result1"></div>
-          </li>
-          <!-- Task 2-->
-          <li class="task_block">
-            <h2 class="task_counter">Задача 2</h2>
-            <p class="task_text">
-              З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей
-              не вистачає то відмовляємо у покупці, інакше, якщо ще залишаються
-              гроші, то пропонуємо купити лотерею за 4 грн.
-            </p>
-            <form method="POST" action="#">
-              <div class="input_list">
-                <p class="input_label">Введіть ціну товара:</p>
-                <input
-                  class="getPrice"
-                  type="number"
-                  placeholder="Ціна товара:"
-                />
-              </div>
-              <div class="input_list">
-                <p class="input_label">Введіть залишок грошей у гаманці:</p>
-                <input
-                  class="getCashBalance"
-                  type="number"
-                  placeholder="У гаманці:"
-                />
-              </div>
-              <button class="button2" type="button">Click!</button>
-            </form>
-            <div class="result result2"></div>
-          </li>
-          <!-- Task 3-->
-          <li class="task_block">
-            <h2 class="task_counter">Задача 3</h2>
-            <p class="task_text">
-              Випадковим чином генерується число від 1 до 5. Спробуйте вгадати
-              число за 2 спроби.
-            </p>
-            <form method="POST" action="#">
-              <div class="input_list tightLabel">
-                <p class="input_label">Спроба 1:</p>
-                <input
-                  class="getAttempt1"
-                  type="number"
-                  placeholder="Введіть число"
-                />
-              </div>
-              <div class="input_list tightLabel">
-                <p class="input_label">Спроба 2:</p>
-                <input
-                  class="getAttempt2"
-                  type="number"
-                  placeholder="Введіть число"
-                />
-              </div>
-              <button class="button3" type="button">Click!</button>
-            </form>
-            <div class="result result3"></div>
-          </li>
-          <!-- Task 4-->
-          <li class="task_block">
-            <h2 class="task_counter">Задача 4</h2>
-            <p class="task_text">
-              З клавіатури вводиться вік людини. Вивести на екран ким він є
-              (дитиною у садочку, школярем, студентом, працівником,
-              пенсіонером).
-            </p>
-            <form method="POST" action="#">
-              <div class="input_list tightLabel">
-                <p class="input_label">Введіть вік людини</p>
-                <input class="getAge" type="number" placeholder="Вік:" />
-              </div>
-              <button class="button4" type="button">Click!</button>
-            </form>
-            <div class="result result4"></div>
-          </li>
-          <!-- Task 5-->
-          <li class="task_block">
-            <h2 class="task_counter">Задача 5</h2>
-            <p class="task_text">
-              З клавіатури вводиться назва категорії водія (А-мотоцикл,
-              В-легковий автомобіль, С-вантажний автомобіль). Вивести на екран
-              назву транспортного засобу, яким він може керувати.
-            </p>
-            <form method="POST" action="#">
-              <div class="input_list tightLabel">
-                <p class="input_label">Введіть катег. водія:</p>
-                <input
-                  class="getdriverCateg"
-                  type="text"
-                  placeholder="Введіть латинську літеру категорії водія"
-                />
-              </div>
-              <button class="button5" type="button">Click!</button>
-            </form>
-            <div class="result result5"></div>
-          </li>
-          <!-- Task 6-->
-          <li class="task_block">
-            <h2 class="task_counter">Задача 6</h2>
-            <p class="task_text">
-              З клавіатури вводиться номер дня тижня. Вивести на екран назву
-              дня.
-            </p>
-            <form method="POST" action="#">
-              <div class="input_list tightLabel">
-                <p class="input_label">Введіть номер дня тижня</p>
-                <input
-                  class="getDayNumb"
-                  type="number"
-                  placeholder="Введіть номер дня тижня"
-                />
-              </div>
-              <button class="button6" type="button">Click!</button>
-            </form>
-            <div class="result result6"></div>
-          </li>
-          <!-- Task 7-->
-          <li class="task_block">
-            <h2 class="task_counter">Задача 7</h2>
-            <p class="task_text">
-              З клавіатури вводиться номер місяця. Вивести до якої пори року він
-              відноситься
-            </p>
-            <form method="POST" action="#">
-              <div class="input_list tightLabel">
-                <p class="input_label">Введіть номер місяця</p>
-                <input
-                  class="getMonthNumb"
-                  type="number"
-                  placeholder="Введіть номер місяця"
-                />
-              </div>
-              <button class="button7" type="button">Click!</button>
-            </form>
-            <div class="result result7"></div>
-          </li>
-        </ul>
+        <p class="user_title" title="Discord userName">Yevhen__#3515</p>
       </div>
+      <!-- Tasks list -->
+      <ul class="tasks_list">
+        <!-- Task 1 -->
+        <li class="task_block">
+          <h2 class="task_counter">Задача 1</h2>
+          <p class="task_text">
+            З клавіатури вводяться імена двох дітей та кількість у них
+            цукерок. Вивести не екран ім’я тієї дитини, у якої кількість
+            цукерок є більшою, або вивести, що кількість однакова.
+          </p>
+          <form method="POST" action="#">
+            <div class="input_list">
+              <input class="getFirstName" type="text" placeholder="Введіть ім’я першої дити" />
+              <input class="getSweatsQuantityFirstChild" type="number"
+                placeholder="Введіть к-сть цукерок у першої дитини" />
+            </div>
+            <div class="input_list">
+              <input class="getSecondName" type="text" placeholder="Введіть ім’я другої дити" />
+              <input class="getSweatsQuantitySecondChild" type="number"
+                placeholder="Введіть к-сть цукерок у другої дитини" />
+            </div>
+            <button class="button1" type="button">Click!</button>
+          </form>
+          <div class="result result1"></div>
+        </li>
+        <!-- Task 2-->
+        <li class="task_block">
+          <h2 class="task_counter">Задача 2</h2>
+          <p class="task_text">
+            З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей
+            не вистачає то відмовляємо у покупці, інакше, якщо ще залишаються
+            гроші, то пропонуємо купити лотерею за 4 грн.
+          </p>
+          <form method="POST" action="#">
+            <div class="input_list">
+              <p class="input_label">Введіть ціну товара:</p>
+              <input class="getPrice" type="number" placeholder="Ціна товара:" />
+            </div>
+            <div class="input_list">
+              <p class="input_label">Введіть залишок грошей у гаманці:</p>
+              <input class="getCashBalance" type="number" placeholder="У гаманці:" />
+            </div>
+            <button class="button2" type="button">Click!</button>
+          </form>
+          <div class="result result2"></div>
+        </li>
+        <!-- Task 3-->
+        <li class="task_block">
+          <h2 class="task_counter">Задача 3</h2>
+          <p class="task_text">
+            Випадковим чином генерується число від 1 до 5. Спробуйте вгадати
+            число за 2 спроби.
+          </p>
+          <form method="POST" action="#">
+            <div class="input_list tightLabel">
+              <p class="input_label">Спроба 1:</p>
+              <input class="getAttempt1" type="number" placeholder="Введіть число" />
+            </div>
+            <div class="input_list tightLabel">
+              <p class="input_label">Спроба 2:</p>
+              <input class="getAttempt2" type="number" placeholder="Введіть число" />
+            </div>
+            <button class="button3" type="button">Click!</button>
+          </form>
+          <div class="result result3"></div>
+        </li>
+        <!-- Task 4-->
+        <li class="task_block">
+          <h2 class="task_counter">Задача 4</h2>
+          <p class="task_text">
+            З клавіатури вводиться вік людини. Вивести на екран ким він є
+            (дитиною у садочку, школярем, студентом, працівником,
+            пенсіонером).
+          </p>
+          <form method="POST" action="#">
+            <div class="input_list tightLabel">
+              <p class="input_label">Введіть вік людини</p>
+              <input class="getAge" type="number" placeholder="Вік:" />
+            </div>
+            <button class="button4" type="button">Click!</button>
+          </form>
+          <div class="result result4"></div>
+        </li>
+        <!-- Task 5-->
+        <li class="task_block">
+          <h2 class="task_counter">Задача 5</h2>
+          <p class="task_text">
+            З клавіатури вводиться назва категорії водія (А-мотоцикл,
+            В-легковий автомобіль, С-вантажний автомобіль). Вивести на екран
+            назву транспортного засобу, яким він може керувати.
+          </p>
+          <form method="POST" action="#">
+            <div class="input_list tightLabel">
+              <p class="input_label">Введіть катег. водія:</p>
+              <input class="getdriverCateg" type="text" placeholder="Введіть латинську літеру категорії водія" />
+            </div>
+            <button class="button5" type="button">Click!</button>
+          </form>
+          <div class="result result5"></div>
+        </li>
+        <!-- Task 6-->
+        <li class="task_block">
+          <h2 class="task_counter">Задача 6</h2>
+          <p class="task_text">
+            З клавіатури вводиться номер дня тижня. Вивести на екран назву
+            дня.
+          </p>
+          <form method="POST" action="#">
+            <div class="input_list tightLabel">
+              <p class="input_label">Введіть номер дня тижня</p>
+              <input class="getDayNumb" type="number" placeholder="Введіть номер дня тижня" />
+            </div>
+            <button class="button6" type="button">Click!</button>
+          </form>
+          <div class="result result6"></div>
+        </li>
+        <!-- Task 7-->
+        <li class="task_block">
+          <h2 class="task_counter">Задача 7</h2>
+          <p class="task_text">
+            З клавіатури вводиться номер місяця. Вивести до якої пори року він
+            відноситься
+          </p>
+          <form method="POST" action="#">
+            <div class="input_list tightLabel">
+              <p class="input_label">Введіть номер місяця</p>
+              <input class="getMonthNumb" type="number" placeholder="Введіть номер місяця" />
+            </div>
+            <button class="button7" type="button">Click!</button>
+          </form>
+          <div class="result result7"></div>
+        </li>
+      </ul>
     </div>
-    <script defer src="./script.js"></script>
-  </body>
+  </div>
+  <script defer src="./script.js"></script>
+</body>
+
 </html>
