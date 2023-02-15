@@ -29,7 +29,6 @@ function whoHasMore() {
 
   // виводимо на сторінку
   document.querySelector('.result1').innerHTML = `${winner}`
-  console.log(sweatsQuantityFirstChild)
 }
 
 // ================== Задача 2 ==================
@@ -88,7 +87,6 @@ function guessNaumer() {
   const attempt2 = parseInt(document.querySelector('.getAttempt2').value)
   // генерація рандомного чмсла
   const randomNum = MIN + Math.floor(Math.random() * (MAX - MIN + 1))
-  console.log(randomNum)
   // якщо перша або друга спроба успішні
   if (attempt1 === randomNum || attempt2 === randomNum) {
     return (document.querySelector('.result3').innerHTML = `
@@ -242,4 +240,75 @@ function getSeasonName() {
       <span class="green-color-result">
         Пора року: ${season}
       </span>`
+}
+
+// ================== ДОДАТКОВІ ЗАВДАННЯ ==================
+
+// ================== Задача 1 ==================
+// На екран виводиться меню: 1. Веселий 2. Сумний 3. Обурений
+// Користувач вводить номер пункту меню і на екрані з’являється відповідне зображення смайла.
+
+document.querySelector('.button1_1').addEventListener('click', getEmoji)
+
+function getEmoji() {
+  const emojiNumb = parseInt(document.querySelector('.getEmojiNumb').value)
+  if (emojiNumb >= 1 && emojiNumb <= 3) {
+    const SMILE = '<img src="./img/smile.svg" alt=""></img>'
+    const SAD = '<img src="./img/sad.svg" alt=""></img>'
+    const ANGRY = '<img src="./img/angry.svg" alt=""></img>'
+
+    let getEmoji = SMILE
+
+    switch (emojiNumb) {
+      case 2:
+        getEmoji = SAD
+        break
+      case 3:
+        getEmoji = ANGRY
+        break
+    }
+    document.querySelector('.result1_1').innerHTML = `
+    ${getEmoji}  
+    `
+  } else {
+    document.querySelector('.result1_1').innerHTML = `
+    Введіть коректний номер емодзі  
+    `
+  }
+}
+
+// ================== Задача 2 ==================
+// Комп’ютер випадковим чином вибирає початок і кінець проміжку (проміжок повинен знаходитися в межах від 1 до 100). Користувач вводить число і виграє, якщо число знаходиться у цьому проміжку, або розташоване від нього (від лівого або правого краю) не більше ніж на 10.
+
+// формула рандомного числа min + Math.floor(Math.random() * (max - min + 1))
+
+document.querySelector('.button1_2').addEventListener('click', randomGame)
+
+function randomGame() {
+  const SMILE = '<img class="svg_pic" src="./img/smile.svg" alt=""></img>'
+  const SAD = '<img class="svg_pic" src="./img/sad.svg" alt=""></img>'
+
+  const MIN_VAL = 1
+  const MAX_VAL = 100
+  const permisInterval = 10
+
+  const NumbFromUser = parseInt(document.querySelector('.getGameNumb').value)
+  // генерація рандомного числа
+  const randomNumber =
+    MIN_VAL + Math.floor(Math.random() * (MAX_VAL - MIN_VAL + 1))
+  // знаходимо різницю між рандомним і числом користувача
+  // abs - поверне абсолютне значення числа ( -2 => 2 )
+  let diff = Math.abs(randomNumber - NumbFromUser)
+  // дефолтний результат
+  let result = `<p>Ви не вгадали! Загадане число ${randomNumber}</p> ${SAD}`
+  // вгадав
+  if (diff <= permisInterval) {
+    result = `<p>Ви вгадали! Загадане число ${randomNumber}.</p>
+  ${SMILE}`
+  }
+
+  // виводимо результат
+  document.querySelector('.result1_2').innerHTML = `
+    ${result}
+    `
 }
