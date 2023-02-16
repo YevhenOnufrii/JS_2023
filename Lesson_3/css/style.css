@@ -162,6 +162,7 @@ table {
   margin-bottom: 10px;
   border-radius: 15px;
   background-color: var(--hover_bg_task);
+
 }
 
 .task_counter {
@@ -212,3 +213,17 @@ table {
   margin-bottom: 10px;
 }
 
+
+/* ================= Task 4 Additional ================= */
+.button_wrap_tsk4{
+  display: flex;
+  justify-content: center;
+}
+.button4_1{
+
+}
+
+.result4_1 {
+  text-align: center;
+  font-size: 30px;
+}
