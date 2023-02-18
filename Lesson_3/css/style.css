@@ -227,12 +227,12 @@ table {
 
 /* ================= Task 5 Additional ================= */
 
-.button_wrap_tsk5, .button_wrap_tsk6 {
+.button_wrap_tsk5, .button_wrap_tsk6, .button_wrap_tsk7 {
   display: flex;
   justify-content: center;
 }
 
-.result5_1, .result6_1 {
+.result5_1, .result6_1, .result7_1 {
   text-align: center;
   font-size: 30px;
 }

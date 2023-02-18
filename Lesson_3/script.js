@@ -427,8 +427,6 @@ function catchRabbit() {
 
   let getRandomPositionX = minVal + Math.floor(Math.random() * (maxVal - minVal + 1))
   let getRandomPositionY = minVal + Math.floor(Math.random() * (maxVal - minVal + 1))
-  console.log(getRandomPositionX, 'getRandomPositionX')
-  console.log(getRandomPositionY, 'getRandomPositionY')
 
   let userAttemptX = parseInt(prompt('Введіть значення Х для пастки:'))
   let userAttemptY = parseInt(prompt('Введіть значення Y для пастки:'))
@@ -437,24 +435,8 @@ function catchRabbit() {
   if (userAttemptX === getRandomPositionX && userAttemptY === getRandomPositionY)
     out = `<p class="green-color-result">Ваша пастка страцювала. Ви отримуєте 100 балів</p>`
   else {
-    // присвоюю поточні координати змінним, щоб порахувати наступний рандом
-    // далі ці змінні потрібно порівняти чи дійсно у змінну мін падає мінімальне значення у макс максимальне
-    // інакше формула рандому не буде рацювати вірно
-    let minCurrent = userAttemptX
-    let maxCurrent = userAttemptY
-
-    if (maxCurrent > minCurrent) {
-      // якщо все ок рахуємо рандом
-      getRandomPositionX = minCurrent + Math.floor(Math.random() * (maxCurrent - minCurrent + 1))
-      getRandomPositionY = minCurrent + Math.floor(Math.random() * (maxCurrent - minCurrent + 1))
-    } else {
-      // якщо мінімальне більше макс, то міняємо їх місцями у формулі і рахуємо рандом
-      getRandomPositionX = maxCurrent + Math.floor(Math.random() * (minCurrent - maxCurrent + 1))
-      getRandomPositionY = maxCurrent + Math.floor(Math.random() * (maxCurrent - maxCurrent + 1))
-    }
-    console.log(getRandomPositionX, '2  getRandomPositionX')
-    console.log(getRandomPositionY, '2  getRandomPositionY')
-    // координати для другої спроби
+    getRandomPositionX = minVal + Math.floor(Math.random() * (maxVal - minVal + 1))
+    getRandomPositionY = minVal + Math.floor(Math.random() * (maxVal - minVal + 1))
     userAttemptX = parseInt(prompt('Друга спроба: Введіть значення Х для пастки:'))
     userAttemptY = parseInt(prompt('Друга спроба: Введіть значення Y для пастки:'))
     if (userAttemptX === getRandomPositionX && userAttemptY === getRandomPositionY)
@@ -472,6 +454,60 @@ function catchRabbit() {
 // 3) якщо випадає непарне число, то кількість балів зменшується на це число;
 // 4) виграє той, у кого кількість балів більша.
 
-// ? ================== Задача 7 END =================
+function dice() {
+  const minVal = 1
+  const maxVal = 6
 
-function dice() {}
+  // ============ First user ================
+
+  let resultOnDice = minVal + Math.floor(Math.random() * (maxVal - minVal + 1))
+
+  let firstUserScore1 = resultOnDice
+
+  if (resultOnDice % 2 === 0) firstUserScore1 *= 2
+  else firstUserScore1 = 0
+
+  let choice = confirm(
+    `Гравець №1. Вам випало число ${resultOnDice}. Ваш результат ${firstUserScore1}. Бажаєте кинути кості ще раз?`
+  )
+  let firstUserScore2
+  if (choice) {
+    resultOnDice = minVal + Math.floor(Math.random() * (maxVal - minVal + 1))
+    if (resultOnDice % 2 === 0) firstUserScore2 = firstUserScore1 + resultOnDice * 2
+    else firstUserScore2 = firstUserScore1 - resultOnDice
+    if (firstUserScore2 < 0) firstUserScore2 = 0
+  }
+
+  let totalScoreUser1
+  if (choice) totalScoreUser1 = firstUserScore2
+  else totalScoreUser1 = firstUserScore1
+  confirm(`Гравець №1. Вам випало число ${resultOnDice}. Ваш результат: ${totalScoreUser1}`)
+
+  // ============ Second user ================
+
+  resultOnDice = minVal + Math.floor(Math.random() * (maxVal - minVal + 1))
+  let secondUserScore1 = resultOnDice
+  if (resultOnDice % 2 === 0) secondUserScore1 *= 2
+  else secondUserScore1 = 0
+  let choice2 = confirm(
+    `Гравець №2. Вам випало число ${resultOnDice}. Ваш результат ${secondUserScore1}. Бажаєте кинути кості ще раз?`
+  )
+  let secondtUserScore2
+  if (choice2) {
+    resultOnDice = minVal + Math.floor(Math.random() * (maxVal - minVal + 1))
+    if (resultOnDice % 2 === 0) secondtUserScore2 = secondUserScore1 + resultOnDice * 2
+    else secondtUserScore2 = secondUserScore1 - resultOnDice
+    if (secondtUserScore2 < 0) secondtUserScore2 = 0
+  }
+
+  let totalScoreUser2
+  if (choice2) totalScoreUser2 = secondtUserScore2
+  else totalScoreUser2 = secondUserScore1
+  confirm(`Гравець №2. Вам випало число ${resultOnDice}. Ваш результат: ${totalScoreUser2}`)
+
+  document.querySelector(
+    '.result7_1'
+  ).innerHTML = `Гравець №1 результат: ${totalScoreUser1}. Гравець №2 результат: ${totalScoreUser2}.`
+}
+
+// ? ================== Задача 7 END =================
