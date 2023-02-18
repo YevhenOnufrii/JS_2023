@@ -425,8 +425,10 @@ function catchRabbit() {
   const minVal = 1
   const maxVal = 2
 
-  const getRandomPositionX = minVal + Math.floor(Math.random() * (maxVal - minVal + 1))
-  const getRandomPositionY = minVal + Math.floor(Math.random() * (maxVal - minVal + 1))
+  let getRandomPositionX = minVal + Math.floor(Math.random() * (maxVal - minVal + 1))
+  let getRandomPositionY = minVal + Math.floor(Math.random() * (maxVal - minVal + 1))
+  console.log(getRandomPositionX, 'getRandomPositionX')
+  console.log(getRandomPositionY, 'getRandomPositionY')
 
   let userAttemptX = parseInt(prompt('Введіть значення Х для пастки:'))
   let userAttemptY = parseInt(prompt('Введіть значення Y для пастки:'))
@@ -435,13 +437,41 @@ function catchRabbit() {
   if (userAttemptX === getRandomPositionX && userAttemptY === getRandomPositionY)
     out = `<p class="green-color-result">Ваша пастка страцювала. Ви отримуєте 100 балів</p>`
   else {
+    // присвоюю поточні координати змінним, щоб порахувати наступний рандом
+    // далі ці змінні потрібно порівняти чи дійсно у змінну мін падає мінімальне значення у макс максимальне
+    // інакше формула рандому не буде рацювати вірно
+    let minCurrent = userAttemptX
+    let maxCurrent = userAttemptY
+
+    if (maxCurrent > minCurrent) {
+      // якщо все ок рахуємо рандом
+      getRandomPositionX = minCurrent + Math.floor(Math.random() * (maxCurrent - minCurrent + 1))
+      getRandomPositionY = minCurrent + Math.floor(Math.random() * (maxCurrent - minCurrent + 1))
+    } else {
+      // якщо мінімальне більше макс, то міняємо їх місцями у формулі і рахуємо рандом
+      getRandomPositionX = maxCurrent + Math.floor(Math.random() * (minCurrent - maxCurrent + 1))
+      getRandomPositionY = maxCurrent + Math.floor(Math.random() * (maxCurrent - maxCurrent + 1))
+    }
+    console.log(getRandomPositionX, '2  getRandomPositionX')
+    console.log(getRandomPositionY, '2  getRandomPositionY')
+    // координати для другої спроби
     userAttemptX = parseInt(prompt('Друга спроба: Введіть значення Х для пастки:'))
     userAttemptY = parseInt(prompt('Друга спроба: Введіть значення Y для пастки:'))
     if (userAttemptX === getRandomPositionX && userAttemptY === getRandomPositionY)
-      out = `<p class="green-color-result">Ваша пастка страцювала. Ви отримуєте 50 балів</p>`
+      out = `<p class="green-color-result">Ваша пастка спрацювала. Ви отримуєте 50 балів</p>`
     else out = `Ваша пастка не страцювала. Ви програли.`
   }
   document.querySelector('.result6_1').innerHTML = `${out}`
 }
 
 // ? ================== Задача 6 END =================
+// ? ================== Задача 7 START =================
+// Задача 7. Гра в кості. Правила гри:
+// 1) користувач може кинути кості не більше двох разів (користувач сам вирішує чи робити, чи не робити другий кидок);
+// 2) якщо випадає парне число, то кількість балів збільшується на це число;
+// 3) якщо випадає непарне число, то кількість балів зменшується на це число;
+// 4) виграє той, у кого кількість балів більша.
+
+// ? ================== Задача 7 END =================
+
+function dice() {}
