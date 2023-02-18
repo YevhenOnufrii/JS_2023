@@ -422,11 +422,14 @@ function navalBattleV2() {
 // Полювання. Заєць знаходиться у верхньому лівому кутку поля. Поле складається з двох рядків і двох стовпців. За один крок заєць може стрибнути у будь-яку із вільних клітинок. Користувач ставить пастку вказуючи номер рядка і стовпця клітинки. Якщо заєць потрапляє у пастку, то користувач виграв і отримав 100 балів. Якщо користувач зловить зайця за другою спробою, то одержує 50 балів.
 
 function catchRabbit() {
-  const minVal = 1
-  const maxVal = 2
+  function getRandom() {
+    const minVal = 1
+    const maxVal = 2
+    return minVal + Math.floor(Math.random() * (maxVal - minVal + 1))
+  }
 
-  let getRandomPositionX = minVal + Math.floor(Math.random() * (maxVal - minVal + 1))
-  let getRandomPositionY = minVal + Math.floor(Math.random() * (maxVal - minVal + 1))
+  let getRandomPositionX = getRandom()
+  let getRandomPositionY = getRandom()
 
   let userAttemptX = parseInt(prompt('Введіть значення Х для пастки:'))
   let userAttemptY = parseInt(prompt('Введіть значення Y для пастки:'))
@@ -435,10 +438,12 @@ function catchRabbit() {
   if (userAttemptX === getRandomPositionX && userAttemptY === getRandomPositionY)
     out = `<p class="green-color-result">Ваша пастка страцювала. Ви отримуєте 100 балів</p>`
   else {
-    getRandomPositionX = minVal + Math.floor(Math.random() * (maxVal - minVal + 1))
-    getRandomPositionY = minVal + Math.floor(Math.random() * (maxVal - minVal + 1))
+    getRandomPositionX = getRandom()
+    getRandomPositionY = getRandom()
+
     userAttemptX = parseInt(prompt('Друга спроба: Введіть значення Х для пастки:'))
     userAttemptY = parseInt(prompt('Друга спроба: Введіть значення Y для пастки:'))
+
     if (userAttemptX === getRandomPositionX && userAttemptY === getRandomPositionY)
       out = `<p class="green-color-result">Ваша пастка спрацювала. Ви отримуєте 50 балів</p>`
     else out = `Ваша пастка не страцювала. Ви програли.`
