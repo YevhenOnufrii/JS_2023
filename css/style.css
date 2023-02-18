@@ -73,20 +73,22 @@ body {
 }
 
 .task_block {
-  background-color: var(--bg_color_tasks);
+  /* background-color: var(--bg_color_tasks); */
   /* padding: 15px 10px; */
   max-width: 250px;
   border-radius: 10px;
   text-align: center;
+  border: 1px solid var(--hover_color_task);
   
+  color: var(--font_main_color);
   transition-duration: 500ms;
 }
 
 .task_block:hover {
-  color: var(--hover_color_task);
   background-color: var(--hover_bg_task);
   transform: translate(12px, 0);
-  scale: 1.1;
+  scale: 109%;
+  border: none;
 }
 
 
