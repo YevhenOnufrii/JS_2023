@@ -8,18 +8,14 @@ document.querySelector('.button1').addEventListener('click', whoHasMore)
 function whoHasMore() {
   //отримуємо дані від користувача
   const firstChildName = document.querySelector('.getFirstName').value
-  const sweatsQuantityFirstChild =
-    parseInt(document.querySelector('.getSweatsQuantityFirstChild').value) || 0
+  const sweatsQuantityFirstChild = parseInt(document.querySelector('.getSweatsQuantityFirstChild').value) || 0
   const secondChildName = document.querySelector('.getSecondName').value
-  const sweatsQuantitySecondChild =
-    parseInt(document.querySelector('.getSweatsQuantitySecondChild').value) || 0
+  const sweatsQuantitySecondChild = parseInt(document.querySelector('.getSweatsQuantitySecondChild').value) || 0
 
   // порівнюємо кількість цукерок і повертаємо результат
   // якщо кількість цукерок однакова
   if (sweatsQuantityFirstChild === sweatsQuantitySecondChild) {
-    return (document.querySelector(
-      '.result1'
-    ).innerHTML = `В обох дітей однакова кількість цукерок`)
+    return (document.querySelector('.result1').innerHTML = `В обох дітей однакова кількість цукерок`)
   }
   //визначаємо переможця
   const winner =
@@ -41,8 +37,7 @@ function balanceCalc() {
   // отримуємо ціну товару або дефолтний 0
   const itemPrice = parseFloat(document.querySelector('.getPrice').value) || 0
   // отримуємо залишок грошей або дефолтний 0
-  const cashBalance =
-    parseFloat(document.querySelector('.getCashBalance').value) || 0
+  const cashBalance = parseFloat(document.querySelector('.getCashBalance').value) || 0
 
   // залишок на рахунку після покупки
   const leftover = cashBalance - itemPrice
@@ -65,9 +60,9 @@ function balanceCalc() {
   // якщо залишок грошей більше дорівнює ціні товару, але менше 4
   if (cashBalance >= itemPrice) {
     return (document.querySelector('.result2').innerHTML = `
-    <span class="green-color-result"> Вартість товару ${itemPrice.toFixed(
+    <span class="green-color-result"> Вартість товару ${itemPrice.toFixed(2)}, на рахунку ${cashBalance.toFixed(
       2
-    )}, на рахунку ${cashBalance.toFixed(2)}. Покупка дозволена.</span>  
+    )}. Покупка дозволена.</span>  
     `)
   }
 }
@@ -140,9 +135,7 @@ function getCarCateg() {
   const CATEGORY_C = 'C'
   // отримуємо дані
   // переводимо у верхній регістр
-  const driverCateg = document
-    .querySelector('.getdriverCateg')
-    .value.toUpperCase()
+  const driverCateg = document.querySelector('.getdriverCateg').value.toUpperCase()
   // маленька строка для валідації
   // 'ABC'
   const validStr = CATEGORY_A + CATEGORY_B + CATEGORY_C
@@ -227,9 +220,7 @@ function getSeasonName() {
   // дані від користувача
   let monthNumb = parseInt(document.querySelector('.getMonthNumb').value)
   // вираховуємо номер місяця, якщо користувач ввів число більше 12
-  monthNumb = Math.ceil(
-    ((monthNumb - MIN_MONTHS_IN_YEAR) % MAX_MONTHS_IN_YEAR) + 1
-  )
+  monthNumb = Math.ceil(((monthNumb - MIN_MONTHS_IN_YEAR) % MAX_MONTHS_IN_YEAR) + 1)
   let season = 'Зима'
   if (monthNumb >= 3 && monthNumb <= 5) season = 'Весна'
   if (monthNumb >= 6 && monthNumb <= 8) season = 'Літо'
@@ -294,8 +285,7 @@ function randomGame() {
 
   const NumbFromUser = parseInt(document.querySelector('.getGameNumb').value)
   // генерація рандомного числа
-  const randomNumber =
-    MIN_VAL + Math.floor(Math.random() * (MAX_VAL - MIN_VAL + 1))
+  const randomNumber = MIN_VAL + Math.floor(Math.random() * (MAX_VAL - MIN_VAL + 1))
   // знаходимо різницю між рандомним і числом користувача
   // abs - поверне абсолютне значення числа ( -2 => 2 )
   let diff = Math.abs(randomNumber - NumbFromUser)
@@ -323,19 +313,12 @@ function whoIsWinner() {
   const MIN_VAL = 1
   const MAX_VAL = 10
 
-  const userOneAttempt = parseInt(
-    document.querySelector('.getAttempt1_1').value
-  )
-  const userTwoAttempt = parseInt(
-    document.querySelector('.getAttempt2_1').value
-  )
-  const randomNum =
-    MIN_VAL + Math.floor(Math.random() * (MAX_VAL - MIN_VAL + 1))
+  const userOneAttempt = parseInt(document.querySelector('.getAttempt1_1').value)
+  const userTwoAttempt = parseInt(document.querySelector('.getAttempt2_1').value)
+  const randomNum = MIN_VAL + Math.floor(Math.random() * (MAX_VAL - MIN_VAL + 1))
 
   const diffUserOne = Math.abs(randomNum - userOneAttempt)
   const diffUserTwo = Math.abs(randomNum - userTwoAttempt)
-
-  console.log(diffUserOne, diffUserTwo)
 
   const winner =
     diffUserOne < diffUserTwo
@@ -361,10 +344,7 @@ function navalBattle() {
   const MIN_QUAN_SQUARES = 1
   const MAX_QUAN_SQUARES = parseInt(prompt('Введіть кількість квадратів', 0))
   // визначаємо рандомне число
-  const randomVal =
-    MIN_QUAN_SQUARES +
-    Math.floor(Math.random() * (MAX_QUAN_SQUARES - MIN_QUAN_SQUARES + 1))
-  console.log(randomVal, 'randomVal')
+  const randomVal = MIN_QUAN_SQUARES + Math.floor(Math.random() * (MAX_QUAN_SQUARES - MIN_QUAN_SQUARES + 1))
 
   // Спроба №1 користувача
   let userAttempt = parseInt(prompt('Введіть число для пострілу:', 0))
@@ -380,9 +360,7 @@ function navalBattle() {
   const diff = Math.abs(randomVal - userAttempt)
   // якщо різниця один пункт
   if (diff === 1) {
-    userAttempt = parseInt(
-      prompt('Корабель підбитий: Введіть наступні координати', 0)
-    )
+    userAttempt = parseInt(prompt('Корабель підбитий: Введіть наступні координати', 0))
   } else {
     // якщо різниця більше 1 пункта. Спроба №2
     userAttempt = parseInt(prompt('Мимо, маєте ще одну спробу.', 0))
@@ -393,24 +371,18 @@ function navalBattle() {
       '.result4_1'
     ).innerHTML = `<p class="green-color-result">Ви потопили противника!</p>`)
   } else {
-    document.querySelector(
-      '.result4_1'
-    ).innerHTML = `<p>Ви програли!!! Загадане число: ${randomVal}</p>`
+    document.querySelector('.result4_1').innerHTML = `<p>Ви програли!!! Загадане число: ${randomVal}</p>`
   }
 }
 // ?  ================== Задача 4 кінець ==================
 
-// ? ================== Задача 5 ==================
-
+// ? ================== Задача 5 START =================
 // Модифікувати попередню задачу з можливістю після пострілу переміщення корабля у випадковим чином вибрану сусідню клітинку (якщо звичайно корабель не було потоплено за першим разом).
-function navalBattle() {
+function navalBattleV2() {
   const MIN_QUAN_SQUARES = 1
   const MAX_QUAN_SQUARES = parseInt(prompt('Введіть кількість квадратів', 0))
   // визначаємо рандомне число
-  let randomVal =
-    MIN_QUAN_SQUARES +
-    Math.floor(Math.random() * (MAX_QUAN_SQUARES - MIN_QUAN_SQUARES + 1))
-  console.log(randomVal, 'randomVal')
+  let randomVal = MIN_QUAN_SQUARES + Math.floor(Math.random() * (MAX_QUAN_SQUARES - MIN_QUAN_SQUARES + 1))
 
   // Спроба №1 користувача
   let userAttempt = parseInt(prompt('Введіть число для пострілу:', 0))
@@ -428,12 +400,9 @@ function navalBattle() {
   const min = randomVal - 1
   const max = randomVal + 1
   randomVal = min + Math.floor(Math.random() * (max - min + 1))
-  console.log(randomVal)
   // якщо різниця один пункт
   if (diff === 1) {
-    userAttempt = parseInt(
-      prompt('Корабель підбитий: Введіть наступні координати', 0)
-    )
+    userAttempt = parseInt(prompt('Корабель підбитий: Введіть наступні координати', 0))
   } else {
     // якщо різниця більше 1 пункта. Спроба №2
     userAttempt = parseInt(prompt('Мимо, маєте ще одну спробу.', 0))
@@ -444,10 +413,35 @@ function navalBattle() {
       '.result5_1'
     ).innerHTML = `<p class="green-color-result">Ви потопили противника!</p>`)
   } else {
-    document.querySelector(
-      '.result5_1'
-    ).innerHTML = `<p>Ви програли!!! Загадане число: ${randomVal}</p>`
+    document.querySelector('.result5_1').innerHTML = `<p>Ви програли!!! Загадане число: ${randomVal}</p>`
   }
 }
+// ? ================== Задача 5 END ==================
 
-// ? ================== Задача 5 ==================
+// ? ================== Задача 6 START =================
+// Полювання. Заєць знаходиться у верхньому лівому кутку поля. Поле складається з двох рядків і двох стовпців. За один крок заєць може стрибнути у будь-яку із вільних клітинок. Користувач ставить пастку вказуючи номер рядка і стовпця клітинки. Якщо заєць потрапляє у пастку, то користувач виграв і отримав 100 балів. Якщо користувач зловить зайця за другою спробою, то одержує 50 балів.
+
+function catchRabbit() {
+  const minVal = 1
+  const maxVal = 2
+
+  const getRandomPositionX = minVal + Math.floor(Math.random() * (maxVal - minVal + 1))
+  const getRandomPositionY = minVal + Math.floor(Math.random() * (maxVal - minVal + 1))
+
+  let userAttemptX = parseInt(prompt('Введіть значення Х для пастки:'))
+  let userAttemptY = parseInt(prompt('Введіть значення Y для пастки:'))
+
+  let out
+  if (userAttemptX === getRandomPositionX && userAttemptY === getRandomPositionY)
+    out = `<p class="green-color-result">Ваша пастка страцювала. Ви отримуєте 100 балів</p>`
+  else {
+    userAttemptX = parseInt(prompt('Друга спроба: Введіть значення Х для пастки:'))
+    userAttemptY = parseInt(prompt('Друга спроба: Введіть значення Y для пастки:'))
+    if (userAttemptX === getRandomPositionX && userAttemptY === getRandomPositionY)
+      out = `<p class="green-color-result">Ваша пастка страцювала. Ви отримуєте 50 балів</p>`
+    else out = `Ваша пастка не страцювала. Ви програли.`
+  }
+  document.querySelector('.result6_1').innerHTML = `${out}`
+}
+
+// ? ================== Задача 6 END =================
