@@ -516,3 +516,37 @@ function dice() {
 }
 
 // ? ================== Задача 7 END =================
+
+// ? ================== Задача 8 START =================
+// З клавіатури вводиться кількість сторін багатокутника. Необхідно вивести назву фігури («трикутник»,
+//           «чотирикутник», «п’ятикутинк», «шестикутник»).
+
+document.querySelector('.button8_1').addEventListener('click', getPolygonName)
+
+function getPolygonName() {
+  const numberSidesPolygon = parseInt(document.querySelector('.numberSidesPolygon').value)
+
+  if (numberSidesPolygon > 2 && numberSidesPolygon < 6) {
+    let namePolygon
+    switch (numberSidesPolygon) {
+      case 3:
+        namePolygon = ' трикутник '
+        break
+      case 4:
+        namePolygon = ' чотририкутник '
+        break
+      case 5:
+        namePolygon = ' п’ятикутник '
+        break
+      case 6:
+        namePolygon = ' шестикутник '
+        break
+    }
+    document.querySelector('.result8_1').innerHTML = `
+      <p>${namePolygon}</p>
+    `
+  } else
+    document.querySelector('.result8_1').innerHTML = `
+      <p>Incorect data</p>
+    `
+}
