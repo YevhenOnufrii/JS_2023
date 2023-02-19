@@ -550,3 +550,34 @@ function getPolygonName() {
       <p>Incorect data</p>
     `
 }
+// ? ================== Задача 8 END =================
+
+// ? ================== Задача 9 START =================
+//  З клавіатури вводиться перша літера розширення файлу («html», «doc», «jpeg», «mp3», «xls»). Вивести на екран назву програми, яка може відкрити цей тип файлу.
+
+document.querySelector('.button9_1').addEventListener('click', getApp)
+
+function getApp() {
+  const fileExtention = document.querySelector('.fileExtention').value.toLowerCase()
+  let app
+  switch (fileExtention) {
+    case 'h':
+      app = 'Google Chrome'
+      break
+    case 'd':
+      app = 'Microsoft Word'
+      break
+    case 'j':
+      app = 'Paint'
+      break
+    case 'm':
+      app = 'Media Player'
+      break
+    case 'x':
+      app = 'Excel'
+      break
+    default:
+      document.querySelector('.result9_1').innerHTML = ` Введіть одне із перелічених вище розширень `
+  }
+  document.querySelector('.result9_1').innerHTML = `${app}`
+}
