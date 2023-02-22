@@ -261,13 +261,14 @@ function sumOddNumbers() {
   const rangeStart = parseInt(prompt(' Введіть номер з якого починати розрахунок'))
   const rangeEnd = parseInt(prompt(' Введіть номер до якого продовжувати розрахунок'))
   let sum = 0
-  for (let i = rangeStart; i <= rangeEnd; i++) if (i % 2 != 0) sum += i
+  // цей варіант цикла НЕ включає числа з яких починається діапазон
+  for (let i = rangeStart + 1; i < rangeEnd - 1; i++) if (i % 2 != 0) sum += i
+  // нижче варіант цикла який включає стартові значення обчислення в результат
+  // for (let i = rangeStart + 1; i < rangeEnd; i++) if (i % 2 != 0) sum += i
 
   document.querySelector(
     '.result10'
   ).innerHTML = `Сума непарних чисел в діапазоні від ${rangeStart} до ${rangeEnd} дорівнює ${sum}`
-
-  // alert(` Сума непарних чисел в діапазоні від ${rangeStart} до ${rangeEnd} дорівнює ${sum}`)
 }
 
 // ==================== Task 11 ====================
@@ -438,3 +439,26 @@ function collectPayment() {
 }
 
 // ==================== Task 15 ====================
+
+//  Користувача поступово вводить показники температури протягом року. Знайти середню температуру.
+
+function averageTemperature() {
+  let userInput = true
+  let averageTemp = 0
+  let tempSum = 0
+  // цикл буде працювати поки не досягне 12 місяців або юзер не припинить вводити дані
+  for (let i = 1; i <= 12 && userInput; i++) {
+    const userData = parseFloat(
+      prompt(`Поточна середня темп. дорівнює ${averageTemp.toFixed(2)}
+     Введіть значення температури для ${i} місяця. `)
+    )
+    if (!isFinite(userData)) {
+      alert(
+        ` Ви припинили вводити дані. Середня температура = ${averageTemp.toFixed(2)}. Введено дані для ${i} місяців `
+      )
+      break
+    }
+    tempSum += userData
+    averageTemp = tempSum / i
+  }
+}
