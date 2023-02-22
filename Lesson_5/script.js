@@ -252,3 +252,20 @@ function guessNumberGame() {
     i++
   }
 }
+
+// ==================== Task 10 ====================
+
+// Задача 10.  Знайти суму всіх непарних чисел, що знаходяться між заданими користувачем числами.
+
+function sumOddNumbers() {
+  const rangeStart = parseInt(prompt(' Введіть номер з якого починати розрахунок'))
+  const rangeEnd = parseInt(prompt(' Введіть номер до якого продовжувати розрахунок'))
+  let sum = 0
+  for (let i = rangeStart; i <= rangeEnd; i++) if (i % 2 != 0) sum += i
+
+  document.querySelector(
+    '.result10'
+  ).innerHTML = `Сума непарних чисел в діапазоні від ${rangeStart} до ${rangeEnd} дорівнює ${sum}`
+
+  // alert(` Сума непарних чисел в діапазоні від ${rangeStart} до ${rangeEnd} дорівнює ${sum}`)
+}

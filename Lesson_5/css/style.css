@@ -205,5 +205,13 @@ hr {
 
 .result1 {
   padding-left: 15px;
+
+}
+
+/* ==========  Task10 ========== */
+
+.result10 {
+  text-align: center;
+  color: var(--result-green-color);
 }
 
