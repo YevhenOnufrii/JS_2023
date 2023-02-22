@@ -98,3 +98,33 @@ function getTableWithSevenColumnsThreeRows() {
     }
   }
 }
+
+// ==================== Task 5 ====================
+
+//Задача 5.  Вивести таблицю 3 Х 3
+
+function printTable3x3() {
+  const columnsAmount = 3
+  const rowsAmount = 3
+  // таблиця для виведення результату
+  const resTable = document.querySelector('.result5').querySelector('table')
+  // зачистка операційного поля
+  resTable.innerHTML = ''
+
+  let counter = 1
+  for (let i = 1; i <= rowsAmount; i++) {
+    // створюємо рядок
+    const row = document.createElement('tr')
+    // додаємо його до таблиці
+    resTable.appendChild(row)
+    for (let j = 1; j <= columnsAmount; j++) {
+      // створюємо ячейку
+      const column = document.createElement('td')
+      // додаємо текст в ячейку
+      column.textContent = `${counter}`
+      // монтуємо ячейку до рядка
+      row.appendChild(column)
+      counter++
+    }
+  }
+}
