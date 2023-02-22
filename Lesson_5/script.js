@@ -304,3 +304,73 @@ function sumOddRandonNumbers() {
 }
 
 // ==================== Task 12 ====================
+// Ігровий автомат. Випадково вибираємо зображення у 3 позиціях. Вибір у кожній позиції вибирається як одне з чотирьох зображень. Вивести ці зображення і повідомити виграш користувача (три перших зображення 100 грн, три других – 200, три третіх – 500, три четвертих зображення – 1000грн). Використати цикли і switch (для вибору зображення за номером).
+
+function slotMashine() {
+  // картинки
+  const lemon = `./img/lemon.svg`
+  const pear = `./img/pear.svg`
+  const apple = `./img/apple.svg`
+  const pineapple = `./img/pineapple.svg`
+  // кількість слотів
+  const totalSlots = 3
+  // константи балів
+  const lemonsPrice = 100
+  const pearsPrice = 200
+  const applesPrice = 500
+  const pineapplesPrice = 1000
+
+  function getRandomNum() {
+    const min = 1
+    const max = 4
+    return Math.floor(Math.random() * (max - min + 1)) + min
+  }
+  // підготовка для виведення результату
+  const imageBox = document.querySelector('.image_item')
+  imageBox.innerHTML = ``
+
+  // лічильники повторень
+  let lemonCounter = 0
+  let pearCounter = 0
+  let appleCounter = 0
+  let pineappleCounter = 0
+  // змінна для виведення результату
+  let gameScore = 0
+
+  let i = 0
+  while (i < totalSlots) {
+    const randomNum = getRandomNum()
+    let slot
+    switch (randomNum) {
+      case 1:
+        slot = lemon
+        lemonCounter++
+        break
+      case 2:
+        slot = pear
+        pearCounter++
+        break
+      case 3:
+        slot = apple
+        appleCounter++
+        break
+      case 4:
+        slot = pineapple
+        pineappleCounter++
+        break
+    }
+    // виводимо картинки
+    const image = document.createElement('img')
+    image.setAttribute('src', slot)
+    imageBox.appendChild(image)
+    // інкремент змінної циклу
+    i++
+    // рахуємо результат
+    if (lemonCounter === 3) gameScore = lemonsPrice
+    if (pearCounter === 3) gameScore = pearsPrice
+    if (appleCounter === 3) gameScore = applesPrice
+    if (pineappleCounter === 3) gameScore = pineapplesPrice
+  }
+
+  document.querySelector('.result__text').innerHTML = ` Ваш виграш склав: ${gameScore}`
+}

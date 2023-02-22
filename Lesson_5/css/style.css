@@ -215,3 +215,12 @@ hr {
   color: var(--result-green-color);
 }
 
+.image_item {
+  text-align: center;
+  margin: 10px 0;
+}
+.image_item img {
+  max-width: 100px;;
+  margin: 0px 5px;
+}
+
