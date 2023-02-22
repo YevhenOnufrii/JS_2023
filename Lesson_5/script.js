@@ -307,7 +307,7 @@ function sumOddRandonNumbers() {
 // Ігровий автомат. Випадково вибираємо зображення у 3 позиціях. Вибір у кожній позиції вибирається як одне з чотирьох зображень. Вивести ці зображення і повідомити виграш користувача (три перших зображення 100 грн, три других – 200, три третіх – 500, три четвертих зображення – 1000грн). Використати цикли і switch (для вибору зображення за номером).
 
 function slotMashine() {
-  // картинки
+  // дорога до картинки
   const lemon = `./img/lemon.svg`
   const pear = `./img/pear.svg`
   const apple = `./img/apple.svg`
@@ -327,6 +327,7 @@ function slotMashine() {
   }
   // підготовка для виведення результату
   const imageBox = document.querySelector('.image_item')
+  // jxboe'vj поле виводу
   imageBox.innerHTML = ``
 
   // лічильники повторень
@@ -341,6 +342,8 @@ function slotMashine() {
   while (i < totalSlots) {
     const randomNum = getRandomNum()
     let slot
+    // залежно від рандомного номера
+    // slot отримує певну дорогу до файла з картинкою
     switch (randomNum) {
       case 1:
         slot = lemon
@@ -361,6 +364,7 @@ function slotMashine() {
     }
     // виводимо картинки
     const image = document.createElement('img')
+    // тут передаємо атрибут + дорога до файлу
     image.setAttribute('src', slot)
     imageBox.appendChild(image)
     // інкремент змінної циклу
@@ -373,4 +377,41 @@ function slotMashine() {
   }
 
   document.querySelector('.result__text').innerHTML = ` Ваш виграш склав: ${gameScore}`
+}
+
+// ==================== Task 13 ====================
+
+// 13. Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. Маючи К снарядів користувач намагається потопити корабель.
+// поле 10х10
+
+function seaBattle() {
+  function getRandomNum() {
+    const min = 1
+    const max = 10
+    return Math.floor(Math.random() * (max - min + 1)) + min
+  }
+
+  const shipCoordinateX = getRandomNum()
+  const shipCoordinateY = getRandomNum()
+
+  let userAtempts = false
+  while (!userAtempts) {
+    // дані від користувача
+    const userAttemptX = parseInt(prompt('Введіть координату X для пострілу. Ціле число від 1 до 10: '))
+    const userAttemptY = parseInt(prompt('Введіть координату X для пострілу. Ціле число від 1 до 10: '))
+
+    // якщо користувач нажимає скасувати при вводі координат prompt повертає null, parseInt перетворює його в NaN
+    // тут перевіряємо чи часом користувач не скасував введення координат
+    // якщо так, виходимо з циклу
+    if (!isFinite(userAttemptX) || !isFinite(userAttemptY)) {
+      alert(` Ви покинули спроби! Координати корабля ${shipCoordinateX}, ${shipCoordinateY}`)
+      break
+    } else if (shipCoordinateX === userAttemptX && shipCoordinateY === userAttemptY) {
+      userAtempts = true
+      alert('Ви потопили корабель. Вітаю!')
+      break
+    } else {
+      alert(' Промах, спробуйте ще!')
+    }
+  }
 }
