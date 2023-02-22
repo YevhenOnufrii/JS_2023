@@ -167,3 +167,35 @@ function print3Table3x3() {
 }
 
 // ==================== Task 7 ====================
+
+// Вивести на екран N абзаців (N вводиться користувачем) за зразком:
+
+function printParagraphs() {
+  // кількість абзаців
+  const amountParagraphs = parseInt(document.querySelector('.amountParagraphs').value)
+  // для виведення результатів
+  const paragraphs = document.querySelector('.result7')
+  // зачистка операційного поля
+  paragraphs.innerHTML = ''
+
+  for (let i = 1; i <= amountParagraphs; i++) {
+    // ======  створюємо ел. h1  ======
+    const h1 = document.createElement('h1')
+    // ======  додаємо текст в h1  ======
+    h1.textContent = ` Заголовок ${i}`
+    // ======  монтуємо h1 в результат ======
+    paragraphs.appendChild(h1)
+    // ======  цикл для розділів і параграфів ======
+    for (let j = 1; j <= i; j++) {
+      // ======  створюємо тег p ======
+      const p = document.createElement('p')
+      // ====== додаємо текст ======
+      p.textContent = ` Розділ ${i}, параграф ${j}`
+      // ====== монтуємо в результат  ======
+      paragraphs.appendChild(p)
+    }
+    // ====== додаємо тег hr в результат  ======
+    const hr = document.createElement('hr')
+    paragraphs.appendChild(hr)
+  }
+}
