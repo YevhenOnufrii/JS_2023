@@ -21,7 +21,7 @@ function markingList() {
   }
 }
 
-// Задача 2. Створити 10 елементів для введення цін продуктів
+// ? Задача 2. Створити 10 елементів для введення цін продуктів
 
 function listForEnteringProdPrices() {
   // кількість елементів для введення цін
@@ -43,5 +43,20 @@ function listForEnteringProdPrices() {
     // монтуємо елементи в DOM
     listProdPrices.appendChild(inputLabel)
     listProdPrices.appendChild(input)
+  }
+}
+
+// ? Задача 3. Вивести таблицю з одним рядком і  7 стовпцями.
+
+function getTableWithSevenColums() {
+  const columnsAmount = 7
+  let resDiv = document.querySelector('.result3')
+  resDiv.innerHTML = ''
+  let i = 1
+  while (i < columnsAmount) {
+    const tableCol = document.createElement('td')
+    tableCol.textContent = `${i}`
+    resDiv.appendChild(tableCol)
+    i++
   }
 }
