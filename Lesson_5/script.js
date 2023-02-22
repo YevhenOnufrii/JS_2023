@@ -20,3 +20,28 @@ function markingList() {
     list.appendChild(listItem) // монтуємо елемент в список
   }
 }
+
+// Задача 2. Створити 10 елементів для введення цін продуктів
+
+function listForEnteringProdPrices() {
+  // кількість елементів для введення цін
+  const getNumberItems = parseInt(document.querySelector('.getNumberItems').value)
+  // для виведення результату
+  const listProdPrices = document.querySelector('.result2')
+  // це костиль, для того, щоб нові елементи списку не додавалися до старих
+  listProdPrices.innerHTML = ``
+
+  for (let i = 1; i <= getNumberItems; i++) {
+    //створюємо label
+    const inputLabel = document.createElement('label')
+    // додаємо текст
+    inputLabel.textContent = `Product # ${i}`
+    // створюємо input
+    const input = document.createElement('input')
+    // додаємо атрибут text
+    input.setAttribute('type', 'text')
+    // монтуємо елементи в DOM
+    listProdPrices.appendChild(inputLabel)
+    listProdPrices.appendChild(input)
+  }
+}

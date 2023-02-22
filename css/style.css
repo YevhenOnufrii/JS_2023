@@ -85,12 +85,11 @@ body {
 }
 
 .task_block:hover {
-  background-color: var(--hover_bg_task);
-  transform: translate(12px, 0);
-  scale: 109%;
-  border: none;
+  /* background-color: var(--hover_bg_task); */
+  transform: translate(10px, 0);
+  /* scale: 109%; */
+  /* border: none; */
 }
-
 
 .task_link{
   letter-spacing: 1px;
