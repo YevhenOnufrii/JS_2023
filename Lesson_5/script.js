@@ -112,19 +112,58 @@ function printTable3x3() {
   resTable.innerHTML = ''
 
   let counter = 1
-  for (let i = 1; i <= rowsAmount; i++) {
+  for (let i = 0; i < rowsAmount; i++) {
     // створюємо рядок
     const row = document.createElement('tr')
     // додаємо його до таблиці
     resTable.appendChild(row)
-    for (let j = 1; j <= columnsAmount; j++) {
+    for (let j = 0; j < columnsAmount; j++) {
       // створюємо ячейку
       const column = document.createElement('td')
-      // додаємо текст в ячейку
+      // додаємо значення лічильника в ячейку
       column.textContent = `${counter}`
       // монтуємо ячейку до рядка
       row.appendChild(column)
+      // збільшуємо лічильник на 1
       counter++
     }
   }
 }
+
+// ==================== Task 6 ====================
+
+// Вивести 3 таблиці (по 3 рядки і 3 стовпці у кожній) за зразком
+
+function print3Table3x3() {
+  const columnsAmount = 3
+  const rowsAmount = 3
+  const tableAmount = 3
+  // div для виведення результату
+  const resDiv = document.querySelector('.result6')
+  // зачистка операційного поля
+  resDiv.innerHTML = ''
+
+  let counter = 1
+  for (let i = 0; i < tableAmount; i++) {
+    // створюємо таблицю
+    const table = document.createElement('table')
+    // монтуємо таблицю
+    resDiv.appendChild(table)
+    // цикл для створення рядків
+    for (let j = 0; j < rowsAmount; j++) {
+      // створюємо рядок
+      const row = document.createElement('tr')
+      // монтуємо рядок
+      table.appendChild(row)
+      // цикл для створення колонок
+      for (let c = 0; c < columnsAmount; c++) {
+        const column = document.createElement('td')
+        column.textContent = `${counter}`
+        row.appendChild(column)
+        counter++
+      }
+    }
+  }
+}
+
+// ==================== Task 7 ====================
