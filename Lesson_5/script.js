@@ -269,3 +269,38 @@ function sumOddNumbers() {
 
   // alert(` Сума непарних чисел в діапазоні від ${rangeStart} до ${rangeEnd} дорівнює ${sum}`)
 }
+
+// ==================== Task 11 ====================
+
+// Задача 11.  Знайти суму 5 непарних чисел, що знаходяться між заданими користувачем числами.
+
+function sumOddRandonNumbers() {
+  // const rangeStart = parseInt(prompt(' Введіть номер з якого починати розрахунок'))
+  // const rangeEnd = parseInt(prompt(' Введіть номер до якого продовжувати розрахунок'))
+  const rangeStart = parseInt(document.querySelector('.startRange').value)
+  const rangeEnd = parseInt(document.querySelector('.endRange').value)
+  const oddAmount = 5
+  // список рандомних чисел
+  let listOddNumbers = ''
+  // генеруємо рандомне число
+  function getRandomNum() {
+    return Math.floor(Math.random() * (rangeEnd - rangeStart + 1)) + rangeStart
+  }
+  let sum = 0
+  let i = 0
+  while (i < oddAmount) {
+    const randomNum = getRandomNum()
+    if (randomNum % 2 != 0) {
+      // список рандомних чисел
+      listOddNumbers += `${randomNum}, `
+      // акумулюємо суму
+      sum += randomNum
+      i++
+    }
+  }
+  document.querySelector(
+    '.result11'
+  ).innerHTML = ` Сума дорівнює ${sum}. <br> Список рандомних непарних чисел ${listOddNumbers}`
+}
+
+// ==================== Task 12 ====================
