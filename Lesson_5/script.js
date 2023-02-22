@@ -203,7 +203,7 @@ function printParagraphs() {
 // ==================== Task 8 ====================
 // Користувач загадує число. За 3 спроби комп’ютер намагається вгадати число користувача (використати confirm).
 
-function guessNumber() {
+function guessNumber3Attempts() {
   // кількість спроб робота
   const numberOfAttempts = 3
   // генеруємо рандомне число
@@ -214,16 +214,41 @@ function guessNumber() {
   }
   // по дефолту юзер не вгадав
   let userAttempt = false
-  let i = 0
-  while (i < numberOfAttempts && userAttempt != true) {
+  let i = 1
+  while (i <= numberOfAttempts && userAttempt != true) {
     // отримуємо рандомне число
     const randomNum = getRandomNum()
     // true або false від користувача
-    userAttempt = confirm(` Це число ${randomNum} ?`)
+    userAttempt = confirm(` Спроба №${i} Це число ${randomNum} ?`)
     i++
     // якщо робот вгадав, виводимо alert
     if (userAttempt === true) alert(` Загадане число ${randomNum}`)
   }
+  if (!userAttempt) alert(' Цього разу я не вгадав  :(')
 }
 
 // ==================== Task 9 ====================
+
+// Задача 9. Користувач загадує число. Комп’ютер задає питання поки не вгадає число користувача (використати confirm).
+
+function guessNumberGame() {
+  // генеруємо рандомне число
+  function getRandomNum() {
+    const min = 1
+    const max = 10
+    return Math.floor(Math.random() * (max - min + 1)) + min
+  }
+  // по дефолту юзер не вгадав
+  let userAttempt = false
+  // лічильник спроб
+  let i = 1
+  while (userAttempt != true) {
+    // отримуємо рандомне число
+    const randomNum = getRandomNum()
+    // true або false від користувача
+    userAttempt = confirm(` Спроба №${i} Це число ${randomNum} ?`)
+    // якщо робот вгадав, виводимо alert
+    if (userAttempt === true) alert(` Загадане число ${randomNum}`)
+    i++
+  }
+}
