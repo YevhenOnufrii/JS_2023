@@ -376,7 +376,7 @@ function slotMashine() {
     if (pineappleCounter === 3) gameScore = pineapplesPrice
   }
 
-  document.querySelector('.result__text').innerHTML = ` Ваш виграш склав: ${gameScore}`
+  document.querySelector('.result__text').innerHTML = ` Ваш виграш склав: ${gameScore} грн`
 }
 
 // ==================== Task 13 ====================
@@ -415,3 +415,26 @@ function seaBattle() {
     }
   }
 }
+
+// ==================== Task 14 ====================
+
+// Каса. Користувачу повідомляють суму, яку йому треба сплатити. Користувач поступово вводить суму грошей до тих пір, поки суми не буде достатньо для оплати товарів (кожного разу користувачу повідомляють, яку ще суму потрібно ввести).
+
+function collectPayment() {
+  let cashBalance = 1000
+  while (cashBalance > 0) {
+    const incomingPayment = parseFloat(
+      prompt(` Вам потрібно внести ${cashBalance}: 
+      Введіть суму готівки яку вносите:`)
+    )
+    cashBalance -= incomingPayment
+    if (cashBalance === 0) {
+      alert('Ви внесли всю суму')
+      break
+    } else if (cashBalance < 0) {
+      alert(` Ви внесли на ${Math.abs(cashBalance)} грн більше.`)
+    }
+  }
+}
+
+// ==================== Task 15 ====================
