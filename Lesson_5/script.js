@@ -61,7 +61,7 @@ function getTableWithSevenColums() {
   let resDiv = document.querySelector('.result3')
   resDiv.innerHTML = ''
   let i = 1
-  while (i < columnsAmount) {
+  while (i <= columnsAmount) {
     const tableCol = document.createElement('td')
     tableCol.textContent = `${i}`
     resDiv.appendChild(tableCol)
