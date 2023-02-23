@@ -258,8 +258,16 @@ function guessNumberGame() {
 // Задача 10.  Знайти суму всіх непарних чисел, що знаходяться між заданими користувачем числами.
 
 function sumOddNumbers() {
-  const rangeStart = parseInt(prompt(' Введіть номер з якого починати розрахунок'))
-  const rangeEnd = parseInt(prompt(' Введіть номер до якого продовжувати розрахунок'))
+  let rangeStart = parseInt(prompt(' Введіть номер з якого починати розрахунок'))
+  let rangeEnd = parseInt(prompt(' Введіть номер до якого продовжувати розрахунок'))
+
+  // на випадок якщо спочатку було введено менше число
+  let compare = rangeEnd
+  if (rangeStart > rangeEnd) {
+    rangeEnd = rangeStart
+    rangeStart = compare
+  }
+
   let sum = 0
   // цей варіант цикла НЕ включає числа з яких починається діапазон
   for (let i = rangeStart + 1; i < rangeEnd - 1; i++) if (i % 2 != 0) sum += i
