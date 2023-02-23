@@ -284,8 +284,6 @@ function sumOddNumbers() {
 // Задача 11.  Знайти суму 5 непарних чисел, що знаходяться між заданими користувачем числами.
 
 function sumOddRandonNumbers() {
-  // const rangeStart = parseInt(prompt(' Введіть номер з якого починати розрахунок'))
-  // const rangeEnd = parseInt(prompt(' Введіть номер до якого продовжувати розрахунок'))
   let rangeStart = parseInt(document.querySelector('.startRange').value)
   let rangeEnd = parseInt(document.querySelector('.endRange').value)
 
@@ -302,39 +300,31 @@ function sumOddRandonNumbers() {
     return Math.floor(Math.random() * (rangeEnd - rangeStart + 1)) + rangeStart
   }
   let sum = 0
-  // i для того, щоб перебирати числа по порядку
-  let i = 1
   // oddCounter рахує кількість непарних і є умовою циклу
   let oddCounter = 0
-  // у циклі беру до уваги числа які більші за стартове і менші фінального
-  // так як в умові говориться "МІЖ заданими користувачем числами"
-  while (oddCounter < 5) {
-    // якщо різниця більше 11 то обираються рандомні числа
+  // поки i не виходить за межі діапазону і лічильниук непарних не більше 5
+  for (let i = 0; i < rangeEnd && oddCounter < 5; i++) {
+    // якщо діапазон чисел більше 11 то обираються рандомні числа
     if (rangeEnd - rangeStart > 11) {
+      // якщо різниця більше 11 то обираються рандомні числа
       const randomNum = getRandomNum()
-      if (randomNum % 2 != 0) {
+      if (randomNum % 2 !== 0) {
         // список рандомних чисел
         listOddNumbers += `${randomNum}, `
         // акумулюємо суму
         sum += randomNum
         oddCounter++
       }
-      // якщо різниця менше 11 то обираються числа по порядку
-    } else {
-      // умова щоб цикл не виходив за межі заданих чисел
-      if (rangeStart + i < rangeEnd) {
-        if ((rangeStart + i) % 2 !== 0) {
-          // список рандомних чисел
-          listOddNumbers += `${rangeStart + i}, `
-          // акумулюємо суму
-          sum += rangeStart + i
-          oddCounter++
-        }
-        i++
-        // якщо цикл виходить за межі заданич чисел то break
-      } else break
+      // якщо діапазон чисел менше 11 то обираються числа по порядку
+    } else if ((rangeStart + i) % 2 !== 0) {
+      // список чисел
+      listOddNumbers += `${rangeStart + i}, `
+      // акумулюємо суму
+      sum += rangeStart + i
+      oddCounter++
     }
   }
+
   document.querySelector('.result11').innerHTML = ` Сума дорівнює ${sum}. <br> Список непарних чисел ${listOddNumbers}`
 }
 
