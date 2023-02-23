@@ -272,7 +272,7 @@ function sumOddNumbers() {
   // цей варіант цикла НЕ включає числа з яких починається діапазон
   for (let i = rangeStart + 1; i < rangeEnd - 1; i++) if (i % 2 != 0) sum += i
   // нижче варіант цикла який включає стартові значення обчислення в результат
-  // for (let i = rangeStart + 1; i < rangeEnd; i++) if (i % 2 != 0) sum += i
+  // for (let i = rangeStart; i <= rangeEnd; i++) if (i % 2 != 0) sum += i
 
   document.querySelector(
     '.result10'
