@@ -433,12 +433,12 @@ function seaBattle() {
   while (!userAtempts) {
     // дані від користувача
     const userAttemptX = parseInt(prompt('Введіть координату X для пострілу. Ціле число від 1 до 10: '))
-    const userAttemptY = parseInt(prompt('Введіть координату X для пострілу. Ціле число від 1 до 10: '))
+    const userAttemptY = parseInt(prompt('Введіть координату Y для пострілу. Ціле число від 1 до 10: '))
 
     // якщо користувач нажимає скасувати при вводі координат prompt повертає null, parseInt перетворює його в NaN
     // тут перевіряємо чи часом користувач не скасував введення координат
     // якщо так, виходимо з циклу
-    if (!isFinite(userAttemptX) || !isFinite(userAttemptY)) {
+    if (!isFinite(userAttemptX) && !isFinite(userAttemptY)) {
       alert(` Ви покинули спроби! Координати корабля ${shipCoordinateX}, ${shipCoordinateY}`)
       break
     } else if (shipCoordinateX === userAttemptX && shipCoordinateY === userAttemptY) {
