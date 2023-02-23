@@ -373,37 +373,35 @@ function slotMashine() {
   // змінна для виведення результату
   let gameScore = 0
 
-  let i = 0
-  while (i < totalSlots) {
+  for (let i = 0; i < totalSlots; i++) {
     const randomNum = getRandomNum()
-    let slot
+    let picture
     // залежно від рандомного номера
-    // slot отримує певну дорогу до файла з картинкою
+    // picture отримує адрес до картинкою
     switch (randomNum) {
       case 1:
-        slot = lemon
+        picture = lemon
         lemonCounter++
         break
       case 2:
-        slot = pear
+        picture = pear
         pearCounter++
         break
       case 3:
-        slot = apple
+        picture = apple
         appleCounter++
         break
       case 4:
-        slot = pineapple
+        picture = pineapple
         pineappleCounter++
         break
     }
     // виводимо картинки
     const image = document.createElement('img')
     // тут передаємо атрибут + дорога до файлу
-    image.setAttribute('src', slot)
+    image.setAttribute('src', picture)
     imageBox.appendChild(image)
-    // інкремент змінної циклу
-    i++
+
     // рахуємо результат
     if (lemonCounter === 3) gameScore = lemonsPrice
     if (pearCounter === 3) gameScore = pearsPrice
