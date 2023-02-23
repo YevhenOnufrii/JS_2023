@@ -261,7 +261,7 @@ function sumOddNumbers() {
   let rangeStart = parseInt(prompt(' Введіть номер з якого починати розрахунок'))
   let rangeEnd = parseInt(prompt(' Введіть номер до якого продовжувати розрахунок'))
 
-  // на випадок якщо спочатку було введено менше число
+  // на випадок якщо першим було введено менше число
   let compare = rangeEnd
   if (rangeStart > rangeEnd) {
     rangeEnd = rangeStart
@@ -286,30 +286,56 @@ function sumOddNumbers() {
 function sumOddRandonNumbers() {
   // const rangeStart = parseInt(prompt(' Введіть номер з якого починати розрахунок'))
   // const rangeEnd = parseInt(prompt(' Введіть номер до якого продовжувати розрахунок'))
-  const rangeStart = parseInt(document.querySelector('.startRange').value)
-  const rangeEnd = parseInt(document.querySelector('.endRange').value)
-  const oddAmount = 5
-  // список рандомних чисел
+  let rangeStart = parseInt(document.querySelector('.startRange').value)
+  let rangeEnd = parseInt(document.querySelector('.endRange').value)
+
+  // на випадок якщо першим було введено менше число
+  let compare = rangeEnd
+  if (rangeStart > rangeEnd) {
+    rangeEnd = rangeStart
+    rangeStart = compare
+  }
+  // список непарних чисел
   let listOddNumbers = ''
   // генеруємо рандомне число
   function getRandomNum() {
     return Math.floor(Math.random() * (rangeEnd - rangeStart + 1)) + rangeStart
   }
   let sum = 0
-  let i = 0
-  while (i < oddAmount) {
-    const randomNum = getRandomNum()
-    if (randomNum % 2 != 0) {
-      // список рандомних чисел
-      listOddNumbers += `${randomNum}, `
-      // акумулюємо суму
-      sum += randomNum
-      i++
+  // i для того, щоб перебирати числа по порядку
+  let i = 1
+  // oddCounter рахує кількість непарних і є умовою циклу
+  let oddCounter = 0
+  // у циклі беру до уваги числа які більші за стартове і менші фінального
+  // так як в умові говориться "МІЖ заданими користувачем числами"
+  while (oddCounter < 5) {
+    // якщо різниця більше 11 то обираються рандомні числа
+    if (rangeEnd - rangeStart > 11) {
+      const randomNum = getRandomNum()
+      if (randomNum % 2 != 0) {
+        // список рандомних чисел
+        listOddNumbers += `${randomNum}, `
+        // акумулюємо суму
+        sum += randomNum
+        oddCounter++
+      }
+      // якщо різниця менше 11 то обираються числа по порядку
+    } else {
+      // умова щоб цикл не виходив за межі заданих чисел
+      if (rangeStart + i < rangeEnd) {
+        if ((rangeStart + i) % 2 !== 0) {
+          // список рандомних чисел
+          listOddNumbers += `${rangeStart + i}, `
+          // акумулюємо суму
+          sum += rangeStart + i
+          oddCounter++
+        }
+        i++
+        // якщо цикл виходить за межі заданич чисел то break
+      } else break
     }
   }
-  document.querySelector(
-    '.result11'
-  ).innerHTML = ` Сума дорівнює ${sum}. <br> Список рандомних непарних чисел ${listOddNumbers}`
+  document.querySelector('.result11').innerHTML = ` Сума дорівнює ${sum}. <br> Список непарних чисел ${listOddNumbers}`
 }
 
 // ==================== Task 12 ====================
@@ -336,7 +362,7 @@ function slotMashine() {
   }
   // підготовка для виведення результату
   const imageBox = document.querySelector('.image_item')
-  // jxboe'vj поле виводу
+  // очищаємо поле виводу
   imageBox.innerHTML = ``
 
   // лічильники повторень
