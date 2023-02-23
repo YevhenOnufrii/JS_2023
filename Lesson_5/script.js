@@ -462,3 +462,42 @@ function averageTemperature() {
     averageTemp = tempSum / i
   }
 }
+
+// ==================== Task 16 ====================
+
+// Користувач поступово вводить прибуток магазину за кожен день протягом N тижнів. Знайти загальну величину прибутку та вивести величину прибутку протягом кожного окремого тижня.
+function storeProfit() {
+  let userInput = true
+  const totalWeeks = parseInt(prompt(' Введіть кількість тижнів, протягом яких хочете вводити прибуток'))
+  // при умові 7-ти денного робочого тижня
+  const totalDays = 7
+  // блок для виводу результатів
+  const outBlock = document.querySelector('.result16')
+  outBlock.innerHTML = ``
+
+  let totalSum = 0
+  for (let i = 1; i <= totalWeeks && userInput; i++) {
+    let weekSum = 0
+
+    exit: for (let j = 1; j <= totalDays; j++) {
+      const userData = parseFloat(prompt(`Введіть суму прибутку за ${j} день ${i} тижня `))
+      // перевірка якщо юзер в процесі набору чисел нажав скасувати
+      if (!isFinite(userData)) {
+        alert(`Ви припинили вводити суми прибутків. Загальна сума складає ${totalSum}`)
+        // виходимо з циклу
+        break exit
+      }
+      // рахуємо суми
+      totalSum += userData
+      weekSum += userData
+    }
+    // після кожного тижня виводимо прибуток окремо
+    const out = document.createElement('p')
+    out.textContent = ` Прибуток за тиждень ${i} склав ${weekSum}$.`
+    outBlock.appendChild(out)
+  }
+  // виводимо загальну суму після закінчення циклу
+  const outTotalSum = document.createElement('p')
+  outTotalSum.textContent = `Загальна сума складає ${totalSum}$`
+  outBlock.appendChild(outTotalSum)
+}
