@@ -315,7 +315,7 @@ function sumOddRandonNumbers() {
         sum += randomNum
         oddCounter++
       }
-      // якщо діапазон чисел менше 11 то обираються числа по порядку
+      // якщо діапазон чисел менше 11 то обираються числа по порядку;
     } else if ((rangeStart + i) % 2 !== 0) {
       // список чисел
       listOddNumbers += `${rangeStart + i}, `
