@@ -325,7 +325,9 @@ function sumOddRandonNumbers() {
     }
   }
 
-  document.querySelector('.result11').innerHTML = ` Сума дорівнює ${sum}. <br> Список непарних чисел ${listOddNumbers}`
+  document.querySelector(
+    '.result11'
+  ).innerHTML = ` Сума дорівнює ${sum}. <br> Список непарних чисел ${listOddNumbers}`
 }
 
 // ==================== Task 12 ====================
@@ -420,8 +422,12 @@ function seaBattle() {
   let userAtempts = false
   while (!userAtempts) {
     // дані від користувача
-    const userAttemptX = parseInt(prompt('Введіть координату X для пострілу. Ціле число від 1 до 10: '))
-    const userAttemptY = parseInt(prompt('Введіть координату Y для пострілу. Ціле число від 1 до 10: '))
+    const userAttemptX = parseInt(
+      prompt('Введіть координату X для пострілу. Ціле число від 1 до 10: ')
+    )
+    const userAttemptY = parseInt(
+      prompt('Введіть координату Y для пострілу. Ціле число від 1 до 10: ')
+    )
 
     // якщо користувач нажимає скасувати при вводі координат prompt повертає null, parseInt перетворює його в NaN
     // тут перевіряємо чи часом користувач не скасував введення координат
@@ -476,7 +482,9 @@ function averageTemperature() {
     )
     if (!isFinite(userData)) {
       alert(
-        ` Ви припинили вводити дані. Середня температура = ${averageTemp.toFixed(2)}. Введено дані для ${i} місяців `
+        ` Ви припинили вводити дані. Середня температура = ${averageTemp.toFixed(
+          2
+        )}. Введено дані для ${i} місяців `
       )
       break
     }
@@ -490,7 +498,9 @@ function averageTemperature() {
 // Користувач поступово вводить прибуток магазину за кожен день протягом N тижнів. Знайти загальну величину прибутку та вивести величину прибутку протягом кожного окремого тижня.
 function storeProfit() {
   let userInput = true
-  const totalWeeks = parseInt(prompt(' Введіть кількість тижнів, протягом яких хочете вводити прибуток'))
+  const totalWeeks = parseInt(
+    prompt(' Введіть кількість тижнів, протягом яких хочете вводити прибуток')
+  )
   // при умові 7-ти денного робочого тижня
   const totalDays = 7
   // блок для виводу результатів
@@ -522,4 +532,75 @@ function storeProfit() {
   const outTotalSum = document.createElement('p')
   outTotalSum.textContent = `Загальна сума складає ${totalSum}$`
   outBlock.appendChild(outTotalSum)
+}
+
+// ==================== Task 17  Extra Task 16 ====================
+
+// ? Танчики. На полі з 10 клітинок розміщують танк. За один крок танк може переміщуватися на відстань від 0 до 1 у  будь-якому напрямку (в межах поля). При влучанні броня танка пошкоджується на 30 балів (всього 100). Гра продовжується поки або не закінчаться снаряди (кількість вводиться з клавіатури) або не буде влучання. Спробуйте відоразити гру графічно.
+
+function tanksGame() {
+  function getRandomNum_1_10() {
+    const min = 1
+    const max = 10
+    return Math.floor(Math.random() * (max - min + 1)) + min
+  }
+  function getRandomNum_0_1() {
+    const min = -1
+    const max = 1
+    return Math.floor(Math.random() * (max - min + 1)) + min
+  }
+
+  const rowStart = 1
+  const rowEnd = 10
+  const damagePower = 30
+
+  let tankHealth = 100
+  let nextStep
+  let userAttempt
+
+  let tankPosition = getRandomNum_1_10()
+  let shotsNumb = parseInt(prompt(' Введіть кількість пострілів:'))
+  /* ============ ГОЛОВНИЙ ЦИКЛ ============*/
+  exit: for (let i = 1; i <= shotsNumb && tankHealth > 0; i++) {
+    // Валідація данних від користувача. Виходить з циклу коли число від 1 до 10. Інакше просить повторно ввести дані
+    // =================   Валідація данних від користувача. Початок
+    do {
+      userAttempt = parseInt(
+        prompt(
+          `Спроба №${i} із ${shotsNumb}. Введіть номер квадрата від 1 до 10 в якому на Вашу думку знаходиться танк:`
+        )
+      )
+      if (!isFinite(userAttempt)) {
+        confirm(` Ви припинили спроби вразити танк. Координати танка ${tankPosition}`)
+        break exit
+      }
+    } while (userAttempt < 0 || userAttempt > 11)
+    // =================   Валідація данних від користувача. КІНЕЦЬ
+    // ================= Якщо попав
+    if (userAttempt === tankPosition) {
+      // зменшуємо життя танка
+      tankHealth -= damagePower
+      // цикл який перевіряє чи танк не виходить за межі діапазону
+      // якщо виходить то цикл повторюється поки рандомне число не дозволить вписатися в умову
+      do {
+        nextStep = getRandomNum_0_1()
+        tankPosition += nextStep
+      } while (tankPosition < rowStart || tankPosition > rowEnd)
+
+      console.log('inside loop DAMAGE ~ tankPosition:', tankPosition)
+
+      if (tankHealth > 0)
+        alert(
+          `Спроба №${i} із ${shotsNumb}. Ви підбили танк. Його health = ${tankHealth}. Танк змінює свою позицію. `
+        )
+      else alert(`Спроба №${i} із ${shotsNumb}. Ви знищили танк.`)
+    } else {
+      // ================= Якщо НЕ попав
+      do {
+        nextStep = getRandomNum_0_1()
+        tankPosition += nextStep
+      } while (tankPosition < rowStart || tankPosition > rowEnd)
+    }
+    console.log('inside loop ~ tankPosition:', tankPosition)
+  }
 }
