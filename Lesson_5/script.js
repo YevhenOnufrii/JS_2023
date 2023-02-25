@@ -553,7 +553,6 @@ function tanksGame() {
   const rowStart = 1
   const rowEnd = 10
   const damagePower = 30
-
   let tankHealth = 100
   let nextStep
   let userAttempt
@@ -602,5 +601,49 @@ function tanksGame() {
       } while (tankPosition < rowStart || tankPosition > rowEnd)
     }
     console.log('inside loop ~ tankPosition:', tankPosition)
+  }
+}
+
+// ==================== Task 17  Extra Task 7 ====================
+
+// ? Користувач загадує натуральне число від 1 до N. Шляхом задавання мінімальної кількості запитань знайти вказане число (застосувати бінарний пошук, на кожному кроці якого інтервал пошуку зменшується на 2 шляхом порівняння з елементом, який знаходиться у центрі поточного інтервалу).
+
+function binarySearch() {
+  // ======= змінні
+  let N = parseInt(prompt(' Введіть будь-яке число від 1 і більше'))
+  let userConfirm = false
+  let userAnswer
+  let mashineAttempt
+  let rangeStart = 1
+  let rangeEnd
+  let diff
+  let attempCounter = 1
+
+  function divideNumBy2(number) {
+    return Math.floor(number / 2)
+  }
+
+  mashineAttempt = divideNumBy2(N)
+
+  while (userConfirm !== true) {
+    userAnswer = confirm(`Спроба №${attempCounter} Ви загадали число ${mashineAttempt}? `)
+    attempCounter++
+    if (!userAnswer) {
+      userAnswer = confirm(` Загадане число більше ${mashineAttempt}? `)
+      // якщо більше
+      if (userAnswer) {
+        rangeStart = mashineAttempt
+        rangeEnd = N
+        diff = rangeEnd - rangeStart
+        mashineAttempt += divideNumBy2(diff)
+      } else {
+        N = mashineAttempt
+        diff = N - rangeStart
+        mashineAttempt -= divideNumBy2(diff)
+      }
+    } else {
+      alert(` Загадане число ${mashineAttempt}`)
+      userConfirm = true
+    }
   }
 }
