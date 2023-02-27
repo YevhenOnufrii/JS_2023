@@ -647,3 +647,16 @@ function binarySearch() {
     }
   }
 }
+
+// ==================== Task 18  Extra Task 2.1 ====================
+// 2.1. З клавіатури поступово вводяться символи поки не буде введено символ «а». Вивести рядок символів у зворотному порядку.
+
+const breakIfA = () => {
+  let userLetter = ''
+  let result = ''
+  while (userLetter !== 'a' && userLetter !== null) {
+    result = userLetter + result
+    userLetter = prompt(' Введіть наступний символ:')
+  }
+  document.querySelector('.result19').innerHTML = `Введені символи: ${result}`
+}
