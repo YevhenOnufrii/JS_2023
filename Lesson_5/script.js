@@ -689,7 +689,7 @@ const twoNumbers = () => {
 
 // ==================== Task 18  Extra Task 5 ====================
 
-// 5. На екрані виводиться меню:
+//  5. На екрані виводиться меню:
 // 1. Сказати «Привіт».
 // 2. Сказати «Зачекай».
 // 3. Сказати «До побачення».
@@ -725,4 +725,33 @@ const menu4 = () => {
     // ця умова для того, коли в результат залітає undefined то з’являється alert із написом "undefined"
     if (typeof outMessage !== 'undefined') alert(outMessage)
   }
+}
+
+// ==================== Task 18  Extra Task 12 ====================
+
+// ? 12. З клавіатури вводяться поступово числа. Знайти два найбільші числа. Ввід здійснюється до тих пір, поки різниця між такими числами є більшою за 5.
+
+const maxNum = () => {
+  let min
+  let max = -Infinity
+  let diff
+  let userInputData
+
+  do {
+    userInputData = parseFloat(prompt(` Введіть число:`))
+    if (!isFinite(userInputData)) break
+    if (userInputData > max) {
+      let temp = max
+      max = userInputData
+      min = temp
+    } else if (userInputData > min) {
+      min = userInputData
+    }
+    diff = max - min
+    console.log(diff)
+    console.log(max)
+    console.log(min)
+  } while (diff > 5)
+
+  document.querySelector('.result22').innerHTML = ` max = ${max}, second max = ${min}`
 }
