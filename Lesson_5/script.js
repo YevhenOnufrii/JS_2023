@@ -776,3 +776,36 @@ const minNum = () => {
 
   document.querySelector('.result23').innerHTML = ` min = ${min}, second min = ${secondMin}`
 }
+
+// ==================== Task 23  Extra Task 15 ====================
+
+// Тир. На полі з 10 клітинок розміщують зайця. За один крок заєць може стрибати на відстань від 0 до 3 позицій у будь-якому напрямку. З клавіатури вводиться позиція пострілу. Гра продовжується поки  у користувача не закінчаться патрони (кількість вводиться з клавіатури) або не буде влучання.
+
+const catchRabbit = () => {
+  let userSchoots = parseInt(prompt(` Введіть кількість пострілів:`))
+  function getRandomNum(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min
+  }
+  let rabbitPos = getRandomNum(1, 10)
+  do {
+    let userAttempt = parseInt(
+      prompt(
+        `Залишилось пострілів: ${userSchoots}. 
+        Введіть номер клітинки для пострілу (від 1 до 10):`
+      )
+    )
+    if (!isFinite(userAttempt)) {
+      alert(' Ви припинили вводити координати')
+      break
+    }
+    if (userAttempt !== rabbitPos) {
+      do {
+        rabbitPos += getRandomNum(-3, 3)
+      } while (rabbitPos < 0 || rabbitPos > 10)
+    } else {
+      alert(` Ви спіймали зайця`)
+      break
+    }
+    userSchoots--
+  } while (userSchoots > 0)
+}
