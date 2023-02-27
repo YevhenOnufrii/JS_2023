@@ -761,12 +761,11 @@ const minNum = () => {
   let min = Infinity
   let secondMin = Infinity
   let diff
-  let temp
   do {
     let userInputData = parseFloat(prompt(' Введіть число:'))
     if (!isFinite(userInputData)) break
     if (userInputData < min) {
-      temp = min
+      let temp = min
       min = userInputData
       secondMin = temp
     } else if (userInputData < secondMin) {
