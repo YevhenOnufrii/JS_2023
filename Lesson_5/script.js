@@ -748,9 +748,6 @@ const maxNum = () => {
       min = userInputData
     }
     diff = max - min
-    console.log(diff)
-    console.log(max)
-    console.log(min)
   } while (diff > 5)
 
   document.querySelector('.result22').innerHTML = ` max = ${max}, second max = ${min}`
