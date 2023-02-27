@@ -662,7 +662,7 @@ const breakIfA = () => {
   document.querySelector('.result19').innerHTML = `Введені символи: ${result}`
 }
 
-// ==================== Task 18  Extra Task 4.1 ====================
+// ==================== Task 19  Extra Task 4.1 ====================
 
 // 4.1. З клавіатури вводяться два числа N i M (N<M). Вивести а екран числа
 // N---M
@@ -687,7 +687,7 @@ const twoNumbers = () => {
   }
 }
 
-// ==================== Task 18  Extra Task 5 ====================
+// ==================== Task 21 Extra Task 5 ====================
 
 //  5. На екрані виводиться меню:
 // 1. Сказати «Привіт».
@@ -727,7 +727,7 @@ const menu4 = () => {
   }
 }
 
-// ==================== Task 18  Extra Task 12 ====================
+// ==================== Task 22  Extra Task 12 ====================
 
 // ? 12. З клавіатури вводяться поступово числа. Знайти два найбільші числа. Ввід здійснюється до тих пір, поки різниця між такими числами є більшою за 5.
 
@@ -751,4 +751,29 @@ const maxNum = () => {
   } while (diff > 5)
 
   document.querySelector('.result22').innerHTML = ` max = ${max}, second max = ${min}`
+}
+
+// ==================== Task 23  Extra Task 13 ====================
+
+// ? З клавіатури вводяться поступово числа. Знайти два найменші числа. Ввід здійснюється до тих пір, поки різниця між такими числами є більшою за 5
+
+const minNum = () => {
+  let min = Infinity
+  let secondMin = Infinity
+  let diff
+  let temp
+  do {
+    let userInputData = parseFloat(prompt(' Введіть число:'))
+    if (!isFinite(userInputData)) break
+    if (userInputData < min) {
+      temp = min
+      min = userInputData
+      secondMin = temp
+    } else if (userInputData < secondMin) {
+      secondMin = userInputData
+    }
+    diff = secondMin - min
+  } while (diff > 5)
+
+  document.querySelector('.result23').innerHTML = ` min = ${min}, second min = ${secondMin}`
 }
