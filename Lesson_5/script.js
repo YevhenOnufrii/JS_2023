@@ -695,3 +695,34 @@ const twoNumbers = () => {
 // 3. Сказати «До побачення».
 // 4. Вихід.
 // Шляхом вибору пунктів меню виводити відповідні повідомлення, поки не буде вибрано пункт номер 4.
+
+const menu4 = () => {
+  let userInputData
+  while (userInputData !== 4 && userInputData !== null) {
+    do {
+      userInputData = parseInt(
+        prompt(`Меню:
+        1. Сказати «Привіт».
+        2. Сказати «Зачекай».
+        3. Сказати «До побачення».
+        4. Вихід. 
+        Введіть номер меню:`)
+      )
+    } while (userInputData < 1 || userInputData > 4)
+    if (!isFinite(userInputData)) userInputData = null
+    let outMessage
+    switch (userInputData) {
+      case 1:
+        outMessage = '«Привіт»'
+        break
+      case 2:
+        outMessage = '«Зачекай»'
+        break
+      case 3:
+        outMessage = 'До побачення'
+        break
+    }
+    // ця умова для того, коли в результат залітає undefined то з’являється alert із написом "undefined"
+    if (typeof outMessage !== 'undefined') alert(outMessage)
+  }
+}
