@@ -658,5 +658,40 @@ const breakIfA = () => {
     result = userLetter + result
     userLetter = prompt(' Введіть наступний символ:')
   }
+  // виводимо результат
   document.querySelector('.result19').innerHTML = `Введені символи: ${result}`
 }
+
+// ==================== Task 18  Extra Task 4.1 ====================
+
+// 4.1. З клавіатури вводяться два числа N i M (N<M). Вивести а екран числа
+// N---M
+// N+1 --- M-1
+// N+2 --- M-2
+// N+3 --- M-3
+// . . . . . .
+// Виведення завершити коли число справа стане меншим за число зліва.
+const twoNumbers = () => {
+  let numberOne = parseInt(prompt(' Введіть перше менше число:'))
+  let numberTwo = parseInt(prompt(' Введіть друге більше число:'))
+
+  const resultOut = document.querySelector('.result20')
+  resultOut.innerHTML = ``
+
+  while (numberTwo > numberOne) {
+    const out = document.createElement('p')
+    out.textContent = `${numberOne} --- ${numberTwo}`
+    resultOut.appendChild(out)
+    numberOne++
+    numberTwo--
+  }
+}
+
+// ==================== Task 18  Extra Task 5 ====================
+
+// 5. На екрані виводиться меню:
+// 1. Сказати «Привіт».
+// 2. Сказати «Зачекай».
+// 3. Сказати «До побачення».
+// 4. Вихід.
+// Шляхом вибору пунктів меню виводити відповідні повідомлення, поки не буде вибрано пункт номер 4.
