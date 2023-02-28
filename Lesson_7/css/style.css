@@ -197,12 +197,18 @@ hr {
   color: var(--result-green-color);
 }
 
-/* ==========  Task1 ========== */
+/* ==========  Task 0 ========== */
 
 .result1 {
   font-size: 30px;
 }
-/* ==========  Task10 ========== */
+
+/* ==========  Task 1 ========== */
+
+.result2 {
+  font-size: 30px;
+}
+/* ==========  Task 10 ========== */
 
 .result10 {
   text-align: center;
