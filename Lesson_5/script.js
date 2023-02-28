@@ -612,21 +612,15 @@ function binarySearch() {
   // ======= змінні
   let N = parseInt(prompt(' Введіть будь-яке число від 1 і більше'))
   let userConfirm = false
-  let userAnswer
-  let mashineAttempt
   let rangeStart = 1
   let rangeEnd
   let diff
   let attempCounter = 1
 
-  function divideNumBy2(number) {
-    return Math.floor(number / 2)
-  }
-
-  mashineAttempt = divideNumBy2(N)
+  let mashineAttempt = N / 2
 
   while (userConfirm !== true) {
-    userAnswer = confirm(`Спроба №${attempCounter} Ви загадали число ${mashineAttempt}? `)
+    let userAnswer = confirm(`Спроба №${attempCounter} Ви загадали число ${mashineAttempt}? `)
     attempCounter++
     if (!userAnswer) {
       userAnswer = confirm(` Загадане число більше ${mashineAttempt}? `)
@@ -635,11 +629,11 @@ function binarySearch() {
         rangeStart = mashineAttempt
         rangeEnd = N
         diff = rangeEnd - rangeStart
-        mashineAttempt += divideNumBy2(diff)
+        mashineAttempt += Math.floor(diff / 2)
       } else {
         N = mashineAttempt
         diff = N - rangeStart
-        mashineAttempt -= divideNumBy2(diff)
+        mashineAttempt -= Math.floor(diff / 2)
       }
     } else {
       alert(` Загадане число ${mashineAttempt}`)
