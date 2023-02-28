@@ -155,3 +155,49 @@ function mathOperationsWithFourNumbers() {
 }
 
 // =================  Задача 4  =================
+// ? Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів: кількість парних, кількість додатних, кількість більших за 100.
+
+function mathOperationsWithThreeNumbers() {
+  // отримую дані від користувача
+  const num1 = parseFloat(document.querySelector('.Num_1_4').value)
+  const num2 = parseFloat(document.querySelector('.Num_2_4').value)
+  const num3 = parseFloat(document.querySelector('.Num_3_4').value)
+  // ===== кількість парних =====
+  function countEvenNumbers() {
+    let evenCount = 0
+    for (let i = 0; i < 3; i++) {
+      // якщо вираз зліва true то збільшуємо каунтер
+      arguments[i] % 2 === 0 && evenCount++
+    }
+    return evenCount
+  }
+  const evenCounter = countEvenNumbers(num1, num2, num3)
+  // ===== кількість додатних =====
+  function countPositiveNumbers() {
+    let positiveCount = 0
+    for (let i = 0; i < 3; i++) {
+      // якщо вираз зліва true то збільшуємо каунтер
+      arguments[i] > 0 && positiveCount++
+    }
+    return positiveCount
+  }
+  const positiveNumbCount = countPositiveNumbers(num1, num2, num3)
+  // ===== кількість більших за 100 =====
+  function getNumbersOver100() {
+    let counter = 0
+    for (let i = 0; i < 3; i++)
+      // якщо вираз зліва true то збільшуємо каунтер
+      arguments[i] > 100 && counter++
+    return counter
+  }
+  const NumbersOver100 = getNumbersOver100(num1, num2, num3)
+
+  // виводимо результати
+  document.querySelector('.evenCounter').innerHTML = ` Кількість парних = ${evenCounter} `
+
+  document.querySelector('.positiveCount').innerHTML = ` Кількість додатних = ${positiveNumbCount} `
+
+  document.querySelector(
+    '.NumbersOver100'
+  ).innerHTML = ` Кількість більших за 100 = ${NumbersOver100} `
+}

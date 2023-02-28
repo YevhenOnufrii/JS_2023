@@ -205,7 +205,7 @@ hr {
 
 /* ==========  Task 1 ========== */
 
-.result2 {
+.result2, .result3, {
   font-size: 30px;
 }
 
@@ -217,6 +217,11 @@ hr {
 .result4 {
   text-align: start;
   font-size: 20px;
+}
+
+.result5{
+  text-align: start;
+  font-size: 25px;
 }
 
 
