@@ -208,6 +208,18 @@ hr {
 .result2 {
   font-size: 30px;
 }
+
+/* ==========  Task 3 ========== */
+.task3 {
+  display: flex;
+}
+
+.result4 {
+  text-align: start;
+  font-size: 20px;
+}
+
+
 /* ==========  Task 10 ========== */
 
 .result10 {

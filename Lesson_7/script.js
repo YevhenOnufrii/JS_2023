@@ -102,3 +102,56 @@ function isWorkingDay() {
   }
   res && (document.querySelector('.result3').innerHTML = ` Вказаний номер дня є ${res}. `)
 }
+
+// =================  Задача 3  =================
+// ? Створити окремі функції, які для 4 чисел знаходять:
+// ? 1)суму;
+// ? 2)добуток;
+// ? 3)середнє арифметичне;
+// ? 4)мінімальне значення.
+
+function mathOperationsWithFourNumbers() {
+  // отримую дані від користувача
+  const num1 = parseFloat(document.querySelector('.Num_1').value)
+  const num2 = parseFloat(document.querySelector('.Num_2').value)
+  const num3 = parseFloat(document.querySelector('.Num_3').value)
+  const num4 = parseFloat(document.querySelector('.Num_4').value)
+
+  // == СУМА ==
+  function getSum() {
+    return arguments[0] + arguments[1] + arguments[2] + arguments[3]
+  }
+  const sum = getSum(num1, num2, num3, num4)
+
+  // == ДОБУТОК ==
+  function getMultiple() {
+    return arguments[0] * arguments[1] * arguments[2] * arguments[3]
+  }
+  const mult = getMultiple(num1, num2, num3, num4)
+
+  // == СЕРЕДНЄ АРИФМЕТИЧНЕ ==
+  function getAverage() {
+    return (arguments[0] + arguments[1] + arguments[2] + arguments[3]) / 4
+  }
+  const average = getAverage(num1, num2, num3, num4)
+
+  // == МІНІМАЛЬНЕ ЗНАЧЕННЯ ==
+  function getMinValue() {
+    let minVal = Infinity
+    for (let i = 0; i < 4; i++) {
+      if (arguments[i] < minVal) minVal = arguments[i]
+    }
+    return minVal
+  }
+  const minValue = getMinValue(num1, num2, num3, num4)
+
+  // виведення результату
+  sum && (document.querySelector('.sum').innerHTML = ` Сума чисел = ${sum.toFixed(2)} `)
+  mult && (document.querySelector('.multiple').innerHTML = ` Добуток чисел = ${mult.toFixed(2)} `)
+  average &&
+    (document.querySelector('.average').innerHTML = ` Середнє арифметичне = ${average.toFixed(2)} `)
+  minValue &&
+    (document.querySelector('.minValue').innerHTML = ` Мінімальне значення = ${minValue} `)
+}
+
+// =================  Задача 4  =================
