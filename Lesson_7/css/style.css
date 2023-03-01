@@ -6,7 +6,7 @@
   --font_main2: 'Bai Jamjuree', sans-serif;
   --bg_color: #1A1C1C;
   --bg_color_tasks: #262E2F;
-  --font_main_color: #91D2D5;
+  --font_main_color: #b2f0f4;
   --link_font_color: #E2E2E2;
   --hover_bg_task: #354042;
   --hover_color_task: #9fe6e9;
@@ -18,7 +18,10 @@
 
 body {
   font-family: var(--font_main2);
-  background: var(--bg_color);
+  /* background: var(--bg_color); */
+  background: url('../img/background.webp');
+  background-attachment: fixed;
+  background-position: center;
   color: var(--font_main_color);
   padding: 20px;
   line-height: 1.1;
@@ -209,7 +212,7 @@ hr {
 
 /* ==========  Task 1 ========== */
 
-.result2, .result3, {
+.result2, .result3 {
   font-size: 30px;
 }
 

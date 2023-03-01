@@ -93,11 +93,11 @@ function isWorkingDay() {
     case 3:
     case 4:
     case 5:
-      res = ' робочий '
+      res = ' робочим '
       break
     case 6:
     case 7:
-      res = ' вихідний '
+      res = ' вихідним '
       break
   }
   res && (document.querySelector('.result3').innerHTML = ` Вказаний номер дня є ${res}. `)
@@ -322,4 +322,17 @@ function createBanner() {
   }
 
   const banner = makeBanner(bannerTittle, bannerLink, bannerPicture)
+}
+
+// =================  Задача 9  =================
+// Дано покази температур (довільна кількість). Розробити функцію, яка дозволить підрахувати кількість від’ємних показів температури.
+
+function countNegativeTemper() {
+  let negativeCounter = 0
+  do {
+    let userTemperInput = parseFloat(prompt(' Введіть показники температури:'))
+    if (!isFinite(userTemperInput)) userTemperInput = false
+    userTemperInput < 0 && negativeCounter++
+  } while (userTemperInput !== false)
+  document.querySelector('.result10').innerHTML = ` Кількість від’ємних чисел: ${negativeCounter}`
 }
