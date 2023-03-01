@@ -23,15 +23,11 @@
       </div>
       <!-- Tasks list -->
       <ul class="tasks_list">
-        <!-- <div class="input_list">
-          <input class="startRange" type="number" placeholder="Введіть перше число" />
-          <input class="endRange" type="number" placeholder="Введіть друге число" />
-        </div> -->
         <!-- Task 1 -->
         <li class="task_block">
           <h2 class="task_counter">Задача 0</h2>
           <p class="task_text">
-            Створити функцію, яка за номером місяця повертає пору року, до якої відноситься цей місяць.
+            Створити функцію, яка за номером місяця повертає пору року, до якої відноситься цей місяць.</p>
           <form method="POST" action="#">
             <div class="input_list">
               <input class="monthNumber" type="number" placeholder="Введіть номер місяця" />
@@ -45,7 +41,7 @@
         <li class="task_block">
           <h2 class="task_counter">Задача 1</h2>
           <p class="task_text">
-            Створити функцію, яка за номером місяця повертає його назву.
+            Створити функцію, яка за номером місяця повертає його назву.</p>
           <form method="POST" action="#">
             <div class="input_list">
               <input class="monthName" type="number" placeholder="Введіть номер місяця" />
@@ -59,7 +55,7 @@
         <li class="task_block">
           <h2 class="task_counter">Задача 2</h2>
           <p class="task_text">
-            Створити функцію, яка за номером дня дозволяє з’ясувати чи є цей день робочим.
+            Створити функцію, яка за номером дня дозволяє з’ясувати чи є цей день робочим.</p>
           <form method="POST" action="#">
             <div class="input_list">
               <input class="dayNum" type="number" placeholder="Введіть номер дня" />
@@ -77,7 +73,7 @@
             1)суму;<br>
             2)добуток;<br>
             3)середнє арифметичне;<br>
-            4)мінімальне значення.
+            4)мінімальне значення.</p>
           <form method="POST" action="#">
             <div class="input_list task3">
               <input class="Num_1" type="number" placeholder="Введіть число №1" />
@@ -102,7 +98,7 @@
           <p class="task_text">
             Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів: кількість парних,
             кількість
-            додатних, кількість більших за 100.
+            додатних, кількість більших за 100.</p>
           <form method="POST" action="#">
             <div class="input_list">
               <input class="Num_1_4" type="number" placeholder="Введіть число №1" />
@@ -124,7 +120,7 @@
             Створити окремі функції, які переводять:<br>
             1) Сантиметри у дюйми; <br>
             2) Кілограми у фунти;<br>
-            3) Кілометри у милі.
+            3) Кілометри у милі.</p>
           <form method="POST" action="#">
             <div class="input_list">
               <input class="Centimeters_in_inches" type="number" placeholder="Сантиметри у дюйми" />
@@ -145,7 +141,7 @@
           <p class="task_text">
             Створити функцію, яка створює таблицю з вказаною кількістю рядків і стовпців (таблиця заповнюється заданим
             фіксованим
-            повідомленням).
+            повідомленням).</p>
           <form method="POST" action="#">
             <div class="input_list">
               <input id="rowsNumb" type="number" placeholder="Введіть кількість рядків" />
@@ -166,7 +162,7 @@
           <h2 class="task_counter">Задача 7</h2>
           <p class="task_text">
             Створити функцію, яка випадковим чином виводить на екран одне із 4 зображень (шляхи до зображень передаються
-            у функцію)
+            у функцію)</p>
           <form method="POST" action="#">
             <button class="button" type="button" onclick="getRandomImg()">Click!</button>
           </form>
@@ -179,7 +175,7 @@
           <p class="task_text">
             Створити функцію, яка виводить банер (у функцію передаються: зображення, заголовок та посилання, куди
             переходимо при
-            кліку на зображення.
+            кліку на зображення.</p>
           <form method="POST" action="#">
             <div class="input_list">
               <input id="title_text" type="text" placeholder="Введіть заголовок для банера" />
@@ -202,12 +198,25 @@
           <h2 class="task_counter">Задача 9</h2>
           <p class="task_text">
             Дано покази температур (довільна кількість). Розробити функцію, яка дозволить підрахувати кількість
-            від’ємних показів
-            температури.
+            від’ємних показів</p>
           <form method="POST" action="#">
             <button type="button" onclick="countNegativeTemper()">Click!</button>
           </form>
           <div class="result result10">
+          </div>
+        </li>
+        <!-- Task 11 -->
+        <li class="task_block">
+          <h2 class="task_counter">Задача 10</h2>
+          <p class="task_text">
+            Дано покази температур (довільна кількість). Розробити функцію, яка дозволить знайти середнє значення для
+            додатних
+            показів температури.
+          </p>
+          <form method="POST" action="#">
+            <button type="button" onclick="countPositiveTemper()">Click!</button>
+          </form>
+          <div class="result result11">
           </div>
         </li>
       </ul>
