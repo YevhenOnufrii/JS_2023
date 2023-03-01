@@ -267,3 +267,39 @@ function createTable() {
     }
   }
 }
+
+// =================  Задача 7  =================
+// Створити функцію, яка випадковим чином виводить на екран одне із 4 зображень (шляхи до зображень передаються у функцію)
+
+function getRandomImg() {
+  const pic1 = './img/pic1.webp'
+  const pic2 = './img/pic2.webp'
+  const pic3 = './img/pic3.webp'
+  const pic4 = './img/pic4.webp'
+  // функція для отримання випадкового числа
+  function getRandomNumb(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min
+  }
+  function getImagePath() {
+    // отримуємо рандомне число від 1 до 4
+    const randomNum = getRandomNumb(1, 4)
+    switch (randomNum) {
+      case 1:
+        return arguments[0]
+      case 2:
+        return arguments[1]
+      case 3:
+        return arguments[2]
+      case 4:
+        return arguments[3]
+    }
+  }
+  // отримуємо випадковий шлях до картинки
+  const imagePath = getImagePath(pic1, pic2, pic3, pic4)
+  // вивід результату
+  const imgBox = document.querySelector('.result8')
+  imgBox.innerHTML = ``
+  const img = document.createElement('img')
+  img.setAttribute('src', imagePath)
+  imgBox.appendChild(img)
+}
