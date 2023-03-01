@@ -329,16 +329,64 @@ function createBanner() {
 // ? Дано покази температур (довільна кількість). Розробити функцію, яка дозволить підрахувати кількість від’ємних показів температури.
 
 function countNegativeTemper() {
-  let negativeCounter = 0
+  let negativeNumbCounter = 0
   let userTemperInput
   do {
-    userTemperInput = parseFloat(prompt(' Введіть показники температури:'))
+    userTemperInput = parseFloat(
+      prompt(` Введіть показник температури:
+    Для виходу натисніть кнопку 'СКАСУВАТИ'`)
+    )
     if (!isFinite(userTemperInput)) userTemperInput = false
-    userTemperInput < 0 && negativeCounter++
+    userTemperInput < 0 && negativeNumbCounter++
   } while (userTemperInput !== false)
-  document.querySelector('.result10').innerHTML = ` Кількість від’ємних чисел: ${negativeCounter}`
+  // виводимо результат
+  document.querySelector(
+    '.result10'
+  ).innerHTML = ` Кількість від’ємних чисел: ${negativeNumbCounter}`
 }
 
 // =================  Задача 10  =================
+//  Дано покази температур (довільна кількість). Розробити функцію, яка дозволить знайти середнє значення для додатних показів температури.
 
-// function
+function averagePositiveTemper() {
+  let userTemperInput
+  let positiveNumbCounter = 0
+  let sumPositiveNumb = 0
+  for (let i = 1; userTemperInput !== false; i++) {
+    userTemperInput = parseFloat(
+      prompt(` Введіть показник температури:
+    Для виходу натисніть кнопку 'СКАСУВАТИ'`)
+    )
+    if (!isFinite(userTemperInput)) userTemperInput = false
+    if (userTemperInput > 0) {
+      sumPositiveNumb += userTemperInput
+      positiveNumbCounter++
+    }
+  }
+  // два числа після коми
+  let averageTemper = Math.round((sumPositiveNumb / positiveNumbCounter) * 100) / 100
+  // виводимо результат
+  averageTemper &&
+    (document.querySelector(
+      '.result11'
+    ).innerHTML = ` Середнє значення для додатних показів температури: ${averageTemper}`)
+}
+/* ===== АЛЬТЕРНАТИВНИЙ ВАРІАНТ ІЗ arguments ===== */
+
+/* function averagePositiveTemper() {
+  let positiveNumbCounter = 0
+  let sumPositiveNumb = 0
+  for (let i = 0; i < arguments.length; i++) {
+    if (arguments[i] > 0) {
+      sumPositiveNumb += arguments[i]
+      positiveNumbCounter++
+    }
+  }
+  // два числа після коми
+  let averageTemper = Math.round((sumPositiveNumb / positiveNumbCounter) * 100) / 100
+  return averageTemper
+}
+console.log(averagePositiveTemper(12, -12, 13, 45, 34, -2, -7))
+console.log(averagePositiveTemper(56.2555, -12, 43.2555, 67, 8.55, 2, -7)) */
+
+// Що Ви бачите перед собою? Це скар... це ДЗ №7 :)
