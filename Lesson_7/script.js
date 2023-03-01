@@ -242,3 +242,28 @@ function convertingUnits() {
   )} фунтів`
   document.querySelector('.miles').innerHTML = ` ${kilograms} кілограм це ${miles.toFixed(2)} миль`
 }
+
+// =================  Задача 6  =================
+// ? Створити функцію, яка створює таблицю з вказаною кількістю рядків і стовпців (таблиця заповнюється заданим фіксованим повідомленням).
+
+function createTable() {
+  // дані від користувача
+  const rowsNumb = parseInt(document.getElementById('rowsNumb').value)
+  const columnsNumb = parseInt(document.getElementById('columnsNumb').value)
+  const unitText = document.getElementById('unit_text').value
+  // налаштування майбутньої таблиці
+  const table = document.querySelector('.table_task6')
+  table.classList.add('table_border')
+  const tableOut = document.getElementById('tbody_task6')
+  tableOut.innerHTML = ``
+  // зовнішній цикл створює рядки, внутрішній клітинки + текст
+  for (let i = 0; i < rowsNumb; i++) {
+    const tr = document.createElement('tr')
+    tableOut.appendChild(tr)
+    for (let j = 0; j < columnsNumb; j++) {
+      const td = document.createElement('td')
+      td.textContent = `${unitText}`
+      tr.appendChild(td)
+    }
+  }
+}

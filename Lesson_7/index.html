@@ -139,6 +139,28 @@
             <p class="miles"></p>
           </div>
         </li>
+        <!-- Task 7 -->
+        <li class="task_block">
+          <h2 class="task_counter">Задача 6</h2>
+          <p class="task_text">
+            Створити функцію, яка створює таблицю з вказаною кількістю рядків і стовпців (таблиця заповнюється заданим
+            фіксованим
+            повідомленням).
+          <form method="POST" action="#">
+            <div class="input_list">
+              <input id="rowsNumb" type="number" placeholder="Введіть кількість рядків" />
+              <input id="columnsNumb" type="number" placeholder="Введіть кількість стовпців" />
+              <input id="unit_text" type="text" placeholder="Введіть фіксований текст для клітинки" />
+            </div>
+            <button class="button" type="button" onclick="createTable()">Click!</button>
+          </form>
+          <div class="result result7">
+            <table class="table_task6">
+              <tbody id="tbody_task6">
+              </tbody>
+            </table>
+          </div>
+        </li>
       </ul>
     </div>
   </div>

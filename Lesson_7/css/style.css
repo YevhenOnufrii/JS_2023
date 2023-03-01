@@ -74,15 +74,19 @@ button:hover {
 
 tr,
 td,
-th,
-table {
+th {
   border: 1px solid #000;
-  padding: 5px
+  padding: 5px;
 }
 
 table {
   width: 50%;
   margin: 0px auto;
+
+}
+
+.table_border {
+  border: 1px solid #000;
 }
 
 hr {
