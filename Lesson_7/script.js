@@ -201,3 +201,44 @@ function mathOperationsWithThreeNumbers() {
     '.NumbersOver100'
   ).innerHTML = ` Кількість більших за 100 = ${NumbersOver100} `
 }
+
+// =================  Задача 5  =================
+// ? Створити окремі функції, які переводять:
+// ? Сантиметри у дюйми;
+// ? Кілограми у фунти;
+// ? Кілометри у милі.
+
+function convertingUnits() {
+  const centimeters = parseFloat(document.querySelector('.Centimeters_in_inches').value)
+  const kilograms = parseFloat(document.querySelector('.Kilograms_to_pounds').value)
+  const kilometers = parseFloat(document.querySelector('.Kilometers_in_miles').value)
+  // САНТИМЕТРИ У ДЮЙМИ;
+  function convertCmToInch() {
+    // константа перетворення
+    const inchConvСonst = 0.393701
+    return arguments[0] * inchConvСonst
+  }
+  const inches = convertCmToInch(centimeters)
+  // КІЛОГРАМИ У ФУНТИ;
+  function convertKgToPounds() {
+    // константа перетворення
+    const poundConvСonst = 2.20462
+    return arguments[0] * poundConvСonst
+  }
+  const pounds = convertKgToPounds(kilograms)
+  // КІЛОМЕТРИ У МИЛІ
+  function convertKmToMiles() {
+    // константа перетворення
+    const milesConvСonst = 0.621371
+    return arguments[0] * milesConvСonst
+  }
+  const miles = convertKmToMiles(kilometers)
+  // виведення результатів
+  document.querySelector('.inches').innerHTML = ` ${centimeters} сантиметрів це ${inches.toFixed(
+    2
+  )} дюймів`
+  document.querySelector('.pounds').innerHTML = ` ${kilograms} кілограм це ${pounds.toFixed(
+    2
+  )} фунтів`
+  document.querySelector('.miles').innerHTML = ` ${kilograms} кілограм це ${miles.toFixed(2)} миль`
+}
