@@ -240,21 +240,34 @@ hr {
   max-height: 300px;
   border-radius: 10px;
 }
+/* ==========  Task 8 ========== */
 
-
-/* ==========  Task 10 ========== */
-
-.result10 {
-  text-align: center;
-  color: var(--result-green-color);
+.result9 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.banner_box {
+  cursor: pointer;
+  background: var(--placeholder_bg_color);
+  width: fit-content;
+  border-radius: 10px;
 }
 
-.image_item {
-  text-align: center;
-  margin: 10px 0;
+.banner_title{
+  font-size: 30px;
 }
-.image_item img {
-  max-width: 100px;;
-  margin: 0px 5px;
+
+.banner_image {
+  max-width: 300px;
+  border-radius: 10px;
+  
 }
+
+label {
+  padding-left: 8px;
+  margin-bottom: 3px;
+  display: block;
+}
+
 

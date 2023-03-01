@@ -303,3 +303,23 @@ function getRandomImg() {
   img.setAttribute('src', imagePath)
   imgBox.appendChild(img)
 }
+
+// =================  Задача 8  =================
+// Створити функцію, яка виводить банер (у функцію передаються: зображення, заголовок та посилання, куди переходимо при кліку на зображення (тег img повинне знаходитись у середині тега a: <a> <img src=”шлях”> </a>
+
+function createBanner() {
+  const bannerTittle = document.getElementById('title_text').value
+  const bannerLink = document.getElementById('banner_link').value
+  const bannerPicture = './img/fenix.webp'
+
+  function makeBanner(title, link, pic) {
+    const makeTitle = document.querySelector('.banner_title')
+    makeTitle.textContent = ` ${title} `
+    const makeLink = document.querySelector('.banner_link')
+    makeLink.setAttribute('href', link)
+    const makePic = document.querySelector('.banner_image')
+    makePic.setAttribute('src', pic)
+  }
+
+  const banner = makeBanner(bannerTittle, bannerLink, bannerPicture)
+}
