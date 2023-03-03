@@ -218,7 +218,8 @@ label {
   font-size: 20px;
 }
 /* ========== Task 2  ========== */
-#res2, #res3, #res4{
+#res2, #res3, #res4 ,
+#res5{
   text-align: left;
   font-size: 20px;
 }

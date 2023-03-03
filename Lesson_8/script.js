@@ -193,3 +193,48 @@ function carPlates() {
   3. складаються з більше ніш 5 символів ${getMoreThanFiveSymbolsNum(testArr)}
   `
 }
+
+// ==================== Task 5 ====================
+// Дано послідовність оцінок учня. Підрахувати кількість:
+// 1)	двійок
+// 2)	кількість хороших оцінок (добре, відмінно);
+// 3)	кількість оцінок, які нижче середнього.
+
+function achievementAnalysis() {
+  const testArr = [2, 3, 4, 5, 3, 4, 5, 5, 2, 4, 2, 3, 4, 5, 5, 4, 3]
+  // ф-я рахує кількість повторень заданого числа в масиві
+  function getNumbRepeatCont(gradeList, num) {
+    let counter = 0
+    for (let i = 0; i < gradeList.length; i++) {
+      gradeList[i] === num && counter++
+    }
+    return counter
+  }
+  // середнє значення
+  function getAverageGrade(gradeList) {
+    let sum = 0
+    for (let i = 0; i < gradeList.length; i++) {
+      sum += gradeList[i]
+    }
+    const average = Math.round((sum / gradeList.length) * 100) / 100
+    return average
+  }
+  const averageGrade = getAverageGrade(testArr)
+  console.log('🚀 ~ file: script.js:223 ~ achievementAnalysis ~ averageGrade:', averageGrade)
+  // кількість оцінок, які нижче середнього.
+  function gradesLessThanAverage(gradeList, average) {
+    let counter = 0
+    for (let i = 0; i < gradeList.length; i++) {
+      gradeList[i] < average && counter++
+    }
+    return counter
+  }
+  // print result
+  document.getElementById('res5').innerHTML = `
+    1. Кількість двійок = ${getNumbRepeatCont(testArr, 2)} <br>
+    2. Кількість хороших оцінок (добре, відмінно) = ${
+      getNumbRepeatCont(testArr, 4) + getNumbRepeatCont(testArr, 5)
+    } <br>
+    3. Кількість оцінок, які нижче середнього = ${gradesLessThanAverage(testArr, averageGrade)}
+  `
+}
