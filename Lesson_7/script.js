@@ -86,21 +86,12 @@ function monthName() {
 
 function isWorkingDay() {
   const dayNumb = parseInt(document.querySelector('.dayNum').value)
-  let res
-  switch (dayNumb) {
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-      res = ' робочим '
-      break
-    case 6:
-    case 7:
-      res = ' вихідним '
-      break
+  function isWorkD(dayNum) {
+    return dayNum <= 5
   }
-  res && (document.querySelector('.result3').innerHTML = ` Вказаний номер дня є ${res}. `)
+  const res = isWorkD(dayNumb)
+  let outputText = res ? ' робочим ' : ' вихідним '
+  document.querySelector('.result3').innerHTML = ` Вказаний номер дня є ${outputText}. `
 }
 
 // =================  Задача 3  =================
