@@ -141,5 +141,16 @@ function storeTraffic() {
 // ==================== Task 3 ====================
 
 // Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван».
-
-;['Іван', 'Василь', 'Юра', 'Микола', 'Іван', 'Іван']
+function countNameIvanRepeat() {
+  const testArr = ['Іван', 'Василь', 'Юра', 'Микола', 'Іван', 'Іван']
+  function getNameRepeatNum(namesList, name) {
+    let nameCount = 0
+    for (let i = 0; i < namesList.length; i++) {
+      namesList[i] === name && nameCount++
+    }
+    return nameCount
+  }
+  document.getElementById('res3').innerHTML = `
+  Ім‘я "Іван" зустрічається ${getNameRepeatNum(testArr, 'Іван')} разів 
+  `
+}
