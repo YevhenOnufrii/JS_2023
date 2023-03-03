@@ -154,3 +154,42 @@ function countNameIvanRepeat() {
   Ім‘я "Іван" зустрічається ${getNameRepeatNum(testArr, 'Іван')} разів 
   `
 }
+
+// ==================== Task 4 ====================
+/*  Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :
+•	починаються на букву «А»;
+•	перша і остання літери співпадають;
+•	складаються з більше ніш 5 символів; */
+
+function carPlates() {
+  const testArr = ['AO3456OA', 'AB3456OA', 'AC3456OA', 'BC3456AA', 'AA3456AA', 'BC3456AX']
+  // •	починаються на букву «А»
+  function getFirstCharRepeatNum(listPlates, letter) {
+    let repeatCount = 0
+    for (let i = 0; i < listPlates.length; i++) {
+      listPlates[i][0] === letter && repeatCount++
+    }
+    return repeatCount
+  }
+  // перша і остання літери співпадають;
+  function firstAndLastSameCount(list) {
+    let sameCount = 0
+    for (let i = 0; i < list.length; i++) {
+      list[i][0] === list[i][list[i].length - 1] && sameCount++
+    }
+    return sameCount
+  }
+  // складаються з більше ніш 5 символів
+  function getMoreThanFiveSymbolsNum(listPlates) {
+    let counter = 0
+    for (let i = 0; i < listPlates.length; i++) {
+      listPlates[i].length > 5 && counter++
+    }
+    return counter
+  }
+  document.getElementById('res4').innerHTML = `
+  1. Починаються на букву «А»: ${getFirstCharRepeatNum(testArr, 'A')} <br>
+  2. Перша і остання літери співпадають ${firstAndLastSameCount(testArr)} <br>
+  3. складаються з більше ніш 5 символів ${getMoreThanFiveSymbolsNum(testArr)}
+  `
+}
