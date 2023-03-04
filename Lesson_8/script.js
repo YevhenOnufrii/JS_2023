@@ -195,6 +195,7 @@ function carPlates() {
 }
 
 // ==================== Task 5 ====================
+
 // Дано послідовність оцінок учня. Підрахувати кількість:
 // 1)	двійок
 // 2)	кількість хороших оцінок (добре, відмінно);
@@ -220,7 +221,6 @@ function achievementAnalysis() {
     return average
   }
   const averageGrade = getAverageGrade(testArr)
-  console.log('🚀 ~ file: script.js:223 ~ achievementAnalysis ~ averageGrade:', averageGrade)
   // кількість оцінок, які нижче середнього.
   function gradesLessThanAverage(gradeList, average) {
     let counter = 0
@@ -238,3 +238,97 @@ function achievementAnalysis() {
     3. Кількість оцінок, які нижче середнього = ${gradesLessThanAverage(testArr, averageGrade)}
   `
 }
+
+// ==================== Task 6 ====================
+
+// Дано послідовність цін товарів та назв (у окремих масивах). Вивести на екран ті, які може собі дозволити користувач (кількість грошей задається).
+
+function groceriesPurchasing() {
+  const productsPrices = [1000, 800, 600, 300, 100]
+  const productsTitles = ['cheese', 'juice', 'bread', 'butter', 'water']
+
+  const userMoneyNum = parseFloat(document.getElementById('moneyVal').value)
+
+  function getFilteredList(pricesList, productsList, cash) {
+    let resultList = []
+    // поки не закінчиться масив з цінами і результуючий масив пустий
+    for (let i = 0; i < pricesList.length && resultList.length === 0; i++) {
+      if (cash >= pricesList[i]) {
+        for (let j = i; j < productsList.length; j++) {
+          resultList.push(productsList[j])
+        }
+      }
+    }
+    return resultList.length ? resultList : ['Недостатньо коштів']
+  }
+
+  document.getElementById('res6').innerHTML = `
+    Доступні для купівлі: ${getFilteredList(productsPrices, productsTitles, userMoneyNum).join(
+      ', '
+    )}
+  `
+}
+
+// ==================== Task 7 ====================
+
+// Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:
+// за весь рік;
+// у першій половині року;
+// у другій половині року;
+// за літо;
+// за ІІ квартал;
+// за парні місяці (з парними номерами);
+// за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+
+function Payments() {
+  // test arr
+  const yearPaymentsList = new Array(12).fill(null).map((it, i) => (it = 1000 + i + 1))
+  // отримання суми за період
+  function getSumPaymentsForPeriod(paymentsList, periodStart, periodEnd) {
+    let sum = 0
+    // periodStart - 1 => так як місяці починають відлік з 1 а індексація масиву йде починаючи з 0
+    for (let i = periodStart - 1; i < periodEnd; i++) {
+      sum += paymentsList[i]
+    }
+    return sum
+  }
+  // отримання суми для парних місяців
+  function getSumPaymentsForMonthsWithEvenNumb(paymentsList) {
+    let sum = 0
+    // i = 1 і крок 2 щоб йти по парним місяцям
+    // for (let i = 1; i < paymentsList.length; i += 2) {
+    //   sum += paymentsList[i]
+    // }
+    // можна також знаходити залишок від ділення на парне
+    for (let i = 0; i < paymentsList.length; i += 1) {
+      // i % 2 повертає false (0) якщо парне і true (число) якщо непарне
+      // в даному випадку цей вираз працює вірно, бо під парними індексами масиву знаходяться НЕпарні місяці. Тобто, під індексом 0 масиву знаходиться 1 місяць. Тому, для отримання сум по парним місяцям треба отримати дані які знаходяться під непарними індексами.
+      if (i % 2) {
+        sum += paymentsList[i]
+      }
+    }
+    return sum
+  }
+  // за місяці, які є початковими у сезоні
+  function getSumPaymentsBySeason(paymentsList) {
+    let sum = 0
+    // крок 3 для отримання першого місяця сезону
+    for (let i = 2; i < paymentsList.length; i += 3) {
+      sum += paymentsList[i]
+    }
+    return sum
+  }
+
+  document.getElementById('res7').innerHTML = `
+  Сумарна кількість грошей за: <br>
+  - за весь рік = ${getSumPaymentsForPeriod(yearPaymentsList, 1, 12)} <br>
+  - у першій половині року = ${getSumPaymentsForPeriod(yearPaymentsList, 1, 6)} <br>
+   - у другій половині року = ${getSumPaymentsForPeriod(yearPaymentsList, 7, 12)} <br>
+  - за літо = ${getSumPaymentsForPeriod(yearPaymentsList, 6, 8)} <br>
+  - за ІІ квартал = ${getSumPaymentsForPeriod(yearPaymentsList, 4, 6)} <br>
+  - за парні місяці = ${getSumPaymentsForMonthsWithEvenNumb(yearPaymentsList)} <br>
+  - за місяці, які є початковими у сезоні = ${getSumPaymentsBySeason(yearPaymentsList)}
+  `
+}
+
+// ==================== Task 8 ====================
