@@ -332,6 +332,7 @@ function Payments() {
 }
 
 // ==================== Task 8 ====================
+
 // Дано одновимірний масив, у якому зберігається певна виграшна сума (елементи заповнюються випадковим чином значеннями від -500 до 500). Надаючи користувачу можливість вибирати номери елементів  (поки він не відмовиться). Знаходити сумарний виграш.
 
 function someGame() {
@@ -356,7 +357,6 @@ function someGame() {
         sum += listRandNumbers[userInpIndex - 1]
         userList.push(listRandNumbers[userInpIndex - 1])
       }
-      // userInpIndex && (sum += listRandNumbers[userInpIndex])
       userInpIndex = parseInt(prompt('Введіть число від 1 до 10'))
       if (!isFinite(userInpIndex)) userInpIndex = false
     } while (userInpIndex !== false)
@@ -369,4 +369,62 @@ function someGame() {
   2. Обрані елементи масиву ${listUserNumbers.join(',  ')}. <br>
   3. Рандомний масив: [${randomArr.join(',  ')}]
   `
+}
+
+// ==================== Task 9 ====================
+
+//  Морський бій. Користувач вводить кількість клітинок одновимірного масиву та кількість одиночних кораблів. Комп’ютер довільно розміщує ці одиночні кораблі у масиві по один у клітинці (якщо у клітинці 0, то клітинка пуста, якщо 1 – то це означає, що там є корабель. Користувач вводить номер клітинки, куди стріляє. Гра продовжується до тих пір, поки не будуть потоплені усі кораблі.
+
+function SeaBattle() {
+  const gameSpace = parseInt(prompt('Введіть кількість клітинок одновимірного масиву:'))
+  const gameUnits = parseInt(prompt('Введіть кількість однопалубних кораблів :'))
+
+  function getRandomNum(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min
+  }
+  // розміщуємо кораблі в масиві
+  function placingUnitsInGameSpace(listLength, amountUnits) {
+    let gameArr = new Array(listLength)
+    // заповнюємо нулями
+    for (let i = 0; i < gameArr.length; i++) gameArr[i] = 0
+    // рандомно вставляємо 1
+    for (let i = 0; i < amountUnits; i++) {
+      let randomIndex = getRandomNum(0, gameSpace - 1) // -1 через індексацію масива з 0
+      // якщо позиція в масиві вже містить 1, то генеруємо новий рандомний індекс
+      while (gameArr[randomIndex]) {
+        randomIndex = getRandomNum(0, gameSpace - 1) // -1 через індексацію масива з 0
+      }
+      gameArr[randomIndex] = 1
+    }
+    return gameArr
+  }
+  // gameSpace - це довжина масиву, gameUnits - кількість одиниць які треба розмістити в масиві
+  // gameArray - це в якому записується результат виконання ф-ції (масив) з рандомно розміщеними юнітами
+  const gameArray = placingUnitsInGameSpace(gameSpace, gameUnits)
+  // отримуємо кількість кораблів в масиві
+  function getNumberOfUnitsInGameArray(gameList) {
+    let unitsQuantity = 0
+    for (let i = 0; i < gameList.length; i++) unitsQuantity += gameList[i]
+    return unitsQuantity
+  }
+
+  let userAttempt = true
+  let unitsQuantity = getNumberOfUnitsInGameArray(gameArray)
+  while (unitsQuantity && userAttempt) {
+    console.log(gameArray)
+    userAttempt = parseInt(
+      prompt(`Всього на полі ${unitsQuantity} кораблів.
+      Введіть номер клітинки для пострілу 
+      `)
+    )
+    if (isFinite(userAttempt) && userAttempt > 0 && userAttempt < gameArray.length) {
+      // по юзерІндексу змінюємо масив з юнітами
+      gameArray[userAttempt - 1] = 0 // -1 через індексацію масива
+      unitsQuantity = getNumberOfUnitsInGameArray(gameArray) // отримуємо нову кількість юнітів
+    }
+    !isFinite(userAttempt) && (userAttempt = false)
+  }
+  document.getElementById('res9').innerHTML = unitsQuantity
+    ? `Ви програли. Залишилось кораблів: ${unitsQuantity}`
+    : 'Ви перемогли. Всі кораблі потоплені'
 }
