@@ -332,3 +332,41 @@ function Payments() {
 }
 
 // ==================== Task 8 ====================
+// Дано одновимірний масив, у якому зберігається певна виграшна сума (елементи заповнюються випадковим чином значеннями від -500 до 500). Надаючи користувачу можливість вибирати номери елементів  (поки він не відмовиться). Знаходити сумарний виграш.
+
+function someGame() {
+  function generateRandomArr(min, max, arrLength) {
+    let resultArr = []
+    for (let i = 0; i < arrLength; i++) {
+      let randomNum = Math.floor(Math.random() * (max - min + 1)) + min
+      resultArr.push(randomNum)
+    }
+    return resultArr
+  }
+
+  const randomArr = generateRandomArr(-500, 500, 10)
+
+  function calculationResult(listRandNumbers) {
+    let userInpIndex
+    let sum = 0
+    let userList = []
+    do {
+      if (userInpIndex) {
+        // -1 бо індексація масиву з 0, а юзер вводить дані з 1 по 10
+        sum += listRandNumbers[userInpIndex - 1]
+        userList.push(listRandNumbers[userInpIndex - 1])
+      }
+      // userInpIndex && (sum += listRandNumbers[userInpIndex])
+      userInpIndex = parseInt(prompt('Введіть число від 1 до 10'))
+      if (!isFinite(userInpIndex)) userInpIndex = false
+    } while (userInpIndex !== false)
+    return [sum, userList]
+  }
+  const [gameResult, listUserNumbers] = calculationResult(randomArr)
+
+  document.getElementById('res8').innerHTML = `
+  1. Ви набрали ${gameResult} балів. <br>
+  2. Обрані елементи масиву ${listUserNumbers.join(',  ')}. <br>
+  3. Рандомний масив: [${randomArr.join(',  ')}]
+  `
+}
