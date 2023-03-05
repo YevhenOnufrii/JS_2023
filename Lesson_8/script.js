@@ -252,11 +252,9 @@ function groceriesPurchasing() {
   function getFilteredList(pricesList, productsList, cash) {
     let resultList = []
     // поки не закінчиться масив з цінами і результуючий масив пустий
-    for (let i = 0; i < pricesList.length && resultList.length === 0; i++) {
+    for (let i = 0; i < pricesList.length; i++) {
       if (cash >= pricesList[i]) {
-        for (let j = i; j < productsList.length; j++) {
-          resultList.push(productsList[j])
-        }
+        resultList.push(productsList[i])
       }
     }
     return resultList.length ? resultList : ['Недостатньо коштів']
