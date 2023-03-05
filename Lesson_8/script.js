@@ -282,36 +282,11 @@ function Payments() {
   // test arr
   const yearPaymentsList = new Array(12).fill(null).map((it, i) => (it = 1000 + i + 1))
   // отримання суми за період
-  function getSumPaymentsForPeriod(paymentsList, periodStart, periodEnd) {
+
+  function getSumPaymentsForPeriod(paymentsList, periodStart, periodEnd, step = 1) {
     let sum = 0
     // periodStart - 1 => так як місяці починають відлік з 1 а індексація масиву йде починаючи з 0
-    for (let i = periodStart - 1; i < periodEnd; i++) {
-      sum += paymentsList[i]
-    }
-    return sum
-  }
-  // отримання суми для парних місяців
-  function getSumPaymentsForMonthsWithEvenNumb(paymentsList) {
-    let sum = 0
-    // i = 1 і крок 2 щоб йти по парним місяцям
-    // for (let i = 1; i < paymentsList.length; i += 2) {
-    //   sum += paymentsList[i]
-    // }
-    // можна також знаходити залишок від ділення на парне
-    for (let i = 0; i < paymentsList.length; i += 1) {
-      // i % 2 повертає false (0) якщо парне і true (число) якщо непарне
-      // в даному випадку цей вираз працює вірно, бо під парними індексами масиву знаходяться НЕпарні місяці. Тобто, під індексом 0 масиву знаходиться 1 місяць. Тому, для отримання сум по парним місяцям треба отримати дані які знаходяться під непарними індексами.
-      if (i % 2) {
-        sum += paymentsList[i]
-      }
-    }
-    return sum
-  }
-  // за місяці, які є початковими у сезоні
-  function getSumPaymentsBySeason(paymentsList) {
-    let sum = 0
-    // крок 3 для отримання першого місяця сезону
-    for (let i = 2; i < paymentsList.length; i += 3) {
+    for (let i = periodStart - 1; i < periodEnd; i += step) {
       sum += paymentsList[i]
     }
     return sum
@@ -324,8 +299,8 @@ function Payments() {
    - у другій половині року = ${getSumPaymentsForPeriod(yearPaymentsList, 7, 12)} <br>
   - за літо = ${getSumPaymentsForPeriod(yearPaymentsList, 6, 8)} <br>
   - за ІІ квартал = ${getSumPaymentsForPeriod(yearPaymentsList, 4, 6)} <br>
-  - за парні місяці = ${getSumPaymentsForMonthsWithEvenNumb(yearPaymentsList)} <br>
-  - за місяці, які є початковими у сезоні = ${getSumPaymentsBySeason(yearPaymentsList)}
+  - за парні місяці = ${getSumPaymentsForPeriod(yearPaymentsList, 2, 12, 2)} <br>
+  - за місяці, які є початковими у сезоні = ${getSumPaymentsForPeriod(yearPaymentsList, 3, 12, 3)}
   `
 }
 
