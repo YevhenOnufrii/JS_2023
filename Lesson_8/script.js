@@ -372,7 +372,7 @@ function SeaBattle() {
     return gameArr
   }
   // gameSpace - це довжина масиву, gameUnits - кількість одиниць які треба розмістити в масиві
-  // gameArray - це в якому записується результат виконання ф-ції (масив) з рандомно розміщеними юнітами
+  // gameArray - ц змінна в якій записується результат виконання ф-ції (масив) з рандомно розміщеними юнітами
   const gameArray = placingUnitsInGameSpace(gameSpace, gameUnits)
   // отримуємо кількість кораблів в масиві
   function getNumberOfUnitsInGameArray(gameList) {
@@ -380,7 +380,6 @@ function SeaBattle() {
     for (let i = 0; i < gameList.length; i++) unitsQuantity += gameList[i]
     return unitsQuantity
   }
-
   let userAttempt = true
   let unitsQuantity = getNumberOfUnitsInGameArray(gameArray)
   while (unitsQuantity && userAttempt) {
@@ -393,7 +392,9 @@ function SeaBattle() {
     if (isFinite(userAttempt) && userAttempt > 0 && userAttempt < gameArray.length) {
       // по юзерІндексу змінюємо масив з юнітами
       gameArray[userAttempt - 1] = 0 // -1 через індексацію масива
+      let temp = unitsQuantity
       unitsQuantity = getNumberOfUnitsInGameArray(gameArray) // отримуємо нову кількість юнітів
+      if (temp > unitsQuantity) alert(`Ви потопили корабель. Залишилось ${unitsQuantity}`)
     }
     !isFinite(userAttempt) && (userAttempt = false)
   }
