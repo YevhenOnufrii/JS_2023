@@ -5,7 +5,8 @@
   --font_color_title: #bcbaf0;
   --main_font_fam: 'Inter', sans-serif;
   /* --task_box_bg: #ebecf0; */
-  --task_box_bg: #67679e;
+  /* --task_box_bg: #67679e; */
+  --task_box_bg: #67679e73;
   --task_font_color: #000;
   --border_color: #c5c6c9;
   --input_focus: #4d41f0;
@@ -57,10 +58,12 @@ input:focus {
   letter-spacing: 2.5px;
   margin: 10px 0;
   transition-duration: 500ms;
+  color: white;
 }
 
 .button:hover {
   background-color: #c5c6c9;
+  color: var(--input_focus);
 }
 
 .wrapper {
@@ -97,13 +100,13 @@ input:focus {
 
 .user_avatar {
   border-radius: 50%;
-  overflow: hidden;
   border: transparent;
 }
 
 .user_avatar img {
   width: 50px;
   height: 50px;
+  border-radius: 50%;
 }
 
 /* ==========  Homework details  ========== */
@@ -129,16 +132,26 @@ input:focus {
 /* ==========  Task box  ========== */
 
 .task_number {
-  font-size: 1.1em;
+  font-size: 1.3em;
   font-weight: bold;
   margin-bottom: 10px;
   margin-left: 10px;
+  color: white;
 }
 
 .task_text {
-  background: #fff;
+  font-size: 19px;
+  background: #ffffff00;
+  color: white;
   border-radius: 10px;
-  padding: 5px;
-  border-bottom: 2px solid #c5c6c9;
+  padding: 10px;
+  /* border-bottom: 2px solid #c5c6c9; */
   margin-bottom: 10px;
+}
+
+.result {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  overflow-wrap: break-word;
 }
