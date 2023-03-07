@@ -12,7 +12,7 @@
   --input_focus: #4d41f0;
 }
 body {
-  height: 100vh;
+  /* height: 100vh; */
   font-family: var(--main_font_fam);
   font-weight: 400;
   font-size: 16px;
@@ -154,6 +154,7 @@ input:focus {
   font-weight: bold;
   font-size: 20px;
   overflow-wrap: break-word;
+  margin: 10px 0px;
 }
 
 .testArr {
