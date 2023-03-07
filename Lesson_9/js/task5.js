@@ -7,7 +7,6 @@ const getSumPositiveNumb = () => {
     return Math.floor(Math.random() * (max - min + 1)) + min
   }
   const arrWithRandNumb = new Array(20).fill(null).map((it) => (it = getRandomNumb(-100, 100)))
-  console.log('🚀 ~ file: task5.js:10 ~ getSumPositiveNumb ~ arrWithRandNumb:', arrWithRandNumb)
   // використання циклу for..of
   let sum = 0
   for (const number of arrWithRandNumb) {
