@@ -14,5 +14,5 @@ function doubleGreaterThanFirst() {
   })
   // виводимо результат
   document.querySelector('.testArr6').innerHTML = `[Тестовий масив: ${arrWithRandNumb.join(', ')} ]`
-  document.querySelector('.result_6').innerHTML = ` Результат: ${resArr}`
+  document.querySelector('.result_6').innerHTML = ` Результат: ${resArr.join(', ')}`
 }
