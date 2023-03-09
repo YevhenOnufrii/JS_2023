@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>ДЗ №10 (lesson 10)</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <!-- Homework title  -->
+      <h1 class="homework_info">Homework #10</h1>
+      <!-- User details  -->
+      <div class="user_details">
+        <h2 title="Discord userName" class="user_name">Yevhen__#3515</h2>
+        <div class="user_avatar">
+          <img src="./img/flag.webp" alt="">
+        </div>
+      </div>
+      <!-- Tasks list  -->
+      <ul class="tasks_list">
+        <!-- Tasks 1  -->
+        <li class="task_box">
+          <h3 class="task_number">Задача №1</h3>
+          <p class="task_text">
+            Задача. Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000) <br>
+            1)Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.<br>
+            2)Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.<br>
+            3)Сформувати список з тих цін, які більші за попереднє значення<br>
+            4)Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального<br>
+            5)Підрахувати кількість змін цін<br>
+            6)Визначити, чи є ціна, що менше 1000<br>
+            8)Підрахувати кількість цін, що більше за 1000<br>
+            9)Підрахувати суму цін, що більше за 1000<br>
+            10)Знайти першу ціну, що більше за 1000<br>
+            11)Знайти індекс першої ціни, що більше за 1000<br>
+            12)Знайти останню ціну, що більше за 1000<br>
+            13)Знайти індекс останньої ціни, що більше за 1000.
+          </p>
+          <form method="POST" action="#">
+            <button class="button" type="button" onclick="megaTask()">Click!</button>
+          </form>
+          <div class="result result_1">
+
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script defer src="./js/task.js"></script>
+
+</body>
+
+</html>
