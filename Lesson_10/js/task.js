@@ -17,67 +17,75 @@ function getRandomNumb(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-function megaTask() {
-  const testArr = new Array(15).fill(0).map(it => getRandomNumb(1, 10000))
-  console.log('🚀 ~ file: task.js:21 ~ megaTask ~ testArr:', testArr)
+const testArr = new Array(15).fill(0).map(it => getRandomNumb(1, 10000))
+console.log('🚀 ~ file: task.js:21 ~ megaTask ~ testArr:', testArr)
 
-  // 1)Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.
-  const moreThan1000 = testArr.filter(it => it > 1000)
+// 1)Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.
+const moreThan1000 = testArr.filter(it => it > 1000)
 
-  // 2)Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.
-  const containsIndexesThatGreaterThan1000 = testArr.reduce((acc, price, index) => {
-    if (price > 1000) {
-      return [...acc, index]
+// 2)Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.
+const containsIndexesThatGreaterThan1000 = testArr.reduce((acc, price, index) => {
+  if (price > 1000) {
+    return [...acc, index]
+  }
+  return acc
+}, [])
+
+//  3)Сформувати список з тих цін, які більші за попереднє значення
+// (тобто перше число ніколи не попаде в список так як у нього нема "попереднього" ? так і не отримав відповідь у чаті )
+const biggerThanPrevious = testArr.reduce((acc, price, index, arr) => {
+  if (typeof arr[index - 1] !== 'undefined') {
+    if (price > arr[index - 1]) {
+      return [...acc, price]
     }
-    return acc
-  }, [])
+  }
+  return acc
+}, [])
 
-  //  3)Сформувати список з тих цін, які більші за попереднє значення
-  const biggerThanPrevious = testArr.reduce((acc, it, index, arr) => {
-    if (typeof arr[index - 1] !== 'undefined') {
-      if (it > arr[index - 1]) {
-        return [...acc, it]
-      }
+// 4)Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального
+const maxPrice = testArr.reduce((maxValue, price) => (maxValue > price ? maxValue : price))
+const pricesPercentageOfMostExpensive = testArr.map(it => Math.round((it * 100) / maxPrice))
+
+// 5)Підрахувати кількість змін цін
+const countPriceChanges = testArr.reduce((countChanges, price, index, arr) => {
+  const nextValue = arr[index + 1]
+  if (typeof nextValue !== 'undefined') {
+    if (price !== nextValue) countChanges += 1
+    return countChanges
+  }
+  return countChanges
+}, 0)
+
+// 6)Визначити, чи є ціна, що менше 1000
+const pricesLessThan1000 = testArr.filter(price => price < 1000)
+
+// 7)Визначати, чи усі ціни більше за 1000
+const isEveryPriceBiggerThan1000 = testArr.every(price => price > 1000)
+
+// 8)Підрахувати кількість цін, що більше за 1000
+const countPricesOverThousand = testArr.reduce(
+  (countPrices, price) => (price > 1000 ? (countPrices += 1) : countPrices),
+  0
+)
+
+// 9)Підрахувати суму цін, що більше за 1000
+const sumPricesOver1000 = testArr.reduce(
+  (sumPrices, price) => (price > 1000 ? (sumPrices += price) : sumPrices),
+  0
+)
+
+// 10)Знайти першу ціну, що більше за 1000
+const firstPriceBiggerThan1000 = testArr.find(price => price > 1000)
+
+// 11)Знайти індекс першої ціни, що більше за 1000
+
+// у цій задачі не можна в initial value ставити 0, бо якщо reduce не знайде відповідне число то він поверне 0, що також є індексом масиву. Тому initial value має бути пустим масивом. А далі, перевіривши чи масив не пустий з доп. parseInt витягнути число значення індексу (або з доп. деструктуризації, тощо)
+
+const indexFirstPriceBiggerThan1000 = testArr.reduce((arrWithIndex, price, index) => {
+  if (!arrWithIndex.length) {
+    if (price > 9000) {
+      return [...arrWithIndex, index]
     }
-    return acc
-  }, [])
-
-  // 4)Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального
-  const maxVal = testArr.reduce((acc, item) => (acc > item ? acc : item))
-  const pricesPercentageOfMostExpensive = testArr.map(it => Math.round((it * 100) / maxVal))
-
-  // 5)Підрахувати кількість змін цін
-  const countPriceChanges = testArr.reduce((acc, item, index, arr) => {
-    const nextValue = arr[index + 1]
-    if (typeof nextValue !== 'undefined') {
-      if (item !== nextValue) acc += 1
-      return acc
-    }
-    return acc
-  }, 0)
-
-  // 6)Визначити, чи є ціна, що менше 1000
-  const pricesLessThan1000 = testArr.filter(it => it < 1000)
-
-  // 7)Визначати, чи усі ціни більше за 1000
-  const isEveryPriceBiggerThan1000 = testArr.every(it => it > 1000)
-
-  // 8)Підрахувати кількість цін, що більше за 1000
-  const countPricesOverThousand = testArr.reduce((acc, item) => (item > 1000 ? (acc += 1) : acc), 0)
-
-  // 9)Підрахувати суму цін, що більше за 1000
-  const sumPricesOver1000 = testArr.reduce((acc, it) => (it > 1000 ? (acc += it) : acc), 0)
-
-  // 10)Знайти першу ціну, що більше за 1000
-  const firstPriceBiggerThan1000 = testArr.find(it => it > 1000)
-
-  // 11)Знайти індекс першої ціни, що більше за 1000
-  let indexFirstPriceBiggerThan1000 = ''
-  testArr.forEach((it, index) => {
-    if (!indexFirstPriceBiggerThan1000.length) {
-      if (it > 1000) indexFirstPriceBiggerThan1000 += index
-    }
-  })
-}
-
-megaTask()
+  }
+  return arrWithIndex
+}, [])
