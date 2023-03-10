@@ -13,6 +13,7 @@
       11)Знайти індекс першої ціни, що більше за 1000
       12)Знайти останню ціну, що більше за 1000
       13)Знайти індекс останньої ціни, що більше за 1000 */
+
 function getRandomNumb(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
@@ -78,7 +79,6 @@ const sumPricesOver1000 = testArr.reduce(
 const firstPriceBiggerThan1000 = testArr.find(price => price > 1000)
 
 // 11)Знайти індекс першої ціни, що більше за 1000
-
 // у цій задачі не можна в initial value ставити 0, бо якщо reduce не знайде відповідне число то він поверне 0, що також є індексом масиву. Тому initial value має бути пустим масивом. А далі, перевіривши чи масив не пустий з доп. parseInt витягнути число значення індексу (або з доп. деструктуризації, тощо)
 
 const indexFirstPriceBiggerThan1000 = testArr.reduce((arrWithIndex, price, index) => {
