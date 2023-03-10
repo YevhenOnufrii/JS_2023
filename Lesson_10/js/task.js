@@ -91,7 +91,6 @@ const indexFirstPriceBiggerThan1000 = testArr.reduce((arrWithIndex, price, index
 }, [])
 
 // 12)Знайти останню ціну, що більше за 1000
-
 const lastPriceBiggerThan1000 = testArr.reduceRight((lastPrice, currentPrice) => {
   if (!lastPrice) {
     if (currentPrice > 7000) {
@@ -101,3 +100,14 @@ const lastPriceBiggerThan1000 = testArr.reduceRight((lastPrice, currentPrice) =>
   }
   return lastPrice
 }, 0)
+
+// 13)Знайти індекс останньої ціни, що більше за 1000 */
+const lastIndexPriceBiggerThan1000 = testArr.reduceRight((lastIndexArr, price, index) => {
+  if (!lastIndexArr.length) {
+    if (price > 6000) {
+      lastIndexArr.push(index)
+      return lastIndexArr
+    }
+  }
+  return lastIndexArr
+}, [])
