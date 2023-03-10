@@ -9,15 +9,10 @@ const someArr2 = new Array(10).fill(null).map((numb, i) => (i % 2 ? (numb = 1) :
 // 3. Заполнить массив последовательными нечетными числами, начиная с единицы.
 
 const someArr3 = new Array(10).fill(null).reduce((acc, num, i, arr) => {
-  if (i % 2 === 0) {
-    num = i + 1
-    acc.push(num)
-  } else {
-    num = i
-    acc.push(num)
-  }
-  if (acc[i] <= acc[i - 1]) acc[i] += acc[i - 1] - acc[i] + 2
-  return acc
+  if (i % 2 === 0) num = i + 1
+  else num = i
+  if (num <= acc[i - 1]) num += acc[i - 1] - num + 2
+  return [...acc, num]
 }, [])
 
 console.log('🚀 ~ file: extraTasks.js:12 ~ someArr3:', someArr3)
