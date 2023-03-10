@@ -35,10 +35,8 @@ const containsIndexesThatGreaterThan1000 = testArr.reduce((acc, price, index) =>
 //  3)Сформувати список з тих цін, які більші за попереднє значення
 // (тобто перше число ніколи не попаде в список так як у нього нема "попереднього" ? так і не отримав відповідь у чаті )
 const biggerThanPrevious = testArr.reduce((acc, price, index, arr) => {
-  if (typeof arr[index - 1] !== 'undefined') {
-    if (price > arr[index - 1]) {
-      return [...acc, price]
-    }
+  if (price > arr[index - 1]) {
+    return [...acc, price]
   }
   return acc
 }, [])
@@ -76,7 +74,13 @@ const sumPricesOver1000 = testArr.reduce(
 )
 
 // 10)Знайти першу ціну, що більше за 1000
+// метод find
 const firstPriceBiggerThan1000 = testArr.find(price => price > 1000)
+// циклом for
+// let firstPriceBiggerThan1000 = 0
+// for (let i = 0; !firstPriceBiggerThan1000; i++) {
+//   if (testArr[i] > 6000) firstPriceBiggerThan1000 += testArr[i]
+// }
 
 // 11)Знайти індекс першої ціни, що більше за 1000
 // у цій задачі не можна в initial value ставити 0, бо якщо reduce не знайде відповідне число то він поверне 0, що також є індексом масиву. Тому initial value має бути пустим масивом. А далі, перевіривши чи масив не пустий з доп. parseInt витягнути число значення індексу (або з доп. деструктуризації, тощо)
