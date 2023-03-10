@@ -89,3 +89,15 @@ const indexFirstPriceBiggerThan1000 = testArr.reduce((arrWithIndex, price, index
   }
   return arrWithIndex
 }, [])
+
+// 12)Знайти останню ціну, що більше за 1000
+
+const lastPriceBiggerThan1000 = testArr.reduceRight((lastPrice, currentPrice) => {
+  if (!lastPrice) {
+    if (currentPrice > 7000) {
+      lastPrice += currentPrice
+      return lastPrice
+    }
+  }
+  return lastPrice
+}, 0)
