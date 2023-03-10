@@ -46,3 +46,22 @@ const someArr5 = new Array(10).fill(0).reduce((acc, it, i, arr) => {
   }
   return acc
 }, [])
+
+// 6. Сформировать убывающий массив из чисел, которые делятся на 3.
+const someArr6 = []
+for (let i = 100; i !== 0; i--) {
+  if (i % 3 === 0) someArr6.push(i)
+}
+
+// 7. Создать массив из n первых чисел Фибоначчи.
+const n = 17
+const someArray7 = new Array(n).fill(0).reduce((acc, it, i, arr) => {
+  if (i < 2) {
+    it = i
+    acc = [...acc, it]
+    return acc
+  }
+  it = acc[i - 2] + acc[i - 1]
+  acc = [...acc, it]
+  return acc
+}, [])
