@@ -40,6 +40,7 @@ const biggerThanPrevious = testArr.reduce((acc, price, index, arr) => {
   }
   return acc
 }, [])
+console.log('🚀 ~ file: task.js:43 ~ biggerThanPrevious ~ biggerThanPrevious:', biggerThanPrevious)
 
 // 4)Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального
 const maxPrice = testArr.reduce((maxValue, price) => (maxValue > price ? maxValue : price))
