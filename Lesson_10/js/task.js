@@ -48,10 +48,7 @@ const pricesPercentageOfMostExpensive = testArr.map(it => Math.round((it * 100) 
 // 5)Підрахувати кількість змін цін
 const countPriceChanges = testArr.reduce((countChanges, price, index, arr) => {
   const nextValue = arr[index + 1]
-  if (typeof nextValue !== 'undefined') {
-    if (price !== nextValue) countChanges += 1
-    return countChanges
-  }
+  if (price !== nextValue) countChanges += 1
   return countChanges
 }, 0)
 
