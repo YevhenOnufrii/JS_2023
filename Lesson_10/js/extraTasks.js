@@ -33,3 +33,16 @@ const result = someArr4.reduce((acc, it, i, arr) => {
   }
   return acc
 }, [])
+
+// 5. Сформировать возрастающий массив из четных чисел.
+const someArr5 = new Array(10).fill(0).reduce((acc, it, i, arr) => {
+  if (i === 0) {
+    it += 2
+    acc.push(it)
+  }
+  if (it <= acc[i - 1]) {
+    it += acc[i - 1] + 2
+    acc.push(it)
+  }
+  return acc
+}, [])
