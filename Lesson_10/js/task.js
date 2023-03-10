@@ -47,6 +47,37 @@ function megaTask() {
   const pricesPercentageOfMostExpensive = testArr.map(it => Math.round((it * 100) / maxVal))
 
   // 5)Підрахувати кількість змін цін
+  const countPriceChanges = testArr.reduce((acc, item, index, arr) => {
+    const nextValue = arr[index + 1]
+    if (typeof nextValue !== 'undefined') {
+      if (item !== nextValue) acc += 1
+      return acc
+    }
+    return acc
+  }, 0)
+
+  // 6)Визначити, чи є ціна, що менше 1000
+  const pricesLessThan1000 = testArr.filter(it => it < 1000)
+
+  // 7)Визначати, чи усі ціни більше за 1000
+  const isEveryPriceBiggerThan1000 = testArr.every(it => it > 1000)
+
+  // 8)Підрахувати кількість цін, що більше за 1000
+  const countPricesOverThousand = testArr.reduce((acc, item) => (item > 1000 ? (acc += 1) : acc), 0)
+
+  // 9)Підрахувати суму цін, що більше за 1000
+  const sumPricesOver1000 = testArr.reduce((acc, it) => (it > 1000 ? (acc += it) : acc), 0)
+
+  // 10)Знайти першу ціну, що більше за 1000
+  const firstPriceBiggerThan1000 = testArr.find(it => it > 1000)
+
+  // 11)Знайти індекс першої ціни, що більше за 1000
+  let indexFirstPriceBiggerThan1000 = ''
+  testArr.forEach((it, index) => {
+    if (!indexFirstPriceBiggerThan1000.length) {
+      if (it > 1000) indexFirstPriceBiggerThan1000 += index
+    }
+  })
 }
 
 megaTask()
