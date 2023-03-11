@@ -14,7 +14,7 @@ function getArrayOfTaxesPaid() {
   // масив із величин сплачених податків
   const resultArr = pricesArr.map(it => (it = calculateTax(TAX_RATE, it)))
   // сума сплачених податків
-  let amountOfTaxesPaid = resultArr.reduce((acc, it) => (acc += it), 0)
+  let amountOfTaxesPaid = resultArr.reduce((acc, it) => acc + it)
   //вивід результатів
   document.querySelector('.testArr10').innerHTML = `[Тестовий масив: ${pricesArr.join(', ')} ]`
   document.querySelector('.result_10').innerHTML = ` Результат: ${resultArr.join(', ')}`

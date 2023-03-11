@@ -6,10 +6,7 @@ const fillArray1_7_5 = () => {
   const elementsAmount = parseInt(document.getElementById('task3').value)
   // якщо інпут не пустий
   if (elementsAmount) {
-    let resultArr = new Array(elementsAmount).fill(7).map((it, index) => {
-      if (index < 5) it = 1
-      return it
-    })
+    let resultArr = new Array(elementsAmount).fill(1).fill(7, 5)
     document.querySelector('.result_3').innerHTML = `[${resultArr}]`
   }
 }
