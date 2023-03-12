@@ -124,7 +124,7 @@ const lastPriceBiggerThan1000 = testArr.findLast(it => it > 1000)
 // ========== 13)Знайти індекс останньої ціни, що більше за 1000  ==========
 const lastIndexPriceBiggerThan1000 = testArr.reduceRight((lastIndexArr, price, index) => {
   if (!lastIndexArr.length) {
-    if (price > 8000) {
+    if (price > 1000) {
       return [...lastIndexArr, index]
     }
   }
