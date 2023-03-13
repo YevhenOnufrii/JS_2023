@@ -160,9 +160,70 @@ const someArr13 = new Array(10).fill(null).reduce(
 )
 // console.log('🚀 ~ file: extraTasks.js:161 ~ someArr13:', someArr13)
 
-// ======== 14. Сформировать массив из случайных чисел, в которых ровно две единицы, стоящие на случайных позициях.
+// ======== 14.Заполните массив случайным образом нулями и единицами так, чтобы количество единиц было больше количества нулей.
+let C = 20
+const someArr14 = new Array(C).fill().reduce(
+  (acc, _it, _i, _arr) => {
+    const randomIndex = getRandomNumb(0, C)
+    let randomNum = getRandomNumb(0, 1)
+    if (randomNum === 1) acc.count1 += 1
+    if (randomNum === 0) acc.count0 += 1
+    // console.log(acc.count0, acc.count1 - 1)
+    if (acc.count1 >= acc.count0) {
+      randomNum = 1
+    }
+    acc.result = [...acc.result, (acc.result[randomIndex] = randomNum)]
+    return acc
+  },
+  {
+    count0: 0,
+    count1: 0,
+    result: [],
+  }
+)
+// console.log('🚀 ~ file: extraTasks.js:187 ~ someArr14:', someArr14)
+
+// ======== 15. Сформировать массив из случайных целых чисел от 0 до 9 , в котором единиц от 3 до 5 и двоек больше троек.
+
+const someArr15 = new Array(15).fill().reduce(
+  (acc, _it, i, arr) => {
+    let randomNum = getRandomNumb(0, 9)
+
+    if (i > arr.length / 2 && acc.counter1 < 5) {
+      randomNum = 1
+    }
+    if (acc.counter3 >= acc.counter2) {
+      randomNum = 2
+    }
+    if (randomNum === 1) acc.counter1++
+    else if (randomNum === 2) acc.counter2++
+    else if (randomNum === 3) acc.counter3++
+
+    acc.result = [...acc.result, randomNum]
+    return acc
+  },
+  {
+    counter1: 0,
+    counter2: 0,
+    counter3: 0,
+    result: [],
+  }
+)
+// console.log('🚀 ~ file: extraTasks.js:207 ~ someArr15:', someArr15)
 
 // =======================  Анализ... =======================
+// ========== 1. Анализ...
+// Найти количество чисел в массиве, которые делятся на 3, но не делятся на 7.
+const someArr_1 = new Array(100).fill().reduce((acc, _, i) => {
+  if (i > 0) {
+    if (i % 3 === 0 && i % 7 !== 0) {
+      acc = [...acc, i]
+    }
+  }
+  return acc
+}, [])
+// console.log('🚀 ~ file: extraTasks.js:218 ~ constsomeArr_1=newArray ~ someArr_1:', someArr_1)
+
 // ========== 19. Анализ...
 // Дан массив. Найдите три последовательных элемента в массиве, сумма которых максимальна.
 
