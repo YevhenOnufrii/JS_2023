@@ -19,7 +19,7 @@ function getRandomNumb(min, max) {
 }
 
 const testArr = new Array(15).fill(0).map(it => getRandomNumb(1, 10000))
-console.log('🚀 ~ file: task.js:21 ~ megaTask ~ testArr:', testArr)
+// console.log('🚀 ~ file: task.js:21 ~ megaTask ~ testArr:', testArr)
 
 // ========== 1)Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн. ==========
 const moreThan1000 = testArr.filter(it => it > 1000)
