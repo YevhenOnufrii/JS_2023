@@ -31,19 +31,11 @@ const containsIndexesThatGreaterThan1000 = testArr.reduce(
 )
 
 // ========== 3)Сформувати список з тих цін, які більші за попереднє значення ==========
-// (тобто перше число ніколи не попаде в список так як у нього нема "попереднього" ?
-// можна поставити ще один if, щоб код нижче  почав виконувався починаючи з 2 ітерації. Для того що arr[index - 1] не був 'undefined'.
-// але це не обов‘язково, так як нижня умова не виконається якщо arr[index - 1] буде 'undefined'
+
 const biggerThanPrevious = testArr.reduce(
   (acc, price, index, arr) => (acc = price > arr[index - 1] ? [...acc, price] : acc),
   []
 )
-console.log('🚀 ~ file: task.js:41 ~ biggerThanPrevious:', biggerThanPrevious)
-//   if (price > arr[index - 1]) {
-//     acc = [...acc, price]
-//   }
-//   return acc
-// }, [])
 
 // ========== 4)Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального ==========
 // визначаємо максимальне
@@ -59,10 +51,8 @@ const countPriceChanges = testArr.reduce((countChanges, price, index, arr) => {
 }, 0)
 
 // ========== 6)Визначити, чи є ціна, що менше 1000 ==========
-// метод some повертає true / false якщо хоча б 1 елемент відповідає умові.
+
 const pricesLessThan1000 = testArr.some(it => it < 1000)
-// метод filter повертає відсортований масив або пустий масив якщо нічого не знайшов
-// const pricesLessThan1000 = testArr.filter(price => price < 1000)
 
 // ========== 7)Визначати, чи усі ціни більше за 1000 ==========
 const isEveryPriceBiggerThan1000 = testArr.every(price => price > 1000)
@@ -80,13 +70,8 @@ const sumPricesOver1000 = testArr.reduce(
 )
 
 // ========== 10)Знайти першу ціну, що більше за 1000 ==========
-// метод find
+
 const firstPriceBiggerThan1000 = testArr.find(price => price > 1000)
-// циклом for
-// let firstPriceBiggerThan1000 = 0
-// for (let i = 0; !firstPriceBiggerThan1000; i++) {
-//   if (testArr[i] > 6000) firstPriceBiggerThan1000 += testArr[i]
-// }
 
 // ========== 11)Знайти індекс першої ціни, що більше за 1000 ==========
 
@@ -103,7 +88,6 @@ const indexFirstPriceBiggerThan1000 = testArr.reduce((arrWithIndex, price, index
 }, [])
 
 // find + findIndex
-
 // const priceBiggerThan1000 = testArr.find(it => it > 5000)
 // const indexFirstPriceBiggerThan1000 = testArr.findIndex(it => it === priceBiggerThan1000)
 
